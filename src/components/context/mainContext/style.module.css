@@ -1,0 +1,10 @@
+.Active{
+    border-bottom: 2px solid var(--red);
+    margin-bottom: -14px;
+}
+.Active button{
+    color: var(--red); 
+}
+.NoActive{
+    color: red;
+}

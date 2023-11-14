@@ -1,0 +1,39 @@
+{
+  "eng": { 
+        "header": {
+          "home": "Home",
+          "tour": "Tour",
+          "destination": "Destination",
+          "blog": "Blog",
+          "pages": "Pages",
+          "dashboard": "Dashboard",
+          "bookNow": "Book now"
+        },
+        "heroContent": {
+          "title": "Tour Travel &amp; Adventure",
+          "welcome": "Welcome to Nomadic.",
+          "description": "",
+          "exploreMore": "Explore more",
+          "learnMore": "Learn more"
+        }
+      },
+  "mn":  {
+        "header": {
+          "home": "Үндсэн хуудас",
+          "tour": "Аялал",
+          "destination": "Очих газар",
+          "blog": "Блог",
+          "pages": "Хуудаснууд",
+          "dashboard": "Хяналтын самбар",
+          "bookNow": "Захиалга"
+        },
+        "heroContent": {
+          "title": "Аялал жуулчлал",
+          "welcome": "Nomadic тавтай морилно уу.",
+          "description": "",
+          "exploreMore": "Дэлгэрэнгуй судлах",
+          "learnMore": "Дэлгэрэнгуй үзэх"
+        }
+
+  }
+}
