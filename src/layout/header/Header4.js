@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Menu from "../Menu";
+import { useContext } from "react";
+import MainContext from "@/src/components/context/mainContext/mainContext";
 const Header4 = () => {
+  const mainContext = useContext(MainContext);
   return (
     <header className="header-area header-four transparent-header">
       {/*====== Header Navigation ======*/}

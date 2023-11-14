@@ -1,21 +1,13 @@
 import { home3Slider } from "@/src/sliderProps";
 import Link from "next/link";
-import { Component, useContext } from "react";
-import Slider from "react-slick";
-import {MainContext} from "../context/mainContext/mainContext";
+import { Component } from "react";
+import Slider from "react-slick"; 
 
 export default class Home3Slider extends Component {  
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-    this.state = {
-      currentUser: {
-        name: "Jhon snow",
-        address: "USA",
-        mobile:  MainContext
-      }
-    };
+    this.previous = this.previous.bind(this); 
   }
   next() {
     this.slider.slickNext();
@@ -25,8 +17,7 @@ export default class Home3Slider extends Component {
   }
   render() {
     return (
-      <section className="hero-section">
-        {console.log("this: ", this.state.currentUser)}
+      <section className="hero-section"> 
         <div className="hero-wrapper-three">
           <div className="hero-arrows">
             <div className="prev slick-arrow" onClick={this.previous}>
@@ -98,7 +89,7 @@ export default class Home3Slider extends Component {
                     <div className="hero-content text-white">
                       <span className="sub-title">Welcome to GoWilds</span>
                       <h1 data-animation="fadeInDown" data-delay=".4s">
-                        Tour Travel &amp; Camping
+                        Tour Travel2 &amp; Camping
                       </h1>
                       <div
                         className="hero-button"
@@ -139,7 +130,7 @@ export default class Home3Slider extends Component {
                     <div className="hero-content text-white">
                       <span className="sub-title">Welcome to GoWilds</span>
                       <h1 data-animation="fadeInDown" data-delay=".4s">
-                        Tour Travel &amp; Adventure
+                        Tour Travel3 &amp; Adventure
                       </h1>
                       <div
                         className="hero-button"

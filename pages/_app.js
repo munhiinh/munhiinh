@@ -3,12 +3,15 @@ import {MainItem} from "@/src/components/context/mainContext/mainContext";
 import PreLoader from "@/src/layout/PreLoader";
 import "@/styles/globals.css";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 
 export default function App({ Component, pageProps }) {
   const [loader, setLoader] = useState(true);
+  const router = useRouter();
   useEffect(() => {
-    setTimeout(() => {
+    router.push('/index-3');
+    setTimeout(() => { 
       setLoader(false);
     }, 1500);
   }, []);

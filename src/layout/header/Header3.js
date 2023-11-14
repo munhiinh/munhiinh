@@ -6,11 +6,11 @@ import { useContext } from "react";
 const Header3 = () => {
   const mainContext = useContext(MainContext);
   const getLanguage = () =>{ 
-  return<div className={css.dropdown}>
+  return<div className={"dropdown"}>
         <span>{mainContext.langName} <i className="far fa-angle-down" /></span>
-        <div className={css.dropdownContent}>
-          <div className={css.engLang} onClick={()=>mainContext.onChangeLanguage(0)}>English</div>
-          <div className={css.mnLang} onClick={()=>mainContext.onChangeLanguage(1)}>Mongolian</div>
+        <div className={"dropdownContent"}>
+          <div className={"engLang"} onClick={()=>mainContext.onChangeLanguage(0)}>English</div>
+          <div className={"mnLang"} onClick={()=>mainContext.onChangeLanguage(1)}>Mongolian</div>
         </div>
       </div> 
   }

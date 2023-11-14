@@ -32,7 +32,7 @@ const Header = ({ header }) => {
         menu.classList.remove("menu-on");
       });
     });
-  }, [width]);
+  }, [width]); 
   switch (header) {
     case 1:
       return  <Header3 />;
