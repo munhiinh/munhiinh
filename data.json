@@ -1,39 +1,107 @@
 {
-  "eng": { 
-        "header": {
-          "home": "Home",
-          "tour": "Tour",
-          "destination": "Destination",
-          "blog": "Blog",
-          "pages": "Pages",
-          "dashboard": "Dashboard",
-          "bookNow": "Book now"
-        },
-        "heroContent": {
-          "title": "Tour Travel &amp; Adventure",
-          "welcome": "Welcome to Nomadic.",
-          "description": "",
-          "exploreMore": "Explore more",
-          "learnMore": "Learn more"
-        }
-      },
-  "mn":  {
-        "header": {
-          "home": "Үндсэн хуудас",
-          "tour": "Аялал",
-          "destination": "Очих газар",
-          "blog": "Блог",
-          "pages": "Хуудаснууд",
-          "dashboard": "Хяналтын самбар",
-          "bookNow": "Захиалга"
-        },
-        "heroContent": {
-          "title": "Аялал жуулчлал",
-          "welcome": "Nomadic тавтай морилно уу.",
-          "description": "",
-          "exploreMore": "Дэлгэрэнгуй судлах",
-          "learnMore": "Дэлгэрэнгуй үзэх"
-        }
+  "eng": {
+    "header": {
+      "home": "Home",
+      "bus": "Book a bus",
+      "busDetails": "bus details",
+      "destination": "Destination",
+      "blog": "Blog",
+      "pages": "Pages",
+      "dashboard": "Dashboard",
+      "bookNow": "Book now",
+      "ourGallery": "Our gallery",
+      "aboutUs": "About us",
+      "contact": "Contact",
+      "address": "Office address",
+      "addressDetails": "Street 24-29b UB",
+      "email": "Email address",
+      "emailDetials": "MunhiinhDaambe@gmail.com",
+      "phone": "Drop in Line",
+      "phoneNumber": "89909762"
+    },
+    "heroContent": {
+      "title": "We Are Best Bus Charter Service",
+      "welcome": "Welcome to Munkhiinh.",
+      "description": "Sit amet consectetur integer tincidunt sceleries nolesry volutpat fermentum malesuada scelequecy leocras odio blandit rhoncus eues feugiat",
+      "follows": "35+ People booked their dream place",
+      "exploreMore": "Explore more",
+      "learnMore": "Learn more"
+    },
+    "provide": {
+      "title": "What We Provide",
+      "bigTitle": "Most Funning Company Travel and Tours",
+      "description": "Үйлчлүүлэгч бол маш чухал, үйлчлүүлэгчийг үйлчлүүлэгч дагаж мөрдөх болно. Нутгийн нутаг шиг, гашуудал ч биш, нутгийн бие ч, арслангийн дэр.",
+      "happyTraveler": "Happy traveler",
+      "tentSites": "Tent Sites",
+      "positiveReviews": "Positive reviews"
+    },
+    "ourServices": {
+      "title": "Our Services",
+      "bigTitle": "We Provide Best Services For You",
+      "description": "Үйлчлүүлэгч бол маш чухал, үйлчлүүлэгчийг үйлчлүүлэгч дагаж мөрдөх болно. Нутгийн нутаг шиг, гашуудал ч биш, нутгийн бие ч, арслангийн дэр.",
+      "supp": "24/7 Support",
+      "consultations": "Free consultations",
+      "onlineBooking": "Online Booking",
+      "scheduleOnTime": "Schedule On Time",
+      "btn": "Read more"
+    },
+    "ourBus": {
+      "title": "Bus service",
+      "bigTitle": "Amazing Adventure Camping Services for Enjoyed",
+      "btn": "Details"
+    }
+  },
 
+  "mn": {
+    "header": {
+      "home": "Үндсэн хуудас",
+      "bus": "Автобус",
+      "busDetails": "Автобус дэлгэрэнгуй",
+      "destination": "Очих газар",
+      "blog": "Блог",
+      "pages": "Хуудаснууд",
+      "dashboard": "Хяналтын самбар",
+      "bookNow": "Захиалга",
+      "ourGallery": "Бидний галлере",
+      "aboutUs": "Бидний тухай",
+      "contact": "Холбоо барих",
+      "address": "Оффис хаяг",
+      "addressDetails": "Улаанбаатар хот, 24-69а",
+      "email": "Емайл хаяг",
+      "emailDetials": "MunhiinhDaambe@gmail.com",
+      "phone": "Холбогдох барих дугаар",
+      "phoneNumber": "89909762"
+    },
+    "heroContent": {
+      "title": "Мөрөөдлийн аялал, аялах",
+      "welcome": "Мөнхийнх тавтай морилно уу.",
+      "description": "Үйлчлүүлэгч бол маш чухал, үйлчлүүлэгчийг үйлчлүүлэгч дагаж мөрдөх болно. Нутгийн нутаг шиг, гашуудал ч биш, нутгийн бие ч, арслангийн дэр.",
+      "follows": "35+ биднийг дагадаг жуулчид",
+      "exploreMore": "Дэлгэрэнгуй судлах",
+      "learnMore": "Дэлгэрэнгуй үзэх"
+    },
+    "provide": {
+      "title": "Бидний хангадаг зүйл",
+      "bigTitle": "Хамгийн хөгжилтэй компанийн аялал.",
+      "description": "Үйлчлүүлэгч бол маш чухал, үйлчлүүлэгчийг үйлчлүүлэгч дагаж мөрдөх болно. Нутгийн нутаг шиг, гашуудал ч биш, нутгийн бие ч, арслангийн дэр.",
+      "happyTraveler": "Жаргалтай аялагч",
+      "tentSites": "Майхан сайтууд",
+      "positiveReviews": "Эерэг тойм"
+    },
+    "ourServices": {
+      "title": "Бидний үйлчилгээ",
+      "bigTitle": "Бид танд үйлчилгээг үзүүлж байна",
+      "description": "Үйлчлүүлэгч бол маш чухал, үйлчлүүлэгчийг үйлчлүүлэгч дагаж мөрдөх болно. Нутгийн нутаг шиг, гашуудал ч биш, нутгийн бие ч, арслангийн дэр.",
+      "supp": "24/7 Support",
+      "consultations": "үнэгүй зөвлөгөө",
+      "onlineBooking": "Онлайн захиалга",
+      "scheduleOnTime": "Цагийн хуваарь",
+      "btn": "Дэлгэрэнгуй"
+    },
+    "ourBus": {
+      "title": "Автобус үйлчилгээ",
+      "bigTitle": "Тааламжтай адал явдалт кемпийн үйлчилгээ",
+      "btn": "Захиалах"
+    }
   }
 }

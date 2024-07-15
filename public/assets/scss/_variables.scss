@@ -1,8 +1,6 @@
-
 // Font Family
 
-$font: 'Prompt', sans-serif;
-
+$font: 'Roboto Slab", serif';
 
 // Font Size
 
@@ -15,28 +13,28 @@ $h6-font: 18px;
 
 // Colors
 
-$black-color: #1D231F;
+$black-color: #1d231f;
 
-$title-color: #1C231F;
+$title-color: #1c231f;
 
 $text-color: #484848;
 
-$primary-color: #63AB45;
+$primary-color: #63ab45;
 
-$secondary-color: #F7921E;
+$secondary-color: #f7921e;
 
-$gray-color:#F9F9F7;
+$gray-color: #f9f9f7;
 
 $white: #fff;
 
 // Responsive Variables
 
-$xl: 'only screen and (min-width: 1200px)';
-$lp: 'only screen and (min-width: 1200px) and (max-width: 1600px)';
-$lm : '(max-width: 1199px)';
-$lg : 'only screen and (min-width: 992px) and (max-width: 1199px)';
-$xm:'(max-width: 991px)';
-$md:'only screen and (min-width: 768px) and (max-width: 991px)';
-$xs:'(max-width: 767px)';
-$xss:'(max-width: 575px)';
-$sm: 'only screen and (min-width: 576px) and (max-width: 767px)';
+$xl: "only screen and (min-width: 1200px)";
+$lp: "only screen and (min-width: 1200px) and (max-width: 1600px)";
+$lm: "(max-width: 1199px)";
+$lg: "only screen and (min-width: 992px) and (max-width: 1199px)";
+$xm: "(max-width: 991px)";
+$md: "only screen and (min-width: 768px) and (max-width: 991px)";
+$xs: "(max-width: 767px)";
+$xss: "(max-width: 575px)";
+$sm: "only screen and (min-width: 576px) and (max-width: 767px)";

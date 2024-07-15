@@ -4,6 +4,7 @@ import { useContext } from "react";
 import MainContext from "@/src/components/context/mainContext/mainContext";
 const Header4 = () => {
   const mainContext = useContext(MainContext);
+
   return (
     <header className="header-area header-four transparent-header">
       {/*====== Header Navigation ======*/}
@@ -13,11 +14,13 @@ const Header4 = () => {
           <div className="primary-menu">
             {/*====== Site Branding ======*/}
             <div className="site-branding">
-              <Link legacyBehavior href="/">
+              <Link legacyBehavior href="/index-4">
                 <a className="brand-logo">
                   <img
-                    src="assets/images/logo/logo-black1.png"
+                    src="assets/images/logo/brand-logo-white.png"
                     alt="Site Logo"
+                    width={230}
+                    height={100}
                   />
                 </a>
               </Link>

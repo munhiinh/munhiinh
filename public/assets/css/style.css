@@ -32,44 +32,397 @@
     19. Wrapper css
 
 -----------------------------------------------------------------------------------*/
-.contact-info-item .info p, .sidebar-widget-area .booking-info-widget ul.info-list li span span, .sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-total .total, .sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-extra .extra, .sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-item label, .sidebar-widget-area .tag-cloud-widget a, .blog-post .entry-content .block-quote span, .single-blog-post-four .entry-content .main-btn.filled-btn:hover i, .gw-testimonial-item-two .testimonial-inner-content > p, .gw-testimonial-item .testimonial-inner-content > p, .tour-area-nav .share-nav a, .related-tour-place .place-arrows .slick-arrow:hover, .booking-form-two .booking-btn, .activity-nav-tab .nav-tabs li a, .single-service-item-four:hover .content h3.title, .single-service-item-three .content .meta span.rate, .single-service-item .content .icon-btn, .check-list li, .single-skill-circle .inner-circle .number, .hero-wrapper-two .hero-content .hero-button .main-btn.primary-btn i, .nav-right-item .lang-dropdown .nice-select ul.list, .header-navigation .main-menu ul > li .sub-menu li a, .btn-link, .main-btn.filled-btn:hover i, .main-btn.filled-btn, .main-btn i, h6, h5, h4, h3, h2, h1 {
-  color: #1C231F;
+.contact-info-item .info p,
+.sidebar-widget-area .booking-info-widget ul.info-list li span span,
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-total
+  .total,
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-extra
+  .extra,
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-item
+  label,
+.sidebar-widget-area .tag-cloud-widget a,
+.blog-post .entry-content .block-quote span,
+.single-blog-post-four .entry-content .main-btn.filled-btn:hover i,
+.gw-testimonial-item-two .testimonial-inner-content > p,
+.gw-testimonial-item .testimonial-inner-content > p,
+.tour-area-nav .share-nav a,
+.related-tour-place .place-arrows .slick-arrow:hover,
+.booking-form-two .booking-btn,
+.activity-nav-tab .nav-tabs li a,
+.single-service-item-four:hover .content h3.title,
+.single-service-item-three .content .meta span.rate,
+.single-service-item .content .icon-btn,
+.check-list li,
+.single-skill-circle .inner-circle .number,
+.hero-wrapper-two .hero-content .hero-button .main-btn.primary-btn i,
+.nav-right-item .lang-dropdown .nice-select ul.list,
+.header-navigation .main-menu ul > li .sub-menu li a,
+.btn-link,
+.main-btn.filled-btn:hover i,
+.main-btn.filled-btn,
+.main-btn i,
+h6,
+h5,
+h4,
+h3,
+h2,
+h1 {
+  color: #1c231f;
 }
 
-.footer-copyright .footer-nav ul li a:hover, .service-nav-widget .footer-content .footer-widget-nav li a:hover, .footer-top .social-box ul.social-link li a, .black-bg .single-info-item .info p:hover a, .contact-info-item .info p:hover a, .sidebar-widget-area .recent-place-widget .recent-place-list .place-thumbnail-content .place-content span.price, .sidebar-widget-area .recent-place-widget .recent-place-list .place-thumbnail-content .place-content h5:hover, .sidebar-widget-area .booking-info-widget ul.info-list li span i, .sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-extra .extra i, .sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item i, .sidebar-widget-area .sidebar-banner-widget .banner-widget-content .banner-img .hover-content p i, .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date h5:hover, .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date span.posted-on:hover, .sidebar-widget-area .category-widget ul.category-nav li a:hover, .comments-area .comment .comment-wrap .comment-author-content span.author-name span.time i, .post-navigation-item .post-nav-item .content h6:hover, .single-blog-post-four .entry-content h3.title:hover, .single-blog-post-three .entry-content h3.title:hover, .single-blog-post-two .entry-content h3.title:hover, .post-meta span:hover a, .description-tabs .nav-link:hover, .description-tabs .nav-link.active, .product-details-wrapper .product-info span.price, .single-product-item .content .info h4.title:hover, .destination-details-wrapper .destination-info .meta span.location i, .days-area .nav-tabs .nav-link.active, .tour-title-wrapper .tour-widget-info .info-box .icon, .tour-title-wrapper .tour-title p i, .single-place-item-three:hover .place-content h4.title, .single-place-item .place-content .info .meta span a:hover, .single-place-item .place-content .info .meta span i, .single-place-item .place-content .info p i, .single-place-item .place-content .info h4.title:hover, .booking-form-two .form_group label, .booking-form .nice-select:after, .booking-form label i, .activity-content-box .icon i, .single-service-item-two:hover .content .icon i, .check-list li i, .single-info-item-two .info h5:hover a, .single-info-item-two .icon, .single-event-item .content h3.title:hover, .single-event-item .content .meta span i, .single-activity-item .content .main-btn:hover i, .single-counter-item-two .icon, .single-counter-item .icon, .counter-item h2.number, .single-team-item .member-info ul.social-link li a:hover, .fancy-icon-box-four .icon i, .fancy-icon-box-three .icon, .fancy-icon-box-two .icon, .single-features-list .icon-inner .icon, .hero-wrapper-three .hero-arrows .slick-arrow:hover, .navigation-white.header-navigation .main-menu ul > li .search-btn:hover, .navigation-white.header-navigation .main-menu ul > li:hover > a, .nav-right-item .search-btn:hover, .header-navigation.breakpoint-on .nav-search .search-btn, .header-navigation .main-menu ul > li:hover > a, .header-navigation .main-menu ul > li .sub-menu li:hover > a, .header-navigation .main-menu ul > li .sub-menu li a:hover, .header-navigation .main-menu ul > li.search-item .search-btn:hover, .btn-link:hover, .sub-title {
-  color: #0074a0;
+.footer-copyright .footer-nav ul li a:hover,
+.service-nav-widget .footer-content .footer-widget-nav li a:hover,
+.footer-top .social-box ul.social-link li a,
+.black-bg .single-info-item .info p:hover a,
+.contact-info-item .info p:hover a,
+.sidebar-widget-area
+  .recent-place-widget
+  .recent-place-list
+  .place-thumbnail-content
+  .place-content
+  span.price,
+.sidebar-widget-area
+  .recent-place-widget
+  .recent-place-list
+  .place-thumbnail-content
+  .place-content
+  h5:hover,
+.sidebar-widget-area .booking-info-widget ul.info-list li span i,
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-extra
+  .extra
+  i,
+.sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item i,
+.sidebar-widget-area
+  .sidebar-banner-widget
+  .banner-widget-content
+  .banner-img
+  .hover-content
+  p
+  i,
+.sidebar-widget-area
+  .recent-post-widget
+  .recent-post-list
+  .post-thumbnail-content
+  .post-title-date
+  h5:hover,
+.sidebar-widget-area
+  .recent-post-widget
+  .recent-post-list
+  .post-thumbnail-content
+  .post-title-date
+  span.posted-on:hover,
+.sidebar-widget-area .category-widget ul.category-nav li a:hover,
+.comments-area
+  .comment
+  .comment-wrap
+  .comment-author-content
+  span.author-name
+  span.time
+  i,
+.post-navigation-item .post-nav-item .content h6:hover,
+.single-blog-post-four .entry-content h3.title:hover,
+.single-blog-post-three .entry-content h3.title:hover,
+.single-blog-post-two .entry-content h3.title:hover,
+.post-meta span:hover a,
+.description-tabs .nav-link:hover,
+.description-tabs .nav-link.active,
+.product-details-wrapper .product-info span.price,
+.single-product-item .content .info h4.title:hover,
+.destination-details-wrapper .destination-info .meta span.location i,
+.days-area .nav-tabs .nav-link.active,
+.tour-title-wrapper .tour-widget-info .info-box .icon,
+.tour-title-wrapper .tour-title p i,
+.single-place-item-three:hover .place-content h4.title,
+.single-place-item .place-content .info .meta span a:hover,
+.single-place-item .place-content .info .meta span i,
+.single-place-item .place-content .info p i,
+.single-place-item .place-content .info h4.title:hover,
+.booking-form-two .form_group label,
+.booking-form .nice-select:after,
+.booking-form label i,
+.activity-content-box .icon i,
+.single-service-item-two:hover .content .icon i,
+.check-list li i,
+.single-info-item-two .info h5:hover a,
+.single-info-item-two .icon,
+.single-event-item .content h3.title:hover,
+.single-event-item .content .meta span i,
+.single-activity-item .content .main-btn:hover i,
+.single-counter-item-two .icon,
+.single-counter-item .icon,
+.counter-item h2.number,
+.single-team-item .member-info ul.social-link li a:hover,
+.fancy-icon-box-four .icon i,
+.fancy-icon-box-three .icon,
+.fancy-icon-box-two .icon,
+.single-features-list .icon-inner .icon,
+.hero-wrapper-three .hero-arrows .slick-arrow:hover,
+.navigation-white.header-navigation .main-menu ul > li .search-btn:hover,
+.navigation-white.header-navigation .main-menu ul > li:hover > a,
+.nav-right-item .search-btn:hover,
+.header-navigation.breakpoint-on .nav-search .search-btn,
+.header-navigation .main-menu ul > li:hover > a,
+.header-navigation .main-menu ul > li .sub-menu li:hover > a,
+.header-navigation .main-menu ul > li .sub-menu li a:hover,
+.header-navigation .main-menu ul > li.search-item .search-btn:hover,
+.btn-link:hover,
+.sub-title {
+  color: #004aad;
 }
 
-.reviews-wrapper .reviews-inner-box .rating-value .rate-score, .black-bg .sub-title, .footer-newsletter-widget .footer-content form label, .comment-rating-ul li span i, .post-author-box .author-content ul.social-link li a:hover, .blog-post .entry-footer .social-share a:hover, .single-blog-post .entry-content h3.title:hover, .product-details-wrapper .product-info .product-meta li a:hover, .product-details-wrapper .product-info ul.ratings li a:hover, .destination-details-wrapper .destination-info .features-list li span i, .single-service-item-four .content .icon-btn, .single-service-item-three .content .meta span.rate i, .single-service-item-two .content .icon i, .ratings li i, .single-event-item .content p.location i, .single-activity-item .content .meta .rate i, .single-features-list .icon-inner .icon-check i, .about-two_content-box .card-list .card-item i {
-  color: #F7921E;
+.reviews-wrapper .reviews-inner-box .rating-value .rate-score,
+.black-bg .sub-title,
+.footer-newsletter-widget .footer-content form label,
+.comment-rating-ul li span i,
+.post-author-box .author-content ul.social-link li a:hover,
+.blog-post .entry-footer .social-share a:hover,
+.single-blog-post .entry-content h3.title:hover,
+.product-details-wrapper .product-info .product-meta li a:hover,
+.product-details-wrapper .product-info ul.ratings li a:hover,
+.destination-details-wrapper .destination-info .features-list li span i,
+.single-service-item-four .content .icon-btn,
+.single-service-item-three .content .meta span.rate i,
+.single-service-item-two .content .icon i,
+.ratings li i,
+.single-event-item .content p.location i,
+.single-activity-item .content .meta .rate i,
+.single-features-list .icon-inner .icon-check i,
+.about-two_content-box .card-list .card-item i {
+  color: #f7921e;
 }
 
-.single-place-item .place-content .info .meta span a i, .single-place-item .place-content .info .meta span a, .header-navigation .main-menu ul > li > a {
-  color: #1D231F;
+.single-place-item .place-content .info .meta span a i,
+.single-place-item .place-content .info .meta span a,
+.header-navigation .main-menu ul > li > a {
+  color: #1d231f;
 }
 
-.reviews-wrapper .reviews-inner-box .rating-value span.reviews, .hero-slider-two .slick-arrow:hover, .hero-slider-one .slick-arrow:hover, .footer-top .social-box ul.social-link li a:hover, .black-bg .single-cta-item .content h3.title, .black-bg .single-info-item .info span.title, .black-bg .footer-top .social-box ul.social-link li a:hover, .black-bg .footer-widget h4.widget-title, .sidebar-widget-area .tag-cloud-widget a:hover, .sidebar-widget-area .sidebar-banner-widget .banner-widget-content .banner-img .hover-content p, .sidebar-widget-area .sidebar-banner-widget .banner-widget-content .banner-img .hover-content h4.title, .blog-post .entry-footer .tag-links a:hover, .cat-btn, .product-details-wrapper .product-info ul.social-link li a:hover, .single-product-item .img-holder .tag span, .tour-area-nav .share-nav a:hover, .single-place-item-three:hover .place-content .meta .icon-btn, .single-place-item-two .place-img .tour-count, .booking-form-two .booking-btn:hover, .single-gallery-item .gallery-img .icon-btn, .activity-content-box ul.check-list li, .activity-nav-tab .nav-tabs li a.active, .single-service-item-four .content h3.title, .single-service-item-four:hover .content .icon-btn, .single-service-item-two .content .btn-link, .single-service-item-two .content p, .single-service-item-two .content h3.title, .single-service-item:hover .content .icon-btn, .ribbon, .gowilds-pagination li a.active, .gowilds-pagination li a:hover, .single-info-item .icon, .single-cta-item .content .icon-btn, .single-activity-item .content .main-btn i, .single-counter-item:hover .icon, .fancy-icon-box-three:hover .text .btn-link, .fancy-icon-box-three:hover .text h5.title, .fancy-icon-box-two:hover .icon, .fancy-icon-box:hover .icon, .single-features-item-three:hover .content h6, .single-features-item-two .content h3.title, .single-features-item .img-holder .text .icon-btn, .hero-wrapper-three .hero-arrows .slick-arrow, .navigation-white.header-navigation .nav-right-item .lang-dropdown .nice-select, .navigation-white.header-navigation .main-menu ul > li .search-btn, .navigation-white.header-navigation .main-menu ul > li > a, .header-three .header-navigation .primary-menu.black-bg .nav-right-item .lang-dropdown .nice-select, .nav-right-item .search-btn, .header-navigation.breakpoint-on .nav-menu .main-menu ul li .dd-trigger, .back-to-top:hover, .back-to-top:focus, .main-btn.filled-btn.filled-white, .main-btn.filled-btn:hover, .main-btn.filled-btn i, .main-btn.secondary-btn, .main-btn.primary-btn, .text-white p, .text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6 {
+.reviews-wrapper .reviews-inner-box .rating-value span.reviews,
+.hero-slider-two .slick-arrow:hover,
+.hero-slider-one .slick-arrow:hover,
+.footer-top .social-box ul.social-link li a:hover,
+.black-bg .single-cta-item .content h3.title,
+.black-bg .single-info-item .info span.title,
+.black-bg .footer-top .social-box ul.social-link li a:hover,
+.black-bg .footer-widget h4.widget-title,
+.sidebar-widget-area .tag-cloud-widget a:hover,
+.sidebar-widget-area
+  .sidebar-banner-widget
+  .banner-widget-content
+  .banner-img
+  .hover-content
+  p,
+.sidebar-widget-area
+  .sidebar-banner-widget
+  .banner-widget-content
+  .banner-img
+  .hover-content
+  h4.title,
+.blog-post .entry-footer .tag-links a:hover,
+.cat-btn,
+.product-details-wrapper .product-info ul.social-link li a:hover,
+.single-product-item .img-holder .tag span,
+.tour-area-nav .share-nav a:hover,
+.single-place-item-three:hover .place-content .meta .icon-btn,
+.single-place-item-two .place-img .tour-count,
+.booking-form-two .booking-btn:hover,
+.single-gallery-item .gallery-img .icon-btn,
+.activity-content-box ul.check-list li,
+.activity-nav-tab .nav-tabs li a.active,
+.single-service-item-four .content h3.title,
+.single-service-item-four:hover .content .icon-btn,
+.single-service-item-two .content .btn-link,
+.single-service-item-two .content p,
+.single-service-item-two .content h3.title,
+.single-service-item:hover .content .icon-btn,
+.ribbon,
+.gowilds-pagination li a.active,
+.gowilds-pagination li a:hover,
+.single-info-item .icon,
+.single-cta-item .content .icon-btn,
+.single-activity-item .content .main-btn i,
+.single-counter-item:hover .icon,
+.fancy-icon-box-three:hover .text .btn-link,
+.fancy-icon-box-three:hover .text h5.title,
+.fancy-icon-box-two:hover .icon,
+.fancy-icon-box:hover .icon,
+.single-features-item-three:hover .content h6,
+.single-features-item-two .content h3.title,
+.single-features-item .img-holder .text .icon-btn,
+.hero-wrapper-three .hero-arrows .slick-arrow,
+.navigation-white.header-navigation .nav-right-item .lang-dropdown .nice-select,
+.navigation-white.header-navigation .main-menu ul > li .search-btn,
+.navigation-white.header-navigation .main-menu ul > li > a,
+.header-three
+  .header-navigation
+  .primary-menu.black-bg
+  .nav-right-item
+  .lang-dropdown
+  .nice-select,
+.nav-right-item .search-btn,
+.header-navigation.breakpoint-on .nav-menu .main-menu ul li .dd-trigger,
+.back-to-top:hover,
+.back-to-top:focus,
+.main-btn.filled-btn.filled-white,
+.main-btn.filled-btn:hover,
+.main-btn.filled-btn i,
+.main-btn.secondary-btn,
+.main-btn.primary-btn,
+.text-white p,
+.text-white h1,
+.text-white h2,
+.text-white h3,
+.text-white h4,
+.text-white h5,
+.text-white h6 {
   color: #fff;
 }
 
-.reviews-wrapper .reviews-inner-box .rating-value span.reviews, .fun-wrapper, ul.slick-dots li button::before, .footer-top .social-box ul.social-link li a:hover, .black-bg .footer-top .social-box ul.social-link li a:hover, .sidebar-widget-area .tag-cloud-widget a:hover, .blog-post .entry-footer .tag-links a:hover, .single-product-item .img-holder .tag span.off, .tour-area-nav .share-nav a:hover, .single-place-item-three:hover .place-content .meta .icon-btn, .booking-form-two .booking-btn:hover, .gowilds-pagination li a.active, .gowilds-pagination li a:hover, .single-info-item .icon, .single-cta-item .content .icon-btn, .single-counter-item:hover .icon, .fancy-icon-box-three:hover, .fancy-icon-box-two:hover .icon, .fancy-icon-box:hover .icon, .single-features-item-three:hover .content, .single-features-item .img-holder .text .icon-btn, .single-features-item .img-holder .text h4.title:before, .header-navigation.breakpoint-on .nav-menu .main-menu ul li .dd-trigger, .main-btn.filled-btn.filled-white:hover, .main-btn.filled-btn:hover, .main-btn.filled-btn i, .main-btn.secondary-btn:hover, .main-btn.primary-btn {
-  background-color: #0074a0;
+.reviews-wrapper .reviews-inner-box .rating-value span.reviews,
+.fun-wrapper,
+ul.slick-dots li button::before,
+.footer-top .social-box ul.social-link li a:hover,
+.black-bg .footer-top .social-box ul.social-link li a:hover,
+.sidebar-widget-area .tag-cloud-widget a:hover,
+.blog-post .entry-footer .tag-links a:hover,
+.single-product-item .img-holder .tag span.off,
+.tour-area-nav .share-nav a:hover,
+.single-place-item-three:hover .place-content .meta .icon-btn,
+.booking-form-two .booking-btn:hover,
+.gowilds-pagination li a.active,
+.gowilds-pagination li a:hover,
+.single-info-item .icon,
+.single-cta-item .content .icon-btn,
+.single-counter-item:hover .icon,
+.fancy-icon-box-three:hover,
+.fancy-icon-box-two:hover .icon,
+.fancy-icon-box:hover .icon,
+.single-features-item-three:hover .content,
+.single-features-item .img-holder .text .icon-btn,
+.single-features-item .img-holder .text h4.title:before,
+.header-navigation.breakpoint-on .nav-menu .main-menu ul li .dd-trigger,
+.main-btn.filled-btn.filled-white:hover,
+.main-btn.filled-btn:hover,
+.main-btn.filled-btn i,
+.main-btn.secondary-btn:hover,
+.main-btn.primary-btn {
+  background-color: #004aad;
 }
 
-.hero-slider-two .slick-arrow:hover, .hero-slider-one .slick-arrow:hover, .blog-post .entry-content .block-quote span:before, .single-blog-post-four .entry-content .main-btn.filled-btn:hover, .single-blog-post-four .entry-content .main-btn.filled-btn i, .cat-btn, .description-wrapper .content-box ul.check-style-one li i, .product-details-wrapper .product-info ul.social-link li a:hover, .single-product-item .img-holder .tag span.feat, .single-place-item-two .place-img .tour-count, .single-gallery-item .gallery-img .icon-btn, .activity-nav-tab .nav-tabs li a.active, .single-service-item-four:hover .content .icon-btn, .single-service-item:hover .content .icon-btn, .ribbon, .single-progress-bar .progress .progress-bar, .single-cta-item:nth-child(2) .content .icon-btn, .back-to-top:hover, .back-to-top:focus, .main-btn.secondary-btn, .main-btn.primary-btn:hover {
-  background-color: #F7921E;
+.hero-slider-two .slick-arrow:hover,
+.hero-slider-one .slick-arrow:hover,
+.blog-post .entry-content .block-quote span:before,
+.single-blog-post-four .entry-content .main-btn.filled-btn:hover,
+.single-blog-post-four .entry-content .main-btn.filled-btn i,
+.cat-btn,
+.description-wrapper .content-box ul.check-style-one li i,
+.product-details-wrapper .product-info ul.social-link li a:hover,
+.single-product-item .img-holder .tag span.feat,
+.single-place-item-two .place-img .tour-count,
+.single-gallery-item .gallery-img .icon-btn,
+.activity-nav-tab .nav-tabs li a.active,
+.single-service-item-four:hover .content .icon-btn,
+.single-service-item:hover .content .icon-btn,
+.ribbon,
+.single-progress-bar .progress .progress-bar,
+.single-cta-item:nth-child(2) .content .icon-btn,
+.back-to-top:hover,
+.back-to-top:focus,
+.main-btn.secondary-btn,
+.main-btn.primary-btn:hover {
+  background-color: #f7921e;
 }
 
-.single-activity-item .content .main-btn i, .header-two .header-navigation.sticky, .header-one .header-navigation.sticky, .black-bg {
-  background-color: #1D231F;
+.single-activity-item .content .main-btn i,
+.header-two .header-navigation.sticky,
+.header-one .header-navigation.sticky,
+.black-bg {
+  background-color: #1d231f;
 }
 
-.skill-wrapper, .footer-newsletter-widget .footer-content form .form_control, .sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item .nice-select, .sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item input, .sidebar-widget-area .sidebar-widget, .single-blog-post-four .entry-content .main-btn.filled-btn:hover i, .gw-testimonial-item-two, .destination-details-wrapper .destination-info .features-list li span, .single-place-item-three .place-content .meta .icon-btn, .single-place-item-three:hover, .single-place-item .place-content .info, .booking-form .nice-select:focus, .booking-form .form_control:focus, .booking-form-wrapper, .activity-nav-tab, .single-service-item-four .content .icon-btn, .single-service-item-four:hover, .single-service-item-three .content .meta span.rate, .single-service-item-three:hover, .single-service-item .content .icon-btn, .single-service-item, .video-popup, .single-event-item, .single-activity-item .content .meta, .single-counter-item-two .icon, .single-counter-item, .single-team-item, .fancy-icon-box-three .icon, .fancy-icon-box-two, .fancy-icon-box .icon, .single-features-list .icon-inner .icon, .single-features-item-three .content, .single-features-item .img-holder .content, .about-two_content-box .card-list .card-item, .hero-search-form, .hero-wrapper-three .hero-arrows .slick-arrow:hover, .navigation-white.header-navigation .navbar-toggler span, .header-four .header-navigation.sticky, .header-navigation.breakpoint-on .nav-menu, .header-navigation .main-menu ul > li .sub-menu, .preloader, .main-btn.filled-btn:hover i, .main-btn i, .white-bg {
+.skill-wrapper,
+.footer-newsletter-widget .footer-content form .form_control,
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .bk-item
+  .nice-select,
+.sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item input,
+.sidebar-widget-area .sidebar-widget,
+.single-blog-post-four .entry-content .main-btn.filled-btn:hover i,
+.gw-testimonial-item-two,
+.destination-details-wrapper .destination-info .features-list li span,
+.single-place-item-three .place-content .meta .icon-btn,
+.single-place-item-three:hover,
+.single-place-item .place-content .info,
+.booking-form .nice-select:focus,
+.booking-form .form_control:focus,
+.booking-form-wrapper,
+.activity-nav-tab,
+.single-service-item-four .content .icon-btn,
+.single-service-item-four:hover,
+.single-service-item-three .content .meta span.rate,
+.single-service-item-three:hover,
+.single-service-item .content .icon-btn,
+.single-service-item,
+.video-popup,
+.single-event-item,
+.single-activity-item .content .meta,
+.single-counter-item-two .icon,
+.single-counter-item,
+.single-team-item,
+.fancy-icon-box-three .icon,
+.fancy-icon-box-two,
+.fancy-icon-box .icon,
+.single-features-list .icon-inner .icon,
+.single-features-item-three .content,
+.single-features-item .img-holder .content,
+.about-two_content-box .card-list .card-item,
+.hero-search-form,
+.hero-wrapper-three .hero-arrows .slick-arrow:hover,
+.navigation-white.header-navigation .navbar-toggler span,
+.header-four .header-navigation.sticky,
+.header-navigation.breakpoint-on .nav-menu,
+.header-navigation .main-menu ul > li .sub-menu,
+.preloader,
+.main-btn.filled-btn:hover i,
+.main-btn i,
+.white-bg {
   background-color: #fff;
 }
 
-.contact-form .form_control, .contact-info-item, .sidebar-widget-area .booking-form-widget, .sidebar-widget-area .tag-cloud-widget, .sidebar-widget-area .search-widget, .comments-respond, .blog-post .entry-content .block-quote, .review-form-area, .days-area .nav-tabs, .single-place-item-three, .booking-form .nice-select, .booking-form .form_control, .activity-nav-tab .nav-tabs li a, .single-service-item-three, .single-activity-item .content, .fancy-icon-box-three, .fancy-icon-box-two .icon, .fancy-icon-box, .gray-bg {
-  background-color: #F9F9F7;
+.contact-form .form_control,
+.contact-info-item,
+.sidebar-widget-area .booking-form-widget,
+.sidebar-widget-area .tag-cloud-widget,
+.sidebar-widget-area .search-widget,
+.comments-respond,
+.blog-post .entry-content .block-quote,
+.review-form-area,
+.days-area .nav-tabs,
+.single-place-item-three,
+.booking-form .nice-select,
+.booking-form .form_control,
+.activity-nav-tab .nav-tabs li a,
+.single-service-item-three,
+.single-activity-item .content,
+.fancy-icon-box-three,
+.fancy-icon-box-two .icon,
+.fancy-icon-box,
+.gray-bg {
+  background-color: #f9f9f7;
 }
 
 h1 {
@@ -108,16 +461,41 @@ h6 {
   line-height: 1.2;
 }
 
-.hero-slider-two .slick-arrow, .hero-slider-one .slick-arrow, .footer-top .social-box ul.social-link li a, .product-details-wrapper .product-info ul.social-link li a, .single-place-item-three .place-content .meta .icon-btn, .single-gallery-item .gallery-img .icon-btn, .single-gallery-item .gallery-img .hover-overlay, .single-service-item-four .content .icon-btn, .single-service-item .content .icon-btn, .video-popup, .gowilds-pagination li a, .single-skill-circle .inner-circle, .single-info-item-two .icon, .single-info-item .icon, .single-cta-item .content .icon-btn, .single-counter-item-two .icon, .single-counter-item .icon, .fancy-icon-box-three .icon, .fancy-icon-box-two .icon, .fancy-icon-box .icon, .single-features-list .icon-inner .icon, .single-features-item .img-holder .text .icon-btn, .hero-wrapper-three .hero-arrows .slick-arrow, .header-navigation.breakpoint-on .nav-menu .main-menu ul li .dd-trigger, .preloader, .main-btn i {
+.hero-slider-two .slick-arrow,
+.hero-slider-one .slick-arrow,
+.footer-top .social-box ul.social-link li a,
+.product-details-wrapper .product-info ul.social-link li a,
+.single-place-item-three .place-content .meta .icon-btn,
+.single-gallery-item .gallery-img .icon-btn,
+.single-gallery-item .gallery-img .hover-overlay,
+.single-service-item-four .content .icon-btn,
+.single-service-item .content .icon-btn,
+.video-popup,
+.gowilds-pagination li a,
+.single-skill-circle .inner-circle,
+.single-info-item-two .icon,
+.single-info-item .icon,
+.single-cta-item .content .icon-btn,
+.single-counter-item-two .icon,
+.single-counter-item .icon,
+.fancy-icon-box-three .icon,
+.fancy-icon-box-two .icon,
+.fancy-icon-box .icon,
+.single-features-list .icon-inner .icon,
+.single-features-item .img-holder .text .icon-btn,
+.hero-wrapper-three .hero-arrows .slick-arrow,
+.header-navigation.breakpoint-on .nav-menu .main-menu ul li .dd-trigger,
+.preloader,
+.main-btn i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 /*---========================
@@ -141,7 +519,8 @@ a {
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: inherit;
   text-decoration: none;
 }
@@ -167,7 +546,7 @@ h4,
 h5,
 h6 {
   margin: 0px;
-  font-family: "Prompt", sans-serif;
+  font-family: "Roboto Slab", serif;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -186,7 +565,8 @@ h6 {
   }
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0px;
   padding: 0px;
   list-style-type: none;
@@ -196,7 +576,8 @@ p {
   margin: 0px;
 }
 
-input, textarea {
+input,
+textarea {
   display: inherit;
 }
 
@@ -219,7 +600,7 @@ body {
   font-style: normal;
   font-weight: 300;
   color: #484848;
-  font-family: "Prompt", sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 16px;
   line-height: 29.6px;
   overflow-x: hidden;
@@ -392,7 +773,7 @@ textarea.form_control {
 
 /*===== All Bg =====*/
 .black-dark-bg {
-  background-color: #272C28;
+  background-color: #272c28;
 }
 
 /*===== All Button Style =====*/
@@ -405,13 +786,13 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 3px 3px 3px 40px;
-  font: 600 16px "Prompt", sans-serif;
+  font: 600 16px "Roboto Slab", serif;
   text-transform: capitalize;
   border-radius: 28px;
   line-height: 20px;
@@ -420,8 +801,8 @@ button {
 }
 .main-btn i {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   margin-left: 20px;
   width: 50px;
   height: 50px;
@@ -460,127 +841,129 @@ button {
 @-webkit-keyframes shake {
   0% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   50% {
     -webkit-transform: translateX(7px);
-            transform: translateX(7px);
+    transform: translateX(7px);
   }
   100% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 @keyframes shake {
   0% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   50% {
     -webkit-transform: translateX(7px);
-            transform: translateX(7px);
+    transform: translateX(7px);
   }
   100% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 .animate-float-x {
   -webkit-animation-name: float-x;
-          animation-name: float-x;
+  animation-name: float-x;
   -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 .animate-float-y {
   -webkit-animation-name: float-y;
-          animation-name: float-y;
+  animation-name: float-y;
   -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 @-webkit-keyframes float-y {
   0% {
     -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
   50% {
     -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
+    transform: translateY(-10px);
   }
   100% {
     -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 }
 @keyframes float-y {
   0% {
     -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
   50% {
     -webkit-transform: translateY(-10px);
-            transform: translateY(-10px);
+    transform: translateY(-10px);
   }
   100% {
     -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 }
 @-webkit-keyframes float-x {
   0% {
     -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+    transform: translateX(-20px);
   }
   50% {
     -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
+    transform: translateX(-10px);
   }
   100% {
     -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+    transform: translateX(-20px);
   }
 }
 @keyframes float-x {
   0% {
     -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+    transform: translateX(-20px);
   }
   50% {
     -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
+    transform: translateX(-10px);
   }
   100% {
     -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+    transform: translateX(-20px);
   }
 }
 @-webkit-keyframes wave {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   50% {
     -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    transform: translateX(100px);
   }
 }
 @keyframes wave {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   50% {
     -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    transform: translateX(100px);
   }
 }
 /*====== Search Modal ======*/
@@ -674,9 +1057,9 @@ button {
 .preloader .pre-box {
   width: 50px;
   height: 50px;
-  background: #0074a0;
+  background: #004aad;
   -webkit-animation: loaderAnimate 0.5s linear infinite;
-          animation: loaderAnimate 0.5s linear infinite;
+  animation: loaderAnimate 0.5s linear infinite;
   position: absolute;
   top: 0;
   left: 0;
@@ -692,7 +1075,7 @@ button {
   left: 0;
   border-radius: 50%;
   -webkit-animation: loaderShadow 0.5s linear infinite;
-          animation: loaderShadow 0.5s linear infinite;
+  animation: loaderShadow 0.5s linear infinite;
 }
 
 @-webkit-keyframes loaderAnimate {
@@ -701,20 +1084,20 @@ button {
   }
   25% {
     -webkit-transform: translateY(9px) rotate(22.5deg);
-            transform: translateY(9px) rotate(22.5deg);
+    transform: translateY(9px) rotate(22.5deg);
   }
   50% {
     -webkit-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
-            transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
     border-bottom-right-radius: 40px;
   }
   75% {
     -webkit-transform: translateY(9px) rotate(67.5deg);
-            transform: translateY(9px) rotate(67.5deg);
+    transform: translateY(9px) rotate(67.5deg);
   }
   100% {
     -webkit-transform: translateY(0) rotate(90deg);
-            transform: translateY(0) rotate(90deg);
+    transform: translateY(0) rotate(90deg);
   }
 }
 @keyframes loaderAnimate {
@@ -723,37 +1106,37 @@ button {
   }
   25% {
     -webkit-transform: translateY(9px) rotate(22.5deg);
-            transform: translateY(9px) rotate(22.5deg);
+    transform: translateY(9px) rotate(22.5deg);
   }
   50% {
     -webkit-transform: translateY(18px) scale(1, 0.9) rotate(45deg);
-            transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
     border-bottom-right-radius: 40px;
   }
   75% {
     -webkit-transform: translateY(9px) rotate(67.5deg);
-            transform: translateY(9px) rotate(67.5deg);
+    transform: translateY(9px) rotate(67.5deg);
   }
   100% {
     -webkit-transform: translateY(0) rotate(90deg);
-            transform: translateY(0) rotate(90deg);
+    transform: translateY(0) rotate(90deg);
   }
 }
 @-webkit-keyframes loaderShadow {
   50% {
     -webkit-transform: scale(1.2, 1);
-            transform: scale(1.2, 1);
+    transform: scale(1.2, 1);
   }
 }
 @keyframes loaderShadow {
   50% {
     -webkit-transform: scale(1.2, 1);
-            transform: scale(1.2, 1);
+    transform: scale(1.2, 1);
   }
 }
 /*====== Start Back to top css ======*/
 .back-to-top {
-  background-color: #0074a0;
+  background-color: #004aad;
   border-radius: 50%;
   bottom: 30px;
   color: #fff;
@@ -815,8 +1198,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .header-navigation .main-menu ul > li {
   display: inline-block;
@@ -838,7 +1221,7 @@ button {
 .header-navigation .main-menu ul > li > a {
   position: relative;
   display: block;
-  font: 500 18px "Prompt", sans-serif;
+  font: 500 18px "Roboto Slab", serif;
   padding: 34px 0 37px;
   text-transform: capitalize;
   line-height: 1;
@@ -866,7 +1249,7 @@ button {
   text-align: left;
   border-radius: 5px;
   -webkit-box-shadow: 0 30px 70px 0 rgba(137, 139, 142, 0.15);
-          box-shadow: 0 30px 70px 0 rgba(137, 139, 142, 0.15);
+  box-shadow: 0 30px 70px 0 rgba(137, 139, 142, 0.15);
 }
 .header-navigation .main-menu ul > li .sub-menu li {
   display: block;
@@ -878,8 +1261,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 0 5px 10px;
   position: relative;
   line-height: 1.5;
@@ -927,10 +1310,10 @@ button {
   width: 290px;
   height: 100%;
   -webkit-transition-duration: 500ms;
-          transition-duration: 500ms;
+  transition-duration: 500ms;
   padding: 40px 20px;
   -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   display: block;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -959,7 +1342,7 @@ button {
   left: 0;
   padding: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   background-color: transparent;
   visibility: visible;
   opacity: 1;
@@ -1023,7 +1406,7 @@ button {
 }
 .header-navigation .navbar-toggler.active span:nth-of-type(1) {
   -webkit-transform: rotate3d(0, 0, 1, 45deg);
-          transform: rotate3d(0, 0, 1, 45deg);
+  transform: rotate3d(0, 0, 1, 45deg);
   top: 7px;
 }
 .header-navigation .navbar-toggler.active span:nth-of-type(2) {
@@ -1031,7 +1414,7 @@ button {
 }
 .header-navigation .navbar-toggler.active span:nth-of-type(3) {
   -webkit-transform: rotate3d(0, 0, 1, -45deg);
-          transform: rotate3d(0, 0, 1, -45deg);
+  transform: rotate3d(0, 0, 1, -45deg);
   top: -7px;
 }
 
@@ -1040,8 +1423,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .nav-right-item .lang-dropdown {
   padding: 0 30px;
@@ -1053,7 +1436,7 @@ button {
 }
 .nav-right-item .lang-dropdown .nice-select {
   background-color: transparent;
-  font: 500 20px "Prompt", sans-serif;
+  font: 500 20px "Roboto Slab", serif;
   padding-right: 20px;
 }
 .nav-right-item .lang-dropdown .nice-select:after {
@@ -1084,14 +1467,14 @@ button {
 }
 .header-top-bar .single-info-item-two {
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 @media (max-width: 1199px) {
   .header-top-bar .single-info-item-two {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 
@@ -1121,8 +1504,8 @@ button {
 }
 .header-one .header-navigation .primary-menu {
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   border-bottom: 1px solid rgba(217, 217, 217, 0.15);
 }
 @media (max-width: 1199px) {
@@ -1146,8 +1529,8 @@ button {
 .header-three .header-navigation .primary-menu {
   padding: 0 50px 0 32px;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   border-radius: 12px;
   position: relative;
   z-index: 2;
@@ -1163,8 +1546,8 @@ button {
 }
 .header-four .header-navigation .primary-menu {
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   border-bottom: 1px solid rgba(217, 217, 217, 0.15);
 }
 @media (max-width: 1199px) {
@@ -1185,7 +1568,7 @@ button {
   right: 0;
   z-index: 999;
   -webkit-animation: sticky 1.2s;
-          animation: sticky 1.2s;
+  animation: sticky 1.2s;
 }
 
 @-webkit-keyframes sticky {
@@ -1209,7 +1592,7 @@ button {
 =================----*/
 /* Hero Content */
 .hero-content h1 {
-  font: 600 100px "Prompt", sans-serif;
+  font: 600 100px "Roboto Slab", serif;
   line-height: 1.1;
   text-transform: capitalize;
 }
@@ -1296,8 +1679,8 @@ button {
     text-align: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
 }
 .hero-wrapper .hero-content .text-button p {
@@ -1372,7 +1755,11 @@ button {
   content: "";
   width: 100%;
   height: 100%;
-  background: linear-gradient(129.29deg, rgba(0, 0, 0, 0.6) 16.77%, rgba(0, 0, 0, 0.3) 74.33%);
+  background: linear-gradient(
+    129.29deg,
+    rgba(0, 0, 0, 0.6) 16.77%,
+    rgba(0, 0, 0, 0.3) 74.33%
+  );
   z-index: -1;
 }
 .hero-wrapper-two .single-slider.slick-current .image-layer {
@@ -1445,7 +1832,11 @@ button {
   content: "";
   width: 100%;
   height: 100%;
-  background: linear-gradient(129.29deg, rgba(0, 0, 0, 0.6) 16.77%, rgba(0, 0, 0, 0.3) 74.33%);
+  background: linear-gradient(
+    129.29deg,
+    rgba(0, 0, 0, 0.6) 16.77%,
+    rgba(0, 0, 0, 0.3) 74.33%
+  );
   z-index: -1;
 }
 .hero-wrapper-three .single-slider.slick-current .image-layer {
@@ -1485,7 +1876,7 @@ button {
   font-size: 18px;
   line-height: 28px;
   padding-left: 25px;
-  border-left: 3px solid #0074a0;
+  border-left: 3px solid #004aad;
   margin-bottom: 55px;
 }
 .hero-wrapper-four .hero-content .hero-search-form {
@@ -1529,7 +1920,7 @@ button {
   height: 100%;
   border-radius: 287.5px 287.5px 0px 0px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .hero-search-form {
@@ -1537,19 +1928,19 @@ button {
   position: relative;
   border-radius: 10px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
 }
 .hero-search-form .booking-form-two {
   gap: 20px;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 @media (max-width: 1199px) {
   .hero-search-form .booking-form-two {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 .hero-search-form .booking-form-two .form_group {
@@ -1621,24 +2012,24 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .about-two_content-box .card-list .card-item {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 14px 20px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   margin-bottom: 15px;
-  font: 500 18px "Prompt", sans-serif;
+  font: 500 18px "Roboto Slab", serif;
   margin-right: 18px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -1736,7 +2127,7 @@ button {
   right: 30px;
   padding: 35px 25px 25px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
@@ -1751,16 +2142,16 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 .single-features-item .img-holder .text h4.title {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 70%;
 }
 .single-features-item .img-holder .text h4.title:before {
@@ -1778,10 +2169,10 @@ button {
 }
 .single-features-item .img-holder .text .icon-btn {
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -1829,17 +2220,27 @@ button {
   width: 100%;
   height: 100%;
   padding: 40px 30px 35px;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(43.14%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8)));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 43.14%, rgba(0, 0, 0, 0.8) 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(43.14%, rgba(0, 0, 0, 0)),
+    to(rgba(0, 0, 0, 0.8))
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 43.14%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 .single-features-item-two .content h3.title {
   font-weight: 500;
@@ -1856,7 +2257,7 @@ button {
   transition: all 0.3s ease-out 0s;
 }
 .single-features-item-three .content h6 {
-  font: 500 16px "Prompt", sans-serif;
+  font: 500 16px "Roboto Slab", serif;
   line-height: 21px;
 }
 
@@ -1868,8 +2269,8 @@ button {
 @media (max-width: 575px) {
   .single-features-list {
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
   }
 }
 .single-features-list .icon-inner .icon-check {
@@ -1883,14 +2284,14 @@ button {
   margin-left: 55px;
   margin-right: 35px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 80px;
   height: 80px;
   border-radius: 50%;
   font-size: 40px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 @media (max-width: 575px) {
@@ -1938,13 +2339,13 @@ button {
 }
 .fancy-icon-box:hover {
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-  border-color: #0074a0;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+  border-color: #004aad;
 }
 .fancy-icon-box .icon {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -1974,7 +2375,7 @@ button {
 .fancy-icon-box-two {
   padding: 40px 30px 30px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
@@ -2001,8 +2402,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 10px 50px 10px 10px;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
@@ -2012,8 +2413,8 @@ button {
 }
 .fancy-icon-box-three .icon {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 110px;
   height: 110px;
   border-radius: 50%;
@@ -2028,7 +2429,7 @@ button {
 .fancy-icon-box-three .text h5.title {
   font-weight: 500;
   padding-bottom: 13px;
-  border-bottom: 1px solid #1D231F;
+  border-bottom: 1px solid #1d231f;
   margin-bottom: 7px;
 }
 .fancy-icon-box-three .text .btn-link {
@@ -2042,8 +2443,8 @@ button {
 }
 .fancy-icon-box-four .icon {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 35px;
   margin-right: 20px;
 }
@@ -2065,7 +2466,7 @@ button {
 .single-team-item {
   border-radius: 7px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
   padding: 35px 30px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2074,8 +2475,8 @@ button {
 .single-team-item .member-img {
   width: 90px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   margin-right: 20px;
 }
 .single-team-item .member-img img {
@@ -2114,18 +2515,18 @@ button {
   }
 }
 .counter-item h2.number {
-  font: 500 55px "Prompt", sans-serif;
+  font: 500 55px "Roboto Slab", serif;
   line-height: 1;
   margin-bottom: 5px;
 }
 .counter-item p {
-  font: 400 16px "Prompt", sans-serif;
+  font: 400 16px "Roboto Slab", serif;
 }
 
 .single-counter-item {
   padding: 40px 30px 27px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.05);
   border-radius: 7px;
   border: 1px solid transparent;
   -webkit-transition: all 0.3s ease-out 0s;
@@ -2148,7 +2549,7 @@ button {
   transition: all 0.4s ease-out 0s;
 }
 .single-counter-item h2.number {
-  font: 500 45px "Prompt", sans-serif;
+  font: 500 45px "Roboto Slab", serif;
   line-height: 55px;
 }
 
@@ -2157,8 +2558,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 .single-counter-item-two .icon {
   width: 95px;
@@ -2168,7 +2569,7 @@ button {
   font-size: 50px;
 }
 .single-counter-item-two .content h2.number {
-  font: 500 55px "Prompt", sans-serif;
+  font: 500 55px "Roboto Slab", serif;
   line-height: 1;
   margin-bottom: 5px;
 }
@@ -2188,7 +2589,7 @@ button {
 .single-activity-item .content .meta {
   position: relative;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
   border-radius: 10px;
   margin: -35px 0 35px;
   display: -webkit-box;
@@ -2206,11 +2607,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   line-height: 0;
 }
 .single-activity-item .content .meta ul li {
@@ -2237,9 +2638,9 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font: 500 16px "Prompt", sans-serif;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 500 16px "Roboto Slab", serif;
   color: #000;
 }
 .single-activity-item .content .meta .rate i {
@@ -2255,7 +2656,7 @@ button {
 .single-event-item {
   padding: 15px;
   -webkit-box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
   border-radius: 12px;
 }
 .single-event-item .img-holder img {
@@ -2300,13 +2701,13 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .single-cta-item .icon {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 85px;
   margin-right: 30px;
 }
@@ -2315,11 +2716,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   width: 100%;
 }
 .single-cta-item .content h3.title {
@@ -2345,13 +2746,13 @@ button {
 }
 .single-cta-item .content .icon-btn {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 65px;
   height: 65px;
   border-radius: 50%;
   -webkit-box-shadow: 0px 10px 60px rgba(99, 171, 69, 0.65);
-          box-shadow: 0px 10px 60px rgba(99, 171, 69, 0.65);
+  box-shadow: 0px 10px 60px rgba(99, 171, 69, 0.65);
 }
 .single-cta-item .content .icon-btn i {
   font-size: 27px;
@@ -2373,8 +2774,8 @@ button {
 }
 .single-info-item .icon {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -2382,7 +2783,7 @@ button {
   margin-right: 15px;
 }
 .single-info-item .info span.title {
-  font: 500 16px "Prompt", sans-serif;
+  font: 500 16px "Roboto Slab", serif;
   line-height: 26px;
 }
 .single-info-item .info p {
@@ -2401,8 +2802,8 @@ button {
 }
 .single-info-item-two .icon {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -2464,7 +2865,7 @@ button {
   content: "";
   width: 1px;
   height: 100%;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 @media (max-width: 575px) {
   .single-skill-circle:not(:last-child):after {
@@ -2483,7 +2884,7 @@ button {
   overflow: hidden;
 }
 .single-skill-circle .inner-circle .number {
-  font: 500 27px "Prompt", sans-serif;
+  font: 500 27px "Roboto Slab", serif;
 }
 .single-skill-circle .inner-circle .line {
   position: absolute;
@@ -2492,8 +2893,8 @@ button {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 10px solid #0074a0;
-  border-color: transparent #0074a0 #0074a0;
+  border: 10px solid #004aad;
+  border-color: transparent #004aad #004aad;
   -webkit-transform: rotate(55deg);
   transform: rotate(55deg);
 }
@@ -2511,11 +2912,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 /*--==== Pagination Css ====--*/
@@ -2527,7 +2928,7 @@ button {
   height: 55px;
   border-radius: 50%;
   border: 2px solid rgba(29, 35, 31, 0.1);
-  font: 500 16px "Prompt", sans-serif;
+  font: 500 16px "Roboto Slab", serif;
   margin-bottom: 10px;
 }
 @media (max-width: 767px) {
@@ -2537,7 +2938,8 @@ button {
     font-size: 14px;
   }
 }
-.gowilds-pagination li a.active, .gowilds-pagination li a:hover {
+.gowilds-pagination li a.active,
+.gowilds-pagination li a:hover {
   border-color: transparent;
 }
 
@@ -2548,7 +2950,7 @@ button {
   display: inline-block;
 }
 .ribbon {
-  font: 500 18px "Prompt", sans-serif;
+  font: 500 18px "Roboto Slab", serif;
   padding: 10px 20px;
 }
 
@@ -2574,7 +2976,8 @@ button {
   display: inline-flex;
   border-radius: 50%;
 }
-.video-popup:after, .video-popup:before {
+.video-popup:after,
+.video-popup:before {
   position: absolute;
   left: 0;
   top: 0;
@@ -2584,44 +2987,44 @@ button {
   height: 100%;
   border: 1px solid #e1e1e1;
   -webkit-animation: playpopup infinite linear 1s;
-          animation: playpopup infinite linear 1s;
+  animation: playpopup infinite linear 1s;
 }
 .video-popup:before {
   -webkit-animation: playpopup infinite linear 2s;
-          animation: playpopup infinite linear 2s;
+  animation: playpopup infinite linear 2s;
 }
 
 @-webkit-keyframes playpopup {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 0.6;
   }
   50% {
     -webkit-transform: scale(1.3);
-            transform: scale(1.3);
+    transform: scale(1.3);
     opacity: 0.3;
   }
   100% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
     opacity: 0;
   }
 }
 @keyframes playpopup {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 0.6;
   }
   50% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
     opacity: 0.3;
   }
   100% {
     -webkit-transform: scale(2);
-            transform: scale(2);
+    transform: scale(2);
     opacity: 0;
   }
 }
@@ -2630,9 +3033,9 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font: 400 18px "Prompt", sans-serif;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 400 18px "Roboto Slab", serif;
 }
 .check-list li:not(:last-child) {
   margin-bottom: 20px;
@@ -2682,14 +3085,14 @@ button {
 .single-service-item {
   padding: 20px 20px 20px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
   border-radius: 10px;
   border: 1px solid transparent;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
 }
 .single-service-item:hover {
-  border-color: #0074a0;
+  border-color: #004aad;
 }
 .single-service-item .content {
   position: relative;
@@ -2724,7 +3127,7 @@ button {
   border-radius: 50%;
   font-size: 18px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
 }
 .single-service-item .img-holder img {
   width: 100%;
@@ -2790,7 +3193,7 @@ button {
 }
 .single-service-item-three:hover {
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
 }
 .single-service-item-three .content h3.title {
   margin-bottom: 10px;
@@ -2810,8 +3213,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .single-service-item-three .content .meta span {
   line-height: 1;
@@ -2829,7 +3232,7 @@ button {
 }
 .single-service-item-three .content .meta span.rate {
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
   font-weight: 500;
   padding: 10px 13px;
@@ -2925,7 +3328,7 @@ button {
 }
 .activity-nav-tab .nav-tabs li a {
   padding: 16px 25px;
-  font: 500 22px "Prompt", sans-serif;
+  font: 500 22px "Roboto Slab", serif;
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
@@ -2948,7 +3351,7 @@ button {
   font-size: 85px;
 }
 .activity-content-box h3.title {
-  font: 500 27px "Prompt", sans-serif;
+  font: 500 27px "Roboto Slab", serif;
   margin-bottom: 25px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3056,7 +3459,7 @@ button {
   padding: 33px 60px 40px;
   border-radius: 12px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
   margin-top: -85px;
   position: relative;
 }
@@ -3074,7 +3477,8 @@ button {
 .booking-form label i {
   font-size: 18px;
 }
-.booking-form .nice-select, .booking-form .form_control {
+.booking-form .nice-select,
+.booking-form .form_control {
   padding: 19px 25px;
   border: 1px solid rgba(29, 35, 31, 0.1);
   border-radius: 7px;
@@ -3085,21 +3489,26 @@ button {
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
 }
-.booking-form .nice-select.placeholder, .booking-form .form_control.placeholder {
+.booking-form .nice-select.placeholder,
+.booking-form .form_control.placeholder {
   color: #000;
 }
-.booking-form .nice-select:-moz-placeholder, .booking-form .form_control:-moz-placeholder {
+.booking-form .nice-select:-moz-placeholder,
+.booking-form .form_control:-moz-placeholder {
   color: #000;
 }
-.booking-form .nice-select::-moz-placeholder, .booking-form .form_control::-moz-placeholder {
+.booking-form .nice-select::-moz-placeholder,
+.booking-form .form_control::-moz-placeholder {
   color: #000;
 }
-.booking-form .nice-select::-webkit-input-placeholder, .booking-form .form_control::-webkit-input-placeholder {
+.booking-form .nice-select::-webkit-input-placeholder,
+.booking-form .form_control::-webkit-input-placeholder {
   color: #000;
 }
-.booking-form .nice-select:focus, .booking-form .form_control:focus {
+.booking-form .nice-select:focus,
+.booking-form .form_control:focus {
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
   border-color: transparent;
 }
 .booking-form .nice-select:after {
@@ -3112,32 +3521,32 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 30px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .booking-form-two {
     gap: 15px;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
   }
 }
 @media (max-width: 1199px) {
   .booking-form-two {
     gap: 15px;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 .booking-form-two .form_group {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 18.5%;
 }
 @media (max-width: 1199px) {
@@ -3151,7 +3560,7 @@ button {
   }
 }
 .booking-form-two .form_group > span {
-  font: 500 18px "Prompt", sans-serif;
+  font: 500 18px "Roboto Slab", serif;
   margin-bottom: 10px;
 }
 .booking-form-two .form_group label {
@@ -3159,7 +3568,8 @@ button {
   top: 55px;
   right: 20px;
 }
-.booking-form-two .nice-select, .booking-form-two .form_control {
+.booking-form-two .nice-select,
+.booking-form-two .form_control {
   padding: 16px 25px;
   line-height: 26px;
   padding: 16px 25px;
@@ -3176,7 +3586,7 @@ button {
   padding: 17px 30px;
   border-radius: 50px;
   line-height: 25px;
-  font: 600 14px "Prompt", sans-serif;
+  font: 600 14px "Roboto Slab", serif;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
@@ -3207,18 +3617,18 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 @media (max-width: 767px) {
   .related-tour-place .place-arrows {
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
   }
 }
 .related-tour-place .place-arrows .slick-arrow {
-  color: #B8B8B8;
+  color: #b8b8b8;
   cursor: pointer;
   font-size: 24px;
   z-index: 1;
@@ -3247,7 +3657,7 @@ button {
 .single-place-item .place-content .info {
   padding: 30px 40px 28px;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.07);
   border-radius: 15px;
 }
 @media (max-width: 991px) {
@@ -3271,7 +3681,7 @@ button {
   border-top: 1px solid rgba(29, 35, 31, 0.1);
 }
 .single-place-item .place-content .info .meta span {
-  font: 400 16px "Prompt", sans-serif;
+  font: 400 16px "Roboto Slab", serif;
 }
 .single-place-item .place-content .info .meta span:not(:last-child) {
   margin-right: 25px;
@@ -3285,7 +3695,7 @@ button {
   margin-right: 10px;
 }
 .single-place-item .place-content .info .meta span a {
-  font: 500 16px "Prompt", sans-serif;
+  font: 500 16px "Roboto Slab", serif;
 }
 .single-place-item .place-content .info .meta span a i {
   margin-right: 0;
@@ -3307,15 +3717,25 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.75)));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0)),
+    to(rgba(0, 0, 0, 0.75))
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   border-radius: 12px;
 }
 .single-place-item-two .place-img .tour-count {
   position: absolute;
   top: 20px;
   right: 20px;
-  font: 500 14px "Prompt", sans-serif;
+  font: 500 14px "Roboto Slab", serif;
   padding: 5px 10px;
   border-radius: 5px;
   line-height: 18px;
@@ -3326,19 +3746,29 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.75)));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0)),
+    to(rgba(0, 0, 0, 0.75))
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   border-radius: 12px;
   padding: 25px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
 .single-place-item-two .place-img .place-content .info p.price {
-  font: 600 16px "Prompt", sans-serif;
+  font: 600 16px "Roboto Slab", serif;
 }
 
 .single-place-item-three {
@@ -3349,7 +3779,7 @@ button {
 }
 .single-place-item-three:hover {
   -webkit-box-shadow: 0px 10px 60px 30px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 10px 60px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 10px 60px 30px rgba(0, 0, 0, 0.05);
 }
 .single-place-item-three .place-img img {
   width: 100%;
@@ -3359,7 +3789,7 @@ button {
   padding: 20px;
 }
 .single-place-item-three .place-content h4.title {
-  font: 500 20px "Prompt", sans-serif;
+  font: 500 20px "Roboto Slab", serif;
   line-height: 26px;
   margin-bottom: 5px;
 }
@@ -3376,8 +3806,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .single-place-item-three .place-content .meta span i {
   margin-right: 5px;
@@ -3406,20 +3836,20 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 @media (max-width: 1199px) {
   .tour-title-wrapper .tour-widget-info {
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
   }
 }
 @media (max-width: 767px) {
   .tour-title-wrapper .tour-widget-info {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 .tour-title-wrapper .tour-widget-info .info-box {
@@ -3437,8 +3867,8 @@ button {
 }
 .tour-title-wrapper .tour-widget-info .info-box .icon {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 45px;
   margin-right: 20px;
   font-size: 50px;
@@ -3461,14 +3891,14 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 @media (max-width: 767px) {
   .tour-area-nav .share-nav {
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     margin-top: 20px;
   }
 }
@@ -3476,7 +3906,7 @@ button {
   padding: 14px 30px;
   background-color: rgba(29, 35, 31, 0.1);
   border-radius: 40px;
-  font: 600 14px "Prompt", sans-serif;
+  font: 600 14px "Roboto Slab", serif;
   text-transform: uppercase;
   line-height: 21px;
 }
@@ -3493,7 +3923,7 @@ button {
 }
 
 .tour-details-wrapper .place-content-wrap h3.title {
-  font: 500 38px "Prompt", sans-serif;
+  font: 500 38px "Roboto Slab", serif;
   margin-bottom: 15px;
 }
 @media (max-width: 767px) {
@@ -3506,7 +3936,7 @@ button {
   margin-bottom: 45px;
 }
 .tour-details-wrapper .place-content-wrap h4 {
-  font: 500 27px "Prompt", sans-serif;
+  font: 500 27px "Roboto Slab", serif;
   margin-bottom: 5px;
 }
 .tour-details-wrapper .place-content-wrap .check-list {
@@ -3526,11 +3956,11 @@ button {
   border-radius: 7px;
   border-bottom: none;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 .days-area .nav-tabs .nav-link {
-  font: 500 18px "Prompt", sans-serif;
+  font: 500 18px "Roboto Slab", serif;
   border: none;
   background-color: transparent;
   color: #919191;
@@ -3555,7 +3985,7 @@ button {
   margin-bottom: 10px;
 }
 .destination-details-wrapper .destination-info .meta span {
-  font: 400 18px "Prompt", sans-serif;
+  font: 400 18px "Roboto Slab", serif;
   margin-bottom: 10px;
 }
 .destination-details-wrapper .destination-info .meta span:not(:first-child) {
@@ -3569,8 +3999,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 7px;
 }
 .destination-details-wrapper .destination-info .meta span .ratings li i {
@@ -3590,19 +4020,22 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .destination-details-wrapper .destination-info .features-list li {
   margin-bottom: 20px;
 }
-.destination-details-wrapper .destination-info .features-list li:not(:last-child) {
+.destination-details-wrapper
+  .destination-info
+  .features-list
+  li:not(:last-child) {
   margin-right: 20px;
 }
 .destination-details-wrapper .destination-info .features-list li span {
   padding: 15px 20px;
-  font: 500 18px "Prompt", sans-serif;
+  font: 500 18px "Roboto Slab", serif;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
 .destination-details-wrapper .destination-info .features-list li span i {
@@ -3617,16 +4050,16 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .quote-rating-box .icon {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 87px;
   -webkit-margin-end: 40px;
-          margin-inline-end: 40px;
+  margin-inline-end: 40px;
 }
 .quote-rating-box .ratings-box h4 {
   margin-bottom: 6px;
@@ -3647,16 +4080,16 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .author-thumb-title .author-thumb {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 80px;
   -webkit-margin-end: 20px;
-          margin-inline-end: 20px;
+  margin-inline-end: 20px;
 }
 .author-thumb-title .author-thumb img {
   width: 100%;
@@ -3681,7 +4114,7 @@ button {
   margin-bottom: 30px;
 }
 .gw-testimonial-item .testimonial-inner-content > p {
-  font: 400 33px "Prompt", sans-serif;
+  font: 400 33px "Roboto Slab", serif;
   line-height: 46px;
   margin-bottom: 35px;
 }
@@ -3700,7 +4133,7 @@ button {
   margin-bottom: 30px;
 }
 .gw-testimonial-item-two .testimonial-inner-content > p {
-  font: 400 18px "Prompt", sans-serif;
+  font: 400 18px "Roboto Slab", serif;
   line-height: 30px;
   margin-bottom: 25px;
 }
@@ -3748,18 +4181,18 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media (max-width: 767px) {
   .page-item-filter .product-dropdown {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 .page-item-filter .product-dropdown span.title {
-  font: 400 18px "Prompt", sans-serif;
+  font: 400 18px "Roboto Slab", serif;
   color: #000;
   margin-right: 15px;
   margin-bottom: 20px;
@@ -3770,7 +4203,7 @@ button {
   padding: 11px 20px;
   line-height: 24px;
   border-radius: 22px;
-  font: 300 14px "Prompt", sans-serif;
+  font: 300 14px "Roboto Slab", serif;
   margin-bottom: 20px;
 }
 .page-item-filter .product-dropdown .nice-select:after {
@@ -3804,11 +4237,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 30px;
   visibility: hidden;
   opacity: 0;
@@ -3826,7 +4259,7 @@ button {
   z-index: 1;
 }
 .single-product-item .img-holder .tag span {
-  font: 500 14px "Prompt", sans-serif;
+  font: 500 14px "Roboto Slab", serif;
   padding: 5px 10px;
   border-radius: 5px;
   line-height: 18px;
@@ -3905,7 +4338,7 @@ button {
   margin-bottom: 10px;
 }
 .product-details-wrapper .product-info span.price {
-  font: 600 20px "Prompt", sans-serif;
+  font: 600 20px "Roboto Slab", serif;
   margin-bottom: 20px;
 }
 .product-details-wrapper .product-info P {
@@ -3917,7 +4350,7 @@ button {
 }
 .product-details-wrapper .product-info .product-cart ul li .quantity-input {
   -webkit-margin-end: 15px;
-          margin-inline-end: 15px;
+  margin-inline-end: 15px;
 }
 .product-details-wrapper .product-info .product-meta {
   border-bottom: 1px solid rgba(11, 61, 44, 0.1);
@@ -3927,11 +4360,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .product-details-wrapper .product-info .product-meta li span {
-  font: 600 16px "Prompt", sans-serif;
+  font: 600 16px "Roboto Slab", serif;
   width: 30%;
 }
 .product-details-wrapper .product-info .product-meta li a {
@@ -3942,14 +4375,14 @@ button {
   display: inline-block;
   content: ":";
   -webkit-margin-end: 10px;
-          margin-inline-end: 10px;
+  margin-inline-end: 10px;
   -webkit-margin-start: 10px;
-          margin-inline-start: 10px;
+  margin-inline-start: 10px;
 }
 .product-details-wrapper .product-info ul.social-link li span {
-  font: 600 16px "Prompt", sans-serif;
+  font: 600 16px "Roboto Slab", serif;
   -webkit-margin-end: 25px;
-          margin-inline-end: 25px;
+  margin-inline-end: 25px;
 }
 .product-details-wrapper .product-info ul.social-link li a {
   width: 40px;
@@ -3958,7 +4391,7 @@ button {
   background-color: rgba(247, 146, 30, 0.1);
   font-size: 14px;
   -webkit-margin-end: 5px;
-          margin-inline-end: 5px;
+  margin-inline-end: 5px;
 }
 /*--==== Description Tabs ====--*/
 .description-tabs ul.nav .nav-item:first-child .nav-link {
@@ -3967,7 +4400,7 @@ button {
 .description-tabs .nav-link {
   position: relative;
   padding: 0 30px 20px;
-  font: 400 18px "Prompt", sans-serif;
+  font: 400 18px "Roboto Slab", serif;
   border-bottom: 2px solid transparent;
   margin-bottom: 20px;
   color: #484848;
@@ -3978,8 +4411,9 @@ button {
     font-size: 16px;
   }
 }
-.description-tabs .nav-link:hover, .description-tabs .nav-link.active {
-  border-color: #0074a0;
+.description-tabs .nav-link:hover,
+.description-tabs .nav-link.active {
+  border-color: #004aad;
 }
 
 /*--==== Description Wrapper ====--*/
@@ -4013,7 +4447,7 @@ button {
 }
 .review-form-area P img {
   -webkit-margin-start: 10px;
-          margin-inline-start: 10px;
+  margin-inline-start: 10px;
 }
 
 .review-form .form_control {
@@ -4042,8 +4476,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .quantity-input button {
   width: 60px;
@@ -4062,7 +4496,7 @@ button {
     15. Blog css 
 =================----*/
 .cat-btn {
-  font: 500 18px "Prompt", sans-serif;
+  font: 500 18px "Roboto Slab", serif;
   line-height: 28px;
   padding: 6px 20px;
 }
@@ -4098,18 +4532,18 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media (max-width: 767px) {
   .single-blog-post-two {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
   }
 }
 .single-blog-post-two:not(:last-child) {
@@ -4119,8 +4553,8 @@ button {
 .single-blog-post-two .post-thumbnail {
   width: 270px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   margin-right: 30px;
 }
 .single-blog-post-two .post-thumbnail img {
@@ -4157,25 +4591,25 @@ button {
 .single-blog-post-four {
   padding: 15px;
   -webkit-box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
   border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media (max-width: 767px) {
   .single-blog-post-four {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 .single-blog-post-four .post-thumbnail {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 50%;
 }
 .single-blog-post-four .post-thumbnail img {
@@ -4191,8 +4625,8 @@ button {
 .single-blog-post-four .entry-content {
   padding-left: 50px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 49%;
 }
 @media (max-width: 767px) {
@@ -4226,10 +4660,10 @@ button {
   }
 }
 .single-blog-post-four .entry-content .post-meta span:hover a {
-  color: #0074a0;
+  color: #004aad;
 }
 .single-blog-post-four .entry-content h6.author {
-  font: 400 18px "Prompt", sans-serif;
+  font: 400 18px "Roboto Slab", serif;
   color: #484848;
   margin-bottom: 33px;
 }
@@ -4246,11 +4680,11 @@ button {
 .blog-post .post-meta span {
   margin-left: 20px;
   margin-right: 20px;
-  font: 400 16px "Prompt", sans-serif;
+  font: 400 16px "Roboto Slab", serif;
   text-transform: uppercase;
 }
 .blog-post .post-meta span:hover a {
-  color: #0074a0;
+  color: #004aad;
 }
 @media (max-width: 767px) {
   .blog-post .post-meta span {
@@ -4313,16 +4747,16 @@ button {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font: 4600 18px "Prompt", sans-serif;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 4600 18px "Roboto Slab", serif;
 }
 .blog-post .entry-content .block-quote span:before {
   content: "";
   width: 73px;
   height: 2px;
   -webkit-margin-end: 15px;
-          margin-inline-end: 15px;
+  margin-inline-end: 15px;
 }
 .blog-post .entry-footer {
   padding-top: 40px;
@@ -4331,19 +4765,19 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 @media (max-width: 1199px) {
   .blog-post .entry-footer {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 .blog-post .entry-footer .tag-links {
@@ -4351,16 +4785,16 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media (max-width: 575px) {
   .blog-post .entry-footer .tag-links {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 .blog-post .entry-footer .tag-links h6 {
@@ -4375,12 +4809,12 @@ button {
 }
 .blog-post .entry-footer .tag-links a {
   padding: 7px 20px;
-  font: 600 14px "Prompt", sans-serif;
+  font: 600 14px "Roboto Slab", serif;
   line-height: 1.2;
   border: 1px solid rgba(11, 61, 44, 0.1);
   border-radius: 5px;
   -webkit-margin-end: 10px;
-          margin-inline-end: 10px;
+  margin-inline-end: 10px;
   margin-bottom: 10px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
@@ -4396,8 +4830,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media (max-width: 1199px) {
   .blog-post .entry-footer .social-share {
@@ -4406,13 +4840,13 @@ button {
 }
 .blog-post .entry-footer .social-share h6 {
   -webkit-margin-end: 15px;
-          margin-inline-end: 15px;
+  margin-inline-end: 15px;
   font-size: 16px;
   margin-bottom: 10px;
 }
 .blog-post .entry-footer .social-share a {
   -webkit-margin-end: 20px;
-          margin-inline-end: 20px;
+  margin-inline-end: 20px;
   margin-bottom: 10px;
 }
 /* Post Author Box */
@@ -4421,7 +4855,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
   border-radius: 12px;
   padding: 40px;
 }
@@ -4429,17 +4863,17 @@ button {
   .post-author-box {
     padding: 40px 30px;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 .post-author-box .author-thumb {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 190px;
   height: 160px;
   -webkit-margin-end: 50px;
-          margin-inline-end: 50px;
+  margin-inline-end: 50px;
 }
 .post-author-box .author-thumb img {
   border-radius: 7px;
@@ -4457,7 +4891,7 @@ button {
 }
 .post-author-box .author-content ul.social-link li {
   -webkit-margin-end: 10px;
-          margin-inline-end: 10px;
+  margin-inline-end: 10px;
 }
 /* Post Navigation Item */
 .post-navigation-item {
@@ -4465,45 +4899,45 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 @media (max-width: 1199px) {
   .post-navigation-item {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .post-navigation-item {
     -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 }
 .post-navigation-item .post-nav-item {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   max-width: 370px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .post-navigation-item .post-nav-item {
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .post-navigation-item .post-nav-item {
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
   }
 }
 .post-navigation-item .post-nav-item .thumb {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 130px;
   height: 130px;
   margin-right: 30px;
@@ -4546,7 +4980,7 @@ button {
 }
 .post-navigation-item .post-nav-item .content span.post-date a i {
   -webkit-margin-end: 7px;
-          margin-inline-end: 7px;
+  margin-inline-end: 7px;
 }
 
 /* Comments Area */
@@ -4562,8 +4996,8 @@ button {
 }
 .comments-area .comment .comment-avatar {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 100px;
   height: 100px;
   margin-right: 40px;
@@ -4584,23 +5018,44 @@ button {
 }
 .comments-area .comment .comment-wrap .comment-author-content span.author-name {
   display: block;
-  font: 500 22px "Prompt", sans-serif;
+  font: 500 22px "Roboto Slab", serif;
   margin-bottom: 2px;
 }
-.comments-area .comment .comment-wrap .comment-author-content span.author-name span.date {
+.comments-area
+  .comment
+  .comment-wrap
+  .comment-author-content
+  span.author-name
+  span.date {
   display: block;
-  font: 300 16px "Prompt", sans-serif;
+  font: 300 16px "Roboto Slab", serif;
   margin-bottom: 6px;
 }
-.comments-area .comment .comment-wrap .comment-author-content span.author-name span.time {
+.comments-area
+  .comment
+  .comment-wrap
+  .comment-author-content
+  span.author-name
+  span.time {
   float: right;
-  font: 300 16px "Prompt", sans-serif;
+  font: 300 16px "Roboto Slab", serif;
 }
-.comments-area .comment .comment-wrap .comment-author-content span.author-name span.time i {
+.comments-area
+  .comment
+  .comment-wrap
+  .comment-author-content
+  span.author-name
+  span.time
+  i {
   margin-right: 5px;
 }
 @media (max-width: 767px) {
-  .comments-area .comment .comment-wrap .comment-author-content span.author-name span.time {
+  .comments-area
+    .comment
+    .comment-wrap
+    .comment-author-content
+    span.author-name
+    span.time {
     float: left;
     margin-bottom: 10px;
   }
@@ -4627,8 +5082,8 @@ button {
   margin-right: 30px;
 }
 .comment-rating-ul li span.title {
-  color: #A5A5A5;
-  font: 400 14px "Prompt", sans-serif;
+  color: #a5a5a5;
+  font: 400 14px "Roboto Slab", serif;
   display: block;
   line-height: 20px;
 }
@@ -4669,19 +5124,19 @@ form.comment-form .form_control {
   transition: all 0.3s ease-out 0s;
 }
 form.comment-form .form_control.placeholder {
-  color: #1C231F;
+  color: #1c231f;
 }
 form.comment-form .form_control:-moz-placeholder {
-  color: #1C231F;
+  color: #1c231f;
 }
 form.comment-form .form_control::-moz-placeholder {
-  color: #1C231F;
+  color: #1c231f;
 }
 form.comment-form .form_control::-webkit-input-placeholder {
-  color: #1C231F;
+  color: #1c231f;
 }
 form.comment-form .form_control:focus {
-  border-color: #1C231F;
+  border-color: #1c231f;
 }
 
 /* Sidebar Widget Area */
@@ -4689,7 +5144,7 @@ form.comment-form .form_control:focus {
   padding: 35px 40px 40px;
   border-radius: 7px;
   -webkit-box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .sidebar-widget-area .sidebar-widget {
@@ -4710,7 +5165,7 @@ form.comment-form .form_control:focus {
 }
 .sidebar-widget-area .search-widget {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .sidebar-widget-area .search-widget h4.widget-title {
   margin-bottom: 17px;
@@ -4726,7 +5181,7 @@ form.comment-form .form_control:focus {
 .sidebar-widget-area .search-widget form .form_control {
   border-radius: 7px;
   -webkit-box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
   padding: 20px 25px;
   line-height: 25px;
 }
@@ -4742,125 +5197,201 @@ form.comment-form .form_control:focus {
   margin-bottom: 22px;
 }
 .sidebar-widget-area .category-widget ul.category-nav li a {
-  font: 500 18px "Prompt", sans-serif;
+  font: 500 18px "Roboto Slab", serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .sidebar-widget-area .category-widget ul.category-nav li a:hover {
-  border-color: #0074a0;
+  border-color: #004aad;
 }
 .sidebar-widget-area .category-widget ul.category-nav li a i {
   -webkit-margin-start: auto;
-          margin-inline-start: auto;
+  margin-inline-start: auto;
 }
-.sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content {
+.sidebar-widget-area
+  .recent-post-widget
+  .recent-post-list
+  .post-thumbnail-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media (max-width: 575px) {
-  .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content {
+  .sidebar-widget-area
+    .recent-post-widget
+    .recent-post-list
+    .post-thumbnail-content {
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
   }
 }
-.sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content:not(:last-child) {
+.sidebar-widget-area
+  .recent-post-widget
+  .recent-post-list
+  .post-thumbnail-content:not(:last-child) {
   margin-bottom: 40px;
   border-bottom: 1px solid rgba(28, 35, 31, 0.1);
   padding-bottom: 40px;
 }
-.sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content img {
+.sidebar-widget-area
+  .recent-post-widget
+  .recent-post-list
+  .post-thumbnail-content
+  img {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 130px;
-          flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
   max-width: 130px;
   height: 130px;
   border-radius: 7px;
   margin-right: 30px;
 }
 @media (max-width: 575px) {
-  .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content img {
+  .sidebar-widget-area
+    .recent-post-widget
+    .recent-post-list
+    .post-thumbnail-content
+    img {
     max-width: 80px;
     height: 80px;
     margin-right: 20px;
   }
 }
-.sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date span.posted-on {
+.sidebar-widget-area
+  .recent-post-widget
+  .recent-post-list
+  .post-thumbnail-content
+  .post-title-date
+  span.posted-on {
   line-height: 130%;
   font-weight: 300;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date span.posted-on {
+  .sidebar-widget-area
+    .recent-post-widget
+    .recent-post-list
+    .post-thumbnail-content
+    .post-title-date
+    span.posted-on {
     font-size: 14px;
   }
 }
 @media (max-width: 575px) {
-  .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date span.posted-on {
+  .sidebar-widget-area
+    .recent-post-widget
+    .recent-post-list
+    .post-thumbnail-content
+    .post-title-date
+    span.posted-on {
     font-size: 14px;
   }
 }
-.sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date span.posted-on i {
+.sidebar-widget-area
+  .recent-post-widget
+  .recent-post-list
+  .post-thumbnail-content
+  .post-title-date
+  span.posted-on
+  i {
   -webkit-margin-end: 10px;
-          margin-inline-end: 10px;
+  margin-inline-end: 10px;
 }
-.sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date h5 {
-  font: 500 18px "Prompt", sans-serif;
+.sidebar-widget-area
+  .recent-post-widget
+  .recent-post-list
+  .post-thumbnail-content
+  .post-title-date
+  h5 {
+  font: 500 18px "Roboto Slab", serif;
   line-height: 120%;
   padding-bottom: 13px;
   margin-bottom: 10px;
   border-bottom: 1px solid rgba(28, 35, 31, 0.1);
 }
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date h5 {
+  .sidebar-widget-area
+    .recent-post-widget
+    .recent-post-list
+    .post-thumbnail-content
+    .post-title-date
+    h5 {
     font-size: 16px;
   }
 }
 @media (max-width: 575px) {
-  .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date h5 {
+  .sidebar-widget-area
+    .recent-post-widget
+    .recent-post-list
+    .post-thumbnail-content
+    .post-title-date
+    h5 {
     font-size: 16px;
   }
 }
 .sidebar-widget-area .sidebar-banner-widget {
   padding: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .sidebar-widget-area .sidebar-banner-widget .banner-widget-content .banner-img {
   position: relative;
   border-radius: 7px;
   overflow: hidden;
 }
-.sidebar-widget-area .sidebar-banner-widget .banner-widget-content .banner-img img {
+.sidebar-widget-area
+  .sidebar-banner-widget
+  .banner-widget-content
+  .banner-img
+  img {
   width: 100%;
 }
-.sidebar-widget-area .sidebar-banner-widget .banner-widget-content .banner-img .hover-overlay {
+.sidebar-widget-area
+  .sidebar-banner-widget
+  .banner-widget-content
+  .banner-img
+  .hover-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(176.84deg, rgba(0, 0, 0, 0) 2.33%, rgba(0, 0, 0, 0.75) 97.38%);
+  background: linear-gradient(
+    176.84deg,
+    rgba(0, 0, 0, 0) 2.33%,
+    rgba(0, 0, 0, 0.75) 97.38%
+  );
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   padding: 30px 35px 22px;
 }
-.sidebar-widget-area .sidebar-banner-widget .banner-widget-content .banner-img .hover-content h4.title {
+.sidebar-widget-area
+  .sidebar-banner-widget
+  .banner-widget-content
+  .banner-img
+  .hover-content
+  h4.title {
   font-size: 27px;
   margin-bottom: 8px;
 }
-.sidebar-widget-area .sidebar-banner-widget .banner-widget-content .banner-img .hover-content p i {
+.sidebar-widget-area
+  .sidebar-banner-widget
+  .banner-widget-content
+  .banner-img
+  .hover-content
+  p
+  i {
   font-size: 20px;
   margin-right: 10px;
 }
@@ -4872,9 +5403,9 @@ form.comment-form .form_control:focus {
 }
 .sidebar-widget-area .tag-cloud-widget a {
   padding: 10px 26px;
-  font: 500 16px "Prompt", sans-serif;
+  font: 500 16px "Roboto Slab", serif;
   -webkit-box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
-          box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 7px 60px rgba(0, 0, 0, 0.07);
   border-radius: 5px;
   margin-bottom: 10px;
   line-height: 19px;
@@ -4904,7 +5435,7 @@ form.comment-form .form_control:focus {
   width: 100%;
   height: 70%;
   -webkit-clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0% 100%);
-          clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0% 100%);
   background-color: rgba(99, 171, 69, 0.1);
   z-index: -1;
 }
@@ -4919,17 +5450,21 @@ form.comment-form .form_control:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: 1px solid rgba(29, 35, 31, 0.1);
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-item label {
-  font: 500 16px "Prompt", sans-serif;
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-item
+  label {
+  font: 500 16px "Roboto Slab", serif;
 }
 .sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item {
   position: relative;
@@ -4940,44 +5475,79 @@ form.comment-form .form_control:focus {
   left: 10px;
   z-index: 2;
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item .nice-select, .sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item input {
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .bk-item
+  .nice-select,
+.sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item input {
   width: 150px;
   line-height: 20px;
   padding: 10px 10px 10px 35px;
   border: 1px solid rgba(29, 35, 31, 0.2);
   border-radius: 7px;
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item .nice-select:after {
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .bk-item
+  .nice-select:after {
   right: 10px;
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .bk-item.booking-user .nice-select {
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .bk-item.booking-user
+  .nice-select {
   width: 100px;
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-extra .extra {
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-extra
+  .extra {
   padding: 10px 0;
   border-bottom: 1px solid rgba(29, 35, 31, 0.2);
-  font: 500 16px "Prompt", sans-serif;
+  font: 500 16px "Roboto Slab", serif;
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-extra .extra i {
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-extra
+  .extra
+  i {
   margin-right: 10px;
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-extra .extra span {
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-extra
+  .extra
+  span {
   float: right;
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .booking-total .total {
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .booking-total
+  .total {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font: 500 16px "Prompt", sans-serif;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font: 500 16px "Roboto Slab", serif;
 }
-.sidebar-widget-area .booking-form-widget .sidebar-booking-form .submit-button .main-btn {
+.sidebar-widget-area
+  .booking-form-widget
+  .sidebar-booking-form
+  .submit-button
+  .main-btn {
   width: 100%;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 .sidebar-widget-area .booking-info-widget {
   padding: 35px 40px 30px;
@@ -4988,7 +5558,7 @@ form.comment-form .form_control:focus {
   border-bottom: 1px solid rgba(29, 35, 31, 0.1);
 }
 .sidebar-widget-area .booking-info-widget ul.info-list li span {
-  font: 300 18px "Prompt", sans-serif;
+  font: 300 18px "Roboto Slab", serif;
   display: block;
 }
 .sidebar-widget-area .booking-info-widget ul.info-list li span i {
@@ -4998,32 +5568,59 @@ form.comment-form .form_control:focus {
   font-weight: 500;
   float: right;
 }
-.sidebar-widget-area .recent-place-widget .recent-place-list .place-thumbnail-content {
+.sidebar-widget-area
+  .recent-place-widget
+  .recent-place-list
+  .place-thumbnail-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.sidebar-widget-area .recent-place-widget .recent-place-list .place-thumbnail-content:not(:last-child) {
+.sidebar-widget-area
+  .recent-place-widget
+  .recent-place-list
+  .place-thumbnail-content:not(:last-child) {
   padding-bottom: 30px;
   border-bottom: 1px solid rgba(29, 35, 31, 0.1);
   margin-bottom: 30px;
 }
-.sidebar-widget-area .recent-place-widget .recent-place-list .place-thumbnail-content img {
+.sidebar-widget-area
+  .recent-place-widget
+  .recent-place-list
+  .place-thumbnail-content
+  img {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 100px;
   border-radius: 7px;
   margin-right: 25px;
 }
-.sidebar-widget-area .recent-place-widget .recent-place-list .place-thumbnail-content .place-content ul.ratings li {
+.sidebar-widget-area
+  .recent-place-widget
+  .recent-place-list
+  .place-thumbnail-content
+  .place-content
+  ul.ratings
+  li {
   font-size: 12px;
 }
-.sidebar-widget-area .recent-place-widget .recent-place-list .place-thumbnail-content .place-content span.price {
-  font: 500 14px "Prompt", sans-serif;
+.sidebar-widget-area
+  .recent-place-widget
+  .recent-place-list
+  .place-thumbnail-content
+  .place-content
+  span.price {
+  font: 500 14px "Roboto Slab", serif;
 }
-.sidebar-widget-area .recent-place-widget .recent-place-list .place-thumbnail-content .place-content span.price .text {
-  font: 300 14px "Prompt", sans-serif;
+.sidebar-widget-area
+  .recent-place-widget
+  .recent-place-list
+  .place-thumbnail-content
+  .place-content
+  span.price
+  .text {
+  font: 300 14px "Roboto Slab", serif;
   margin-right: 10px;
   color: #868686;
 }
@@ -5084,20 +5681,22 @@ form.comment-form .form_control:focus {
 /*---==================
     17. Footer css 
 =================----*/
-.black-bg .footer-copyright, .black-bg .footer-widget {
-  color: #E1E1E1;
+.black-bg .footer-copyright,
+.black-bg .footer-widget {
+  color: #e1e1e1;
 }
 .black-bg .footer-top .social-box ul.social-link li a {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #B1B6B3;
+  color: #b1b6b3;
 }
 .black-bg .single-info-item .info p {
-  color: #E1E1E1;
+  color: #e1e1e1;
 }
 .black-bg .footer-cta {
   border-color: rgba(217, 217, 217, 0.1);
 }
-.black-bg .footer-top, .black-bg .footer-copyright {
+.black-bg .footer-top,
+.black-bg .footer-copyright {
   border-color: rgba(217, 217, 217, 0.1);
 }
 
@@ -5135,7 +5734,7 @@ form.comment-form .form_control:focus {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 20px;
 }
 .service-nav-widget .footer-content .footer-widget-nav {
@@ -5149,19 +5748,22 @@ form.comment-form .form_control:focus {
   border-radius: 7px;
   font-weight: 400;
   -webkit-box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
 }
 .footer-newsletter-widget .footer-content form .form_control.placeholder {
-  color: #1C231F;
+  color: #1c231f;
 }
 .footer-newsletter-widget .footer-content form .form_control:-moz-placeholder {
-  color: #1C231F;
+  color: #1c231f;
 }
 .footer-newsletter-widget .footer-content form .form_control::-moz-placeholder {
-  color: #1C231F;
+  color: #1c231f;
 }
-.footer-newsletter-widget .footer-content form .form_control::-webkit-input-placeholder {
-  color: #1C231F;
+.footer-newsletter-widget
+  .footer-content
+  form
+  .form_control::-webkit-input-placeholder {
+  color: #1c231f;
 }
 .footer-newsletter-widget .footer-content form label {
   position: absolute;
@@ -5224,7 +5826,7 @@ ul.slick-dots li button::before {
   opacity: 1 !important;
 }
 ul.slick-dots li.slick-active button {
-  border-color: #0074a0;
+  border-color: #004aad;
 }
 
 /* Hero Slider One */
@@ -5403,7 +6005,7 @@ ul.slick-dots li.slick-active button {
   padding: 40px 45px 34px;
   border-radius: 10px;
   -webkit-box-shadow: 0px 10px 60px rgba(28, 35, 31, 0.07);
-          box-shadow: 0px 10px 60px rgba(28, 35, 31, 0.07);
+  box-shadow: 0px 10px 60px rgba(28, 35, 31, 0.07);
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -5412,8 +6014,8 @@ ul.slick-dots li.slick-active button {
   .skill-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
 }
 @media (max-width: 1199px) {
@@ -5442,13 +6044,13 @@ ul.slick-dots li.slick-active button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media (max-width: 767px) {
   .reviews-wrapper .reviews-inner-box {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 .reviews-wrapper .reviews-inner-box .rating-value {
@@ -5463,7 +6065,7 @@ ul.slick-dots li.slick-active button {
   }
 }
 .reviews-wrapper .reviews-inner-box .rating-value .rate-score {
-  font: 500 130px "Prompt", sans-serif;
+  font: 500 130px "Roboto Slab", serif;
   line-height: 1;
 }
 .reviews-wrapper .reviews-inner-box .rating-value .ratings {
@@ -5484,9 +6086,12 @@ ul.slick-dots li.slick-active button {
     width: 100%;
   }
 }
-.reviews-wrapper .reviews-inner-box .reviews-progress .single-progress-bar:not(:last-child) {
+.reviews-wrapper
+  .reviews-inner-box
+  .reviews-progress
+  .single-progress-bar:not(:last-child) {
   margin-bottom: 38px;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
 
 .dropdown {
   position: relative;
@@ -5497,7 +6102,7 @@ ul.slick-dots li.slick-active button {
 .dropdownContent {
   display: none;
   position: absolute;
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
   box-shadow: 0 30px 70px 0 rgba(137, 139, 142, 0.15);
   padding: 15px 0px;
   z-index: 1;
@@ -5507,21 +6112,21 @@ ul.slick-dots li.slick-active button {
 .dropdown:hover .dropdownContent {
   display: block;
 }
-.engLang{
+.engLang {
   margin-left: 20px;
   margin-right: 20px;
   padding-bottom: 3px;
   border-bottom: 1px solid #ececec;
 }
-.engLang:hover{
-  color: #0074a0;    
+.engLang:hover {
+  color: #004aad;
 }
-.mnLang{
+.mnLang {
   margin-left: 20px;
   margin-right: 20px;
   padding-top: 5px;
-  padding-bottom: 3px; 
+  padding-bottom: 3px;
 }
-.mnLang:hover{
-  color: #0074a0;    
+.mnLang:hover {
+  color: #004aad;
 }

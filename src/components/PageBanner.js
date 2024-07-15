@@ -1,10 +1,13 @@
 import Link from "next/link";
+import MainContext from "./context/mainContext/mainContext";
+import { useContext } from "react";
 
 const PageBanner = ({ pageTitle }) => {
+  const mainContext = useContext(MainContext);
   return (
     <section
       className="page-banner overlay pt-170 pb-220 bg_cover"
-      style={{ backgroundImage: "url(assets/images/bg/page-bg.jpg)" }}
+      style={{ backgroundImage: "url(assets/images/hero/bus8.jpg)" }}
     >
       <div className="container">
         <div className="row justify-content-center">
@@ -13,7 +16,9 @@ const PageBanner = ({ pageTitle }) => {
               <h1 className="page-title">{pageTitle}</h1>
               <ul className="breadcrumb-link text-white">
                 <li>
-                  <Link href="/">Home</Link>
+                  <Link href="/index-4">
+                    {mainContext.language.header.home}
+                  </Link>
                 </li>
                 <li className="active">{pageTitle}</li>
               </ul>

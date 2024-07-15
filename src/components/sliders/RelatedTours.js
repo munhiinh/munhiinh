@@ -21,7 +21,7 @@ export default class RelatedTours extends Component {
         <div className="row">
           <div className="col-md-8">
             <div className="section-title mb-35">
-              <h3>Related Tours</h3>
+              <h3>Related bus</h3>
             </div>
           </div>
           <div className="col-md-4">
@@ -43,7 +43,11 @@ export default class RelatedTours extends Component {
           {/*=== Single Place Item ===*/}
           <div className="single-place-item mb-60">
             <div className="place-img">
-              <img src="assets/images/place/place-1.jpg" alt="Place Image" />
+              <img
+                src="assets/images/hero/bus2.png"
+                alt="Place Image"
+                className=" bg-info-subtle"
+              />
             </div>
             <div className="place-content">
               <div className="info">
@@ -68,17 +72,22 @@ export default class RelatedTours extends Component {
                   </li>
                 </ul>
                 <h4 className="title">
-                  <Link legacyBehavior href="/tour-details">
+                  <Link legacyBehavior href="/bus-details">
                     <a>Man and Woman Walks on Dock</a>
                   </Link>
                 </h4>
-                <p className="location">
-                  <i className="fas fa-map-marker-alt" />
-                  North Province, Maldives
+                <p className="location fw-normal">
+                  <i className="fas fa-tv" />
+                  television
                 </p>
-                <p className="price">
-                  <i className="fas fa-usd-circle" />
-                  Price<span className="currency">$</span>93.65
+
+                <p className="location fw-normal">
+                  <i className="fas fa-wifi" />
+                  Free wifi
+                </p>
+                <p className="location fw-normal ">
+                  <i className="fas fa-microphone fs-5 " />
+                  Karaoke
                 </p>
                 <div className="meta">
                   <span>
@@ -101,10 +110,15 @@ export default class RelatedTours extends Component {
               </div>
             </div>
           </div>
+
           {/*=== Single Place Item ===*/}
           <div className="single-place-item mb-60">
             <div className="place-img">
-              <img src="assets/images/place/place-2.jpg" alt="Place Image" />
+              <img
+                src="assets/images/hero/bus2.png"
+                alt="Place Image"
+                className=" bg-info-subtle"
+              />
             </div>
             <div className="place-content">
               <div className="info">
@@ -129,17 +143,22 @@ export default class RelatedTours extends Component {
                   </li>
                 </ul>
                 <h4 className="title">
-                  <Link legacyBehavior href="/tour-details">
-                    <a>Trees Under White Clouds during Daytime</a>
+                  <Link legacyBehavior href="/bus-details">
+                    <a>Man and Woman Walks on Dock</a>
                   </Link>
                 </h4>
-                <p className="location">
-                  <i className="fas fa-map-marker-alt" />
-                  North Province, Maldives
+                <p className="location fw-normal">
+                  <i className="fas fa-tv" />
+                  television
                 </p>
-                <p className="price">
-                  <i className="fas fa-usd-circle" />
-                  Price<span className="currency">$</span>93.65
+
+                <p className="location fw-normal">
+                  <i className="fas fa-wifi" />
+                  Free wifi
+                </p>
+                <p className="location fw-normal ">
+                  <i className="fas fa-microphone fs-5 " />
+                  Karaoke
                 </p>
                 <div className="meta">
                   <span>
@@ -162,10 +181,15 @@ export default class RelatedTours extends Component {
               </div>
             </div>
           </div>
+
           {/*=== Single Place Item ===*/}
           <div className="single-place-item mb-60">
             <div className="place-img">
-              <img src="assets/images/place/place-3.jpg" alt="Place Image" />
+              <img
+                src="assets/images/hero/bus2.png"
+                alt="Place Image"
+                className=" bg-info-subtle"
+              />
             </div>
             <div className="place-content">
               <div className="info">
@@ -190,17 +214,22 @@ export default class RelatedTours extends Component {
                   </li>
                 </ul>
                 <h4 className="title">
-                  <Link legacyBehavior href="/tour-details">
-                    <a>Body of Water Near Mountain</a>
+                  <Link legacyBehavior href="/bus-details">
+                    <a>Man and Woman Walks on Dock</a>
                   </Link>
                 </h4>
-                <p className="location">
-                  <i className="fas fa-map-marker-alt" />
-                  North Province, Maldives
+                <p className="location fw-normal">
+                  <i className="fas fa-tv" />
+                  television
                 </p>
-                <p className="price">
-                  <i className="fas fa-usd-circle" />
-                  Price<span className="currency">$</span>93.65
+
+                <p className="location fw-normal">
+                  <i className="fas fa-wifi" />
+                  Free wifi
+                </p>
+                <p className="location fw-normal ">
+                  <i className="fas fa-microphone fs-5 " />
+                  Karaoke
                 </p>
                 <div className="meta">
                   <span>

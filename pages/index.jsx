@@ -16,30 +16,31 @@ const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
 });
 
-
 const Index = () => {
   const [getData, setData] = useState([]);
   const [loadingTable, setLoadingTable] = useState(false);
-useEffect(()=>{
-  // get datas
-  getTourList();
-},[])
-const getTourList = () => {
-  setLoadingTable(true);
-  // const token = localStorage.getItem("idToken"); 
-  axios
-    .get(`https://eagle-festival-2c130-default-rtdb.firebaseio.com/tourList.json`)
-    .then((res) => {
-      const data = Object.entries(res.data).reverse();
-      setData(data);
-    })
-    .catch((err) => {
-      console.log("err: ", err);
-    })
-    .finally(() => {
-      setLoadingTable(false);
-    });
-  }
+  useEffect(() => {
+    // get datas
+    getTourList();
+  }, []);
+  const getTourList = () => {
+    setLoadingTable(true);
+    // const token = localStorage.getItem("idToken");
+    axios
+      .get(
+        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/tourList.json`
+      )
+      .then((res) => {
+        const data = Object.entries(res.data).reverse();
+        setData(data);
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      })
+      .finally(() => {
+        setLoadingTable(false);
+      });
+  };
   return (
     <Layout header={1} noFooter>
       {/*====== Start Hero Section ======*/}
@@ -790,17 +791,15 @@ const getTourList = () => {
           >
             {console.log("getData: ", getData)}
             {/*=== Single Service Item ===*/}
-            {getData.map((e)=>(
-                <div className="single-service-item mb-40">
+            {getData.map((e) => (
+              <div className="single-service-item mb-40">
                 <div className="content">
                   <h3 className="title">
                     <Link legacyBehavior href="/tour-details">
                       <a>{e[1].values.title}</a>
                     </Link>
                   </h3>
-                  <p>
-                  {e[1].values.description}
-                  </p>
+                  <p>{e[1].values.description}</p>
                   <div className="meta">
                     <span className="icon">
                       <i className="flaticon-blanket" />
@@ -820,14 +819,11 @@ const getTourList = () => {
                   </a>
                 </div>
                 <div className="img-holder">
-                  <img
-                    src={e[1].values.img[0]}
-                    alt="Service Image"
-                  />
+                  <img src={e[1].values.img[0]} alt="Service Image" />
                 </div>
-                </div>
+              </div>
             ))}
-           
+
             {/*=== Single Service Item ===*/}
             <div className="single-service-item mb-40">
               <div className="content">
@@ -1506,7 +1502,7 @@ const getTourList = () => {
                       <img
                         src="assets/images/logo/logo-white.png"
                         alt="Site Logo"
-                      /> 
+                      />
                     </a>
                   </div>
                 </div>

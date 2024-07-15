@@ -1,3 +1,4 @@
+import MainContext from "@/src/components/context/mainContext/mainContext";
 import Layout from "@/src/layout/Layout";
 import {
   partnerSliderOne,
@@ -5,13 +6,89 @@ import {
   sliderActive5Item,
   testimonialSliderOne,
 } from "@/src/sliderProps";
+import { Button, DatePicker, Flex, Form, Input } from "antd";
+import moment from "moment";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useContext, useState } from "react";
 import Slider from "react-slick";
+const { RangePicker } = DatePicker;
+const data = [
+  {
+    name: "amraa1",
+    startDate: "2024-07-05",
+    endDate: "2024-07-06",
+  },
+  {
+    name: "amraa2",
+    startDate: "2024-07-07",
+    endDate: "2024-07-20",
+  },
+  {
+    name: "amraa4",
+    startDate: "2024-08-10",
+    endDate: "2024-08-20",
+  },
+];
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
 });
 const Index4 = () => {
+  const mainContext = useContext(MainContext);
+  const [form] = Form.useForm();
+  const [date, setDate] = useState();
+
+  const onRangeChange = (dates, dateStrings) => {
+    setDate(dateStrings);
+  };
+
+  const onFinish = (values) => {
+    console.log("object", values);
+    if (date && date.length === 2) {
+      const startDateRange = date[0];
+      const endDateRange = date[1];
+
+      // Function to check if a date is within any booked interval
+      const isDateBooked = (checkDate) => {
+        return data.some((item) => {
+          const startDate = item.startDate;
+          const endDate = item.endDate;
+
+          // Check if the checkDate falls within any booked interval
+          return checkDate >= startDate && checkDate <= endDate;
+        });
+      };
+
+      // Iterate through each date in the range to check if any are booked
+      let isBooked = false;
+      let currentDate = moment(startDateRange);
+      const endDate = moment(endDateRange);
+
+      while (currentDate <= endDate) {
+        const checkDate = currentDate.format("YYYY-MM-DD");
+        if (isDateBooked(checkDate)) {
+          isBooked = true;
+          break;
+        }
+        currentDate.add(1, "day");
+      }
+
+      if (isBooked) {
+        // console.log("Selected date range contains booked dates.");
+        console.log("zahialagdsan bn");
+        // Handle accordingly, e.g., show a message or disable further actions
+      } else {
+        console.log("zahialagdaaq.");
+        // Proceed with your logic for an available date range
+      }
+    } else {
+      console.warn("Invalid date range selected.");
+    }
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
   return (
     <Layout header={4}>
       {/*====== Start Hero Section ======*/}
@@ -29,22 +106,87 @@ const Index4 = () => {
                 {/*=== Hero Content ===*/}
                 <div className="hero-content">
                   <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-                    Welcome to GoWilds
+                    {mainContext.language.heroContent.welcome}
                   </span>
                   <h1 className="wow fadeInDown" data-wow-delay=".5s">
-                    Explore Dream Tour &amp; Travels
+                    {mainContext.language.heroContent.title}
                   </h1>
                   <p className="wow fadeInUp" data-wow-delay=".6s">
-                    Sit amet consectetur integer tincidunt sceleries nolesry
-                    volutpat fermentum malesuada scelequecy leocras odio blandit
-                    rhoncus eues feugiat
+                    {mainContext.language.heroContent.description}
                   </p>
                   {/*=== Hero Search ===*/}
                   <div
                     className="hero-search-form mb-40 wow fadeInDown"
                     data-wow-delay=".7s"
                   >
-                    <form className="booking-form-two">
+                    <Form
+                      name="basic"
+                      layout="inline"
+                      // labelCol={{
+                      //   span: 8,
+                      // }}
+                      // wrapperCol={{
+                      //   span: 16,
+                      // }}
+                      initialValues={{
+                        remember: true,
+                      }}
+                      onFinish={onFinish}
+                      onFinishFailed={onFinishFailed}
+                      autoComplete="off"
+                      size="large"
+                    >
+                      <Form.Item
+                        label={<div className="fw-medium">FROM</div>}
+                        name="from"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your FROM!",
+                          },
+                        ]}
+                      >
+                        <Input allowClear />
+                      </Form.Item>
+
+                      <Form.Item
+                        label={<div className="fw-medium">TO</div>}
+                        name="to"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your TO!",
+                          },
+                        ]}
+                      >
+                        <Input allowClear />
+                      </Form.Item>
+
+                      <Form.Item
+                        label={<div className="fw-medium">DATE</div>}
+                        name="date"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your date!",
+                          },
+                        ]}
+                      >
+                        <RangePicker onChange={onRangeChange} size="large" />
+                      </Form.Item>
+
+                      <Form.Item>
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                          className="text-uppercase fw-medium"
+                        >
+                          find
+                        </Button>
+                      </Form.Item>
+                    </Form>
+
+                    {/* <form className="booking-form-two">
                       <div className="form_group">
                         <span>Check In</span>
                         <label>
@@ -96,14 +238,14 @@ const Index4 = () => {
                           <i className="far fa-angle-double-right" />
                         </button>
                       </div>
-                    </form>
+                    </form> */}
                   </div>
                   <div
                     className="avatar-box wow fadeInUp"
                     data-wow-delay=".75s"
                   >
                     <img src="assets/images/about/avater.png" alt />
-                    <span>35+ People booked their dream place</span>
+                    <span>{mainContext.language.heroContent.follows}</span>
                   </div>
                 </div>
               </div>
@@ -112,13 +254,187 @@ const Index4 = () => {
                   className="hero-image wow fadeInRight"
                   data-wow-delay=".8s"
                 >
-                  <img
-                    src="assets/images/hero/hero-four_img-1.jpg"
-                    alt="hero image"
-                  />
+                  {/* bus4.webp */}
+                  {/* bus7.AVIF */}
+                  <img src="assets/images/hero/bus7.AVIF  " alt="hero image" />
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="service-section-two black-bg pt-100 pb-100">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-7">
+              {/*=== Section Title ===*/}
+              <div className="section-title text-center text-white mb-45 wow fadeInDown">
+                <span className="sub-title">
+                  {" "}
+                  {mainContext.language.ourBus.title}
+                </span>
+                <h2> {mainContext.language.ourBus.bigTitle}</h2>
+              </div>
+            </div>
+          </div>
+          <Slider
+            {...sliderActive3Item}
+            className="slider-active-3-item wow fadeInUp"
+          >
+            {/*=== Single Service Item ===*/}
+            <div className="single-service-item-four">
+              <div className="img-holder">
+                <img src="assets/images/hero/bus2.png" alt="Service Image" />
+              </div>
+              <div className="content">
+                <a href="#" className="icon-btn">
+                  <i className="fas fa-heart" />
+                </a>
+                <h3 className="title">Volto 403</h3>
+                <p>
+                  Sit amet consecteturauris natoque name pellentue augue mattis
+                  faucibus
+                </p>
+                <div className="meta">
+                  <span className="icon">
+                    <i className="fas fa-tv" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-wifi" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-snowflake" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-plug" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-music" />
+                  </span>
+                </div>
+                <div className="action-btn">
+                  <Flex
+                    justify="space-between"
+                    align="center"
+                    className="fw-bold fs-5"
+                  >
+                    <span>
+                      <h3 className="title">403,000₮</h3>
+                    </span>
+                    <Link legacyBehavior href="/bus-details">
+                      <a className="main-btn primary-btn">
+                        {mainContext.language.ourBus.btn}
+                        <i className="far fa-paper-plane" />
+                      </a>
+                    </Link>
+                  </Flex>
+                </div>
+              </div>
+            </div>
+            {/*=== Single Service Item ===*/}
+            <div className="single-service-item-four">
+              <div className="img-holder">
+                <img src="assets/images/hero/bus2.png" alt="Service Image" />
+              </div>
+              <div className="content">
+                <a href="#" className="icon-btn">
+                  <i className="fas fa-heart" />
+                </a>
+                <h3 className="title">Volto 403</h3>
+                <p>
+                  Sit amet consecteturauris natoque name pellentue augue mattis
+                  faucibus
+                </p>
+                <div className="meta">
+                  <span className="icon">
+                    <i className="fas fa-tv" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-wifi" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-snowflake" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-plug" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-music" />
+                  </span>
+                </div>
+                <div className="action-btn">
+                  <Flex
+                    justify="space-between"
+                    align="center"
+                    className="fw-bold fs-5"
+                  >
+                    <span>
+                      <h3 className="title">403,000₮</h3>
+                    </span>
+                    <Link legacyBehavior href="/bus-details">
+                      <a className="main-btn primary-btn">
+                        {mainContext.language.ourBus.btn}
+                        <i className="far fa-paper-plane" />
+                      </a>
+                    </Link>
+                  </Flex>
+                </div>
+              </div>
+            </div>
+            {/*=== Single Service Item ===*/}
+            <div className="single-service-item-four">
+              <div className="img-holder">
+                <img src="assets/images/hero/bus2.png" alt="Service Image" />
+              </div>
+              <div className="content">
+                <a href="#" className="icon-btn">
+                  <i className="fas fa-heart" />
+                </a>
+                <h3 className="title">Volto 403</h3>
+                <p>
+                  Sit amet consecteturauris natoque name pellentue augue mattis
+                  faucibus
+                </p>
+                <div className="meta">
+                  <span className="icon">
+                    <i className="fas fa-tv" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-wifi" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-snowflake" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-plug" />
+                  </span>
+                  <span className="icon">
+                    <i className="fas fa-music" />
+                  </span>
+                </div>
+                <div className="action-btn">
+                  <Flex
+                    justify="space-between"
+                    align="center"
+                    className="fw-bold fs-5"
+                  >
+                    <span>
+                      <h3 className="title">403,000₮</h3>
+                    </span>
+                    <Link legacyBehavior href="/bus-details">
+                      <a className="main-btn primary-btn">
+                        {mainContext.language.ourBus.btn}
+                        <i className="far fa-paper-plane" />
+                      </a>
+                    </Link>
+                  </Flex>
+                </div>
+              </div>
+            </div>
+          </Slider>
+          {/*=== Text Box ===*/}
+          <div className="big-text pt-100 wow fadeInDown">
+            <img src="assets/images/bg/adventure.png" alt="Adventure" />
           </div>
         </div>
       </section>
@@ -129,16 +445,17 @@ const Index4 = () => {
           <div className="row">
             <div className="col-lg-6">
               <div className="section-title mb-55 wow fadeInLeft">
-                <span className="sub-title">What We Provide</span>
-                <h2>Most Funning Company Travel and Tours</h2>
+                <span className="sub-title">
+                  {mainContext.language.provide.title}
+                </span>
+                <h2>{mainContext.language.provide.bigTitle}</h2>
               </div>
             </div>
             <div className="col-lg-6">
               {/*=== Features Content Box ===*/}
               <div className="features-content-box pl-lg-70 wow fadeInRight">
                 <p className="mb-25">
-                  Sit amet consectetue integer eu tincidunt scelerisque. Sodales
-                  volutpat neque fermentum alesuada scelerisque massa.
+                  {mainContext.language.provide.description}
                 </p>
                 <div className="row justify-content-center">
                   <div className="col-sm-4 col-6">
@@ -147,7 +464,7 @@ const Index4 = () => {
                       <h2 className="number">
                         <Counter end={356} />+
                       </h2>
-                      <p>Happy Traveler</p>
+                      <p>{mainContext.language.provide.happyTraveler}</p>
                     </div>
                   </div>
                   <div className="col-sm-4 col-6">
@@ -156,7 +473,7 @@ const Index4 = () => {
                       <h2 className="number">
                         <Counter end={852} />+
                       </h2>
-                      <p>Tent Sites</p>
+                      <p>{mainContext.language.provide.tentSites}</p>
                     </div>
                   </div>
                   <div className="col-sm-4 col-6">
@@ -165,7 +482,7 @@ const Index4 = () => {
                       <h2 className="number">
                         <Counter end={99} />%
                       </h2>
-                      <p>Positive Reviews</p>
+                      <p>{mainContext.language.provide.positiveReviews}</p>
                     </div>
                   </div>
                 </div>
@@ -252,8 +569,9 @@ const Index4 = () => {
           </Slider>
         </div>
       </section>
-      {/*====== End Features Section ======*/}
-      {/*=== Start What We Section ===*/}
+      {/*=== End What We Section ===*/}
+      {/*====== Start Service Section ======*/}
+
       <section className="who-we-section pt-100 pb-50">
         <div className="container">
           <div className="row align-items-xl-center">
@@ -261,7 +579,7 @@ const Index4 = () => {
               {/*=== We Image Box ===*/}
               <div className="we-image-box text-center text-xl-left pr-lg-30 mb-50 wow fadeInLeft">
                 <img
-                  src="assets/images/gallery/we-6.jpg"
+                  src="assets/images/features/feat-2.jpg"
                   className="radius-top-left-right-288"
                   alt="What We Image"
                 />
@@ -272,20 +590,26 @@ const Index4 = () => {
               <div className="we-contnet-box mb-20 wow fadeInRight">
                 {/*=== Section Title ===*/}
                 <div className="section-title mb-45">
-                  <span className="sub-title">Who We Are</span>
-                  <h2>Great Opportunity For Adventure &amp; Travels</h2>
+                  <span className="sub-title">
+                    {mainContext.language.ourServices.title}
+                  </span>
+                  <h2>{mainContext.language.ourServices.bigTitle}</h2>
                 </div>
                 <div className="row">
                   <div className="col-md-6">
                     {/*=== Fancy Icon Box ===*/}
                     <div className="fancy-icon-box-three mb-30">
                       <div className="icon">
-                        <i className="flaticon-camping" />
+                        {/* <i className="flaticon-camping" /> */}
+                        <img src="assets/images/icon/support.png" alt="Icon" />
                       </div>
                       <div className="text">
-                        <h5 className="title">Tent Camping</h5>
+                        <h5 className="title">
+                          {mainContext.language.ourServices.supp}
+                        </h5>
                         <a href="#" className="btn-link">
-                          Read More <i className="far fa-long-arrow-right" />
+                          {mainContext.language.ourServices.btn}{" "}
+                          <i className="far fa-long-arrow-right" />
                         </a>
                       </div>
                     </div>
@@ -294,12 +618,16 @@ const Index4 = () => {
                     {/*=== Fancy Icon Box ===*/}
                     <div className="fancy-icon-box-three mb-30">
                       <div className="icon">
-                        <i className="flaticon-biking-mountain" />
+                        <img src="assets/images/icon/travel.png" alt="Icon" />
                       </div>
                       <div className="text">
-                        <h5 className="title">Mountain Biking</h5>
+                        <h5 className="title">
+                          {" "}
+                          {mainContext.language.ourServices.consultations}
+                        </h5>
                         <a href="#" className="btn-link">
-                          Read More <i className="far fa-long-arrow-right" />
+                          {mainContext.language.ourServices.btn}{" "}
+                          <i className="far fa-long-arrow-right" />
                         </a>
                       </div>
                     </div>
@@ -308,12 +636,17 @@ const Index4 = () => {
                     {/*=== Fancy Icon Box ===*/}
                     <div className="fancy-icon-box-three mb-30">
                       <div className="icon">
-                        <i className="flaticon-fishing-2" />
+                        {/* <i className="flaticon-oclock" /> */}
+                        <i className="far fa-clock" />
                       </div>
                       <div className="text">
-                        <h5 className="title">Fishing &amp; Boat</h5>
+                        <h5 className="title">
+                          {" "}
+                          {mainContext.language.ourServices.scheduleOnTime}
+                        </h5>
                         <a href="#" className="btn-link">
-                          Read More <i className="far fa-long-arrow-right" />
+                          {mainContext.language.ourServices.btn}{" "}
+                          <i className="far fa-long-arrow-right" />
                         </a>
                       </div>
                     </div>
@@ -322,12 +655,16 @@ const Index4 = () => {
                     {/*=== Fancy Icon Box ===*/}
                     <div className="fancy-icon-box-three mb-30">
                       <div className="icon">
-                        <i className="flaticon-caravan" />
+                        <i className="far fa-mobile" />
                       </div>
                       <div className="text">
-                        <h5 className="title">Camping Trailer</h5>
+                        <h5 className="title">
+                          {" "}
+                          {mainContext.language.ourServices.onlineBooking}
+                        </h5>
                         <a href="#" className="btn-link">
-                          Read More <i className="far fa-long-arrow-right" />
+                          {mainContext.language.ourServices.btn}{" "}
+                          <i className="far fa-long-arrow-right" />
                         </a>
                       </div>
                     </div>
@@ -338,160 +675,12 @@ const Index4 = () => {
           </div>
         </div>
       </section>
-      {/*=== End What We Section ===*/}
-      {/*====== Start Service Section ======*/}
-      <section className="service-section-two black-bg pt-100 pb-100">
+
+      {/* <section className="places-section pt-100 pb-70">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-7">
-              {/*=== Section Title ===*/}
-              <div className="section-title text-center text-white mb-45 wow fadeInDown">
-                <span className="sub-title">Popular Services</span>
-                <h2>Amazing Adventure Camping Services for Enjoyed</h2>
-              </div>
-            </div>
-          </div>
-          <Slider
-            {...sliderActive3Item}
-            className="slider-active-3-item wow fadeInUp"
-          >
-            {/*=== Single Service Item ===*/}
-            <div className="single-service-item-four">
-              <div className="img-holder">
-                <img
-                  src="assets/images/service/service-7.jpg"
-                  alt="Service Image"
-                />
-              </div>
-              <div className="content">
-                <a href="#" className="icon-btn">
-                  <i className="fas fa-heart" />
-                </a>
-                <h3 className="title">Classic Tents</h3>
-                <p>
-                  Sit amet consecteturauris natoque name pellentue augue mattis
-                  faucibus
-                </p>
-                <div className="meta">
-                  <span className="icon">
-                    <i className="flaticon-blanket" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-cat" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-tent" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-fire" />
-                  </span>
-                </div>
-                <div className="action-btn">
-                  <Link legacyBehavior href="/tour-details">
-                    <a className="main-btn primary-btn">
-                      Read More
-                      <i className="far fa-paper-plane" />
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            {/*=== Single Service Item ===*/}
-            <div className="single-service-item-four">
-              <div className="img-holder">
-                <img
-                  src="assets/images/service/service-8.jpg"
-                  alt="Service Image"
-                />
-              </div>
-              <div className="content">
-                <a href="#" className="icon-btn">
-                  <i className="fas fa-heart" />
-                </a>
-                <h3 className="title">Glamping Cabin</h3>
-                <p>
-                  Sit amet consecteturauris natoque name pellentue augue mattis
-                  faucibus
-                </p>
-                <div className="meta">
-                  <span className="icon">
-                    <i className="flaticon-blanket" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-cat" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-tent" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-fire" />
-                  </span>
-                </div>
-                <div className="action-btn">
-                  <Link legacyBehavior href="/tour-details">
-                    <a className="main-btn primary-btn">
-                      Read More
-                      <i className="far fa-paper-plane" />
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            {/*=== Single Service Item ===*/}
-            <div className="single-service-item-four">
-              <div className="img-holder">
-                <img
-                  src="assets/images/service/service-9.jpg"
-                  alt="Service Image"
-                />
-              </div>
-              <div className="content">
-                <a href="#" className="icon-btn">
-                  <i className="fas fa-heart" />
-                </a>
-                <h3 className="title">RV Luxury Tent</h3>
-                <p>
-                  Sit amet consecteturauris natoque name pellentue augue mattis
-                  faucibus
-                </p>
-                <div className="meta">
-                  <span className="icon">
-                    <i className="flaticon-blanket" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-cat" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-tent" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-fire" />
-                  </span>
-                </div>
-                <div className="action-btn">
-                  <Link legacyBehavior href="/tour-details">
-                    <a className="main-btn primary-btn">
-                      Read More
-                      <i className="far fa-paper-plane" />
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </Slider>
-          {/*=== Text Box ===*/}
-          <div className="big-text pt-100 wow fadeInDown">
-            <img src="assets/images/bg/adventure.png" alt="Adventure" />
-          </div>
-        </div>
-      </section>
-      {/*====== End Service Section ======*/}
-      {/*====== Start Places Section ======*/}
-      <section className="places-section pt-100 pb-70">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-7">
-              {/*=== Section Title ===*/}
+              
               <div className="section-title text-center mb-50 wow fadeInDown">
                 <span className="sub-title">Popular Tour Place</span>
                 <h2>Visit &amp; Enjoy Adventure Life With Full Of Dreams</h2>
@@ -500,7 +689,7 @@ const Index4 = () => {
           </div>
           <div className="row justify-content-center">
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              {/*=== Single Place Item Three ===*/}
+              
               <div className="single-place-item-three mb-30 wow fadeInUp">
                 <div className="place-img">
                   <img
@@ -531,7 +720,7 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              {/*=== Single Place Item Three ===*/}
+              
               <div className="single-place-item-three mb-30 wow fadeInUp">
                 <div className="place-img">
                   <img
@@ -562,7 +751,7 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              {/*=== Single Place Item Three ===*/}
+              
               <div className="single-place-item-three mb-30 wow fadeInUp">
                 <div className="place-img">
                   <img
@@ -593,7 +782,7 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              {/*=== Single Place Item Three ===*/}
+              
               <div className="single-place-item-three mb-30 wow fadeInUp">
                 <div className="place-img">
                   <img
@@ -624,7 +813,7 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              {/*=== Single Place Item Three ===*/}
+              
               <div className="single-place-item-three mb-30 wow fadeInUp">
                 <div className="place-img">
                   <img
@@ -655,7 +844,7 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              {/*=== Single Place Item Three ===*/}
+              
               <div className="single-place-item-three mb-30 wow fadeInUp">
                 <div className="place-img">
                   <img
@@ -686,7 +875,7 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              {/*=== Single Place Item Three ===*/}
+              
               <div className="single-place-item-three mb-30 wow fadeInUp">
                 <div className="place-img">
                   <img
@@ -717,7 +906,7 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              {/*=== Single Place Item Three ===*/}
+              
               <div className="single-place-item-three mb-30 wow fadeInUp">
                 <div className="place-img">
                   <img
@@ -749,23 +938,20 @@ const Index4 = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/*====== End Places Section ======*/}
       {/*====== Start Why Choose Section ======*/}
-      <section className="why-choose-section gray-bg pt-100 pb-50">
+      {/* <section className="why-choose-section gray-bg pt-100 pb-50">
         <div className="container">
           <div className="row align-items-xl-center">
             <div className="col-xl-7">
-              {/*=== Choose Content Box ===*/}
               <div className="choose-content-box pr-lg-70">
-                {/*=== Section Title ===*/}
                 <div className="section-title mb-45 wow fadeInDown">
                   <span className="sub-title">Why Choose Us</span>
                   <h2>People Why Choose Our Travel Adventure</h2>
                 </div>
                 <div className="row">
                   <div className="col-md-6">
-                    {/*=== Fancy Icon Box ===*/}
                     <div className="fancy-icon-box-four mb-45 wow fadeInUp">
                       <div className="icon">
                         <i className="flaticon-rabbit" />
@@ -779,7 +965,6 @@ const Index4 = () => {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    {/*=== Fancy Icon Box ===*/}
                     <div className="fancy-icon-box-four mb-45 wow fadeInUp">
                       <div className="icon">
                         <i className="flaticon-wifi-router" />
@@ -793,7 +978,6 @@ const Index4 = () => {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    {/*=== Fancy Icon Box ===*/}
                     <div className="fancy-icon-box-four mb-45 wow fadeInUp">
                       <div className="icon">
                         <i className="flaticon-solar-energy" />
@@ -807,7 +991,6 @@ const Index4 = () => {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    {/*=== Fancy Icon Box ===*/}
                     <div className="fancy-icon-box-four mb-45 wow fadeInUp">
                       <div className="icon">
                         <i className="flaticon-cycling" />
@@ -824,19 +1007,18 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-5">
-              {/*=== Experience Box ===*/}
               <div className="experience-box text-center text-xl-right mb-50 wow fadeInRight">
                 <img src="assets/images/features/years.png" alt />
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/*====== End Why Choose Section ======*/}
       {/*====== Start Testimonial Section ======*/}
       <section className="testimonial-section-two pt-100">
         <div className="container">
-          <div className="row align-items-xl-center">
+          {/* <div className="row align-items-xl-center">
             <div className="col-xl-5 order-2 order-xl-1">
               <div className="testimonial-image-box text-xl-left text-center wow fadeInLeft">
                 <img
@@ -846,12 +1028,10 @@ const Index4 = () => {
               </div>
             </div>
             <div className="col-xl-7 order-1 order-xl-2">
-              {/*=== Testimonial Slider ===*/}
               <Slider
                 {...testimonialSliderOne}
                 className="testimonial-slider-one pl-lg-55 mb-40 wow fadeInRight"
               >
-                {/*=== Testimonial Item ===*/}
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -901,7 +1081,7 @@ const Index4 = () => {
                     </div>
                   </div>
                 </div>
-                {/*=== Testimonial Item ===*/}
+
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -951,7 +1131,7 @@ const Index4 = () => {
                     </div>
                   </div>
                 </div>
-                {/*=== Testimonial Item ===*/}
+
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -1003,8 +1183,8 @@ const Index4 = () => {
                 </div>
               </Slider>
             </div>
-          </div>
-          {/*=== Blog Area ===*/}
+          </div> */}
+
           <div className="blog-area pt-60 pb-60">
             <div className="row justify-content-center">
               <div className="col-xl-7">
@@ -1016,7 +1196,6 @@ const Index4 = () => {
             </div>
             <div className="row justify-content-center">
               <div className="col-lg-4 col-md-6 col-sm-12">
-                {/*=== Single Blog Post ===*/}
                 <div className="single-blog-post-three mb-40 wow fadeInUp">
                   <div className="post-thumbnail">
                     <img src="assets/images/blog/blog-7.jpg" alt="Blog Image" />
@@ -1036,7 +1215,7 @@ const Index4 = () => {
                       </h3>
                       <Link legacyBehavior href="/blog-details">
                         <a className="main-btn filled-btn">
-                          Read More
+                          {mainContext.language.ourServices.btn}
                           <i className="far fa-paper-plane" />
                         </a>
                       </Link>
@@ -1045,7 +1224,6 @@ const Index4 = () => {
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
-                {/*=== Single Blog Post ===*/}
                 <div className="single-blog-post-three mb-40 wow fadeInDown">
                   <div className="post-thumbnail">
                     <img src="assets/images/blog/blog-8.jpg" alt="Blog Image" />
@@ -1065,7 +1243,7 @@ const Index4 = () => {
                       </h3>
                       <Link legacyBehavior href="/blog-details">
                         <a className="main-btn filled-btn">
-                          Read More
+                          {mainContext.language.ourServices.btn}
                           <i className="far fa-paper-plane" />
                         </a>
                       </Link>
@@ -1074,7 +1252,6 @@ const Index4 = () => {
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
-                {/*=== Single Blog Post ===*/}
                 <div className="single-blog-post-three mb-40 wow fadeInUp">
                   <div className="post-thumbnail">
                     <img src="assets/images/blog/blog-9.jpg" alt="Blog Image" />
@@ -1094,7 +1271,7 @@ const Index4 = () => {
                       </h3>
                       <Link legacyBehavior href="/blog-details">
                         <a className="main-btn filled-btn">
-                          Read More
+                          {mainContext.language.ourServices.btn}
                           <i className="far fa-paper-plane" />
                         </a>
                       </Link>

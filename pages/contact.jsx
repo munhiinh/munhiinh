@@ -1,7 +1,11 @@
+import MainContext from "@/src/components/context/mainContext/mainContext";
 import GallerySection from "@/src/components/GallerySection";
 import PageBanner from "@/src/components/PageBanner";
 import Layout from "@/src/layout/Layout";
+import { useContext } from "react";
 const Contact = () => {
+  const mainContext = useContext(MainContext);
+
   return (
     <Layout extraClass={"pt-160"}>
       <PageBanner pageTitle={"Contact Us"} />
@@ -27,8 +31,11 @@ const Contact = () => {
                   <img src="assets/images/icon/icon-1.png" alt="icon" />
                 </div>
                 <div className="info">
-                  <span className="title">Office Location</span>
-                  <p>55 Main Street, 2nd Floor New York City</p>
+                  <span className="title">
+                    {" "}
+                    {mainContext.language.header.address}
+                  </span>
+                  <p> {mainContext.language.header.addressDetails}</p>
                 </div>
               </div>
             </div>
@@ -39,10 +46,13 @@ const Contact = () => {
                   <img src="assets/images/icon/icon-2.png" alt="icon" />
                 </div>
                 <div className="info">
-                  <span className="title">Email Address</span>
+                  <span className="title">
+                    {" "}
+                    {mainContext.language.header.email}
+                  </span>
                   <p>
                     <a href="mailto:supportinfo@gmail.com">
-                      supportinfo@gmail.com
+                      {mainContext.language.header.emailDetials}
                     </a>
                   </p>
                   <p>
@@ -58,12 +68,16 @@ const Contact = () => {
                   <img src="assets/images/icon/icon-3.png" alt="icon" />
                 </div>
                 <div className="info">
-                  <span className="title">Hotline</span>
+                  <span className="title">
+                    {mainContext.language.header.phone}
+                  </span>
                   <p>
-                    <a href="tel:+000(123)45688">+000 (123) 456 88</a>
+                    <a href="tel:+97689909762">
+                      +976 {mainContext.language.header.phoneNumber}
+                    </a>
                   </p>
                   <p>
-                    <a href="tel:+8596320">+859 63 20</a>
+                    <a href="tel:+97699064174">+976 99064174</a>
                   </p>
                 </div>
               </div>
@@ -76,7 +90,10 @@ const Contact = () => {
       <section className="contact-page-map pb-100 wow fadeInUp">
         {/*=== Map Box ===*/}
         <div className="map-box">
-          <iframe src="https://maps.google.com/maps?q=new%20york&t=&z=13&ie=UTF8&iwloc=&output=embed" />
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4584.10117952351!2d106.9184876062708!3d47.922003668589056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693c7c74617c3%3A0xf69f7d1336167c9f!2sChinggis%20Khaan%20National%20Museum!5e0!3m2!1sen!2smn!4v1720926777967!5m2!1sen!2smn"
+            loading="lazy"
+          ></iframe>
         </div>
       </section>
       {/*====== End Contact Map Section ======*/}

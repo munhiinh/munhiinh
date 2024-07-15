@@ -16,62 +16,78 @@ export default Menu;
 const DeskTopMenu = () => {
   const [searchModal, setSearchModal] = useState(false);
   const mainContext = useContext(MainContext);
-
+  const getLanguage = () => {
+    return (
+      <div className={"dropdown fw-medium"}>
+        <span>
+          {mainContext.langName} <i className="far fa-angle-down" />
+        </span>
+        <div className={"dropdownContent"}>
+          <div
+            className={"engLang"}
+            onClick={() => mainContext.onChangeLanguage(0)}
+          >
+            English
+          </div>
+          <div
+            className={"mnLang"}
+            onClick={() => mainContext.onChangeLanguage(1)}
+          >
+            Mongolian
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
     <Fragment>
       <SearchModal
         show={searchModal}
         handleClose={() => setSearchModal(false)}
-      />  
+      />
       <nav className="main-menu d-none d-xl-block">
         <ul>
-          {mainContext.user === 1 ? 
+          {mainContext.user === 1 ? (
+            <li className="menu-item has-children ">
+              <Link href="/dashboard">
+                {mainContext.language.header.dashboard}
+              </Link>
+            </li>
+          ) : null}
           <li className="menu-item has-children">
-            <Link href="/dashboard">
-            {mainContext.language.header.dashboard} 
-            </Link> 
-          </li> : null }
+            <a href="#">
+              <Link href="index-4">{mainContext.language.header.home}</Link>
+              {/* <span className="dd-trigger">
+                <i className="far fa-angle-down" />
+              </span> */}
+            </a>
+
+            {/* <li>
+              <Link href="index-4">Home 04</Link>
+            </li> */}
+          </li>
           <li className="menu-item has-children">
-            <a href="#"> 
-            {mainContext.language.header.home}
+            <a href="#">
+              {mainContext.language.header.bus}
               <span className="dd-trigger">
                 <i className="far fa-angle-down" />
               </span>
             </a>
             <ul className="sub-menu">
               <li>
-                <Link href="/">Home 01</Link>
+                <Link href="our-bus"> {mainContext.language.header.bus}</Link>
               </li>
               <li>
-                <Link href="index-2">Home 02</Link>
-              </li>
-              <li>
-                <Link href="index-3">Home 03</Link>
-              </li>
-              <li>
-                <Link href="index-4">Home 04</Link>
+                <Link href="bus-details">
+                  {" "}
+                  {mainContext.language.header.busDetails}
+                </Link>
               </li>
             </ul>
           </li>
-          <li className="menu-item has-children">
+          {/* <li className="menu-item has-children">
             <a href="#">
-            {mainContext.language.header.tour}
-              <span className="dd-trigger">
-                <i className="far fa-angle-down" />
-              </span>
-            </a>
-            <ul className="sub-menu">
-              <li>
-                <Link href="tour">Tours</Link>
-              </li>
-              <li>
-                <Link href="tour-details">Tours Details</Link>
-              </li>
-            </ul>
-          </li>
-          <li className="menu-item has-children">
-            <a href="#">
-            {mainContext.language.header.destination} 
+              {mainContext.language.header.destination}
               <span className="dd-trigger">
                 <i className="far fa-angle-down" />
               </span>
@@ -84,10 +100,10 @@ const DeskTopMenu = () => {
                 <Link href="destination-details">Destination Details</Link>
               </li>
             </ul>
-          </li>
+          </li> */}
           <li className="menu-item has-children">
             <a href="#">
-            {mainContext.language.header.blog} 
+              {mainContext.language.header.blog}
               <span className="dd-trigger">
                 <i className="far fa-angle-down" />
               </span>
@@ -103,29 +119,33 @@ const DeskTopMenu = () => {
           </li>
           <li className="menu-item has-children">
             <a href="#">
-            {mainContext.language.header.pages} 
+              {mainContext.language.header.pages}
               <span className="dd-trigger">
                 <i className="far fa-angle-down" />
               </span>
             </a>
             <ul className="sub-menu">
               <li>
-                <Link href="about">About Us</Link>
+                <Link href="about">{mainContext.language.header.aboutUs}</Link>
               </li>
               <li>
-                <Link href="gallery">Our Gallery</Link>
+                <Link href="gallery">
+                  {mainContext.language.header.ourGallery}
+                </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="events">Our Events</Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link href="shop">Our Shop</Link>
               </li>
               <li>
                 <Link href="product-details">Product Details</Link>
-              </li>
+              </li> */}
               <li>
-                <Link href="contact">Contact</Link>
+                <Link href="contact">
+                  {mainContext.language.header.contact}
+                </Link>
               </li>
             </ul>
           </li>
@@ -138,6 +158,9 @@ const DeskTopMenu = () => {
             >
               <i className="far fa-search" />
             </div>
+          </li>
+          <li className="menu-item search-item">
+            <div className="lang-dropdown">{getLanguage()}</div>
           </li>
         </ul>
       </nav>

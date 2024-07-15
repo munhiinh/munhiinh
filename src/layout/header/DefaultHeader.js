@@ -3,7 +3,7 @@ import Menu from "../Menu";
 import { useContext } from "react";
 import MainContext from "@/src/components/context/mainContext/mainContext";
 const DefaultHeader = () => {
-  const mainContext = useContext(MainContext)
+  const mainContext = useContext(MainContext);
   return (
     <header className="header-area header-three">
       {/*====== Header Top Bar ======*/}
@@ -13,7 +13,7 @@ const DefaultHeader = () => {
             <div className="col-xl-3 d-none d-xl-block">
               {/*====== Site Branding ======*/}
               <div className="site-brading">
-                <Link legacyBehavior href="/index-3">
+                <Link legacyBehavior href="/index-4">
                   <a className="brand-logo">
                     <img src="assets/images/logo/logo-black1.png" alt="Logo" />
                   </a>
@@ -31,8 +31,10 @@ const DefaultHeader = () => {
                           <i className="far fa-map-marker-alt" />
                         </div>
                         <div className="info">
-                          <span className="title">Office Address</span>
-                          <h5>583 Main Street, USA</h5>
+                          <span className="title">
+                            {mainContext.language.header.address}
+                          </span>
+                          <h5>{mainContext.language.header.addressDetails}</h5>
                         </div>
                       </div>
                     </div>
@@ -44,10 +46,12 @@ const DefaultHeader = () => {
                           <i className="far fa-envelope" />
                         </div>
                         <div className="info">
-                          <span className="title">Email Address</span>
+                          <span className="title">
+                            {mainContext.language.header.email}
+                          </span>
                           <h5>
                             <a href="mailto:support@gmail.com">
-                              support@gmail.com
+                              {mainContext.language.header.emailDetials}
                             </a>
                           </h5>
                         </div>
@@ -61,9 +65,14 @@ const DefaultHeader = () => {
                           <i className="far fa-phone-plus" />
                         </div>
                         <div className="info">
-                          <span className="title">Drop a Line</span>
+                          <span className="title">
+                            {" "}
+                            {mainContext.language.header.phone}
+                          </span>
                           <h5>
-                            <a href="tel:+000(123)45688">+000 (123) 456 88</a>
+                            <a href="tel:+97689909762">
+                              + {mainContext.language.header.phoneNumber}
+                            </a>
                           </h5>
                         </div>
                       </div>
@@ -125,7 +134,7 @@ const DefaultHeader = () => {
                 <Link legacyBehavior href="/contact">
                   <a className="main-btn secondary-btn">
                     {mainContext.language.header.bookNow}
-                    
+
                     <i className="fas fa-paper-plane" />
                   </a>
                 </Link>
@@ -133,12 +142,12 @@ const DefaultHeader = () => {
             </div>
             {/*====== Nav Right Item ======*/}
             <div className="nav-right-item">
-              <div className="lang-dropdown">
+              {/* <div className="lang-dropdown">
                 <select className="wide">
                   <option value="English">English</option>
                   <option value="French">French</option>
                 </select>
-              </div>
+              </div> */}
               <div className="menu-button d-xl-block d-none">
                 <Link legacyBehavior href="/contact">
                   <a className="main-btn primary-btn">
