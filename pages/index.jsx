@@ -1,38 +1,55 @@
 import GallerySection from "@/src/components/GallerySection";
+import MainContext from "@/src/components/context/mainContext/mainContext";
 import Layout from "@/src/layout/Layout";
 import {
-  home1Slider,
+  partnerSliderOne,
   sliderActive3Item,
-  sliderActive4Item,
+  sliderActive5Item,
   testimonialSliderOne,
 } from "@/src/sliderProps";
+import { Button, DatePicker, Flex, Form, Input, Skeleton, Spin } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Nav, Tab } from "react-bootstrap";
 import Slider from "react-slick";
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
 });
-
+const { RangePicker } = DatePicker;
+const data = [
+  {
+    name: "amraa1",
+    startDate: "2024-07-05",
+    endDate: "2024-07-06",
+  },
+  {
+    name: "amraa2",
+    startDate: "2024-07-07",
+    endDate: "2024-07-20",
+  },
+  {
+    name: "amraa4",
+    startDate: "2024-08-10",
+    endDate: "2024-08-20",
+  },
+];
 const Index = () => {
-  const [getData, setData] = useState([]);
   const [loadingTable, setLoadingTable] = useState(false);
+  const mainContext = useContext(MainContext);
+  const [form] = Form.useForm();
+  const [date, setDate] = useState();
+  const [bus, setBus] = useState();
   useEffect(() => {
-    // get datas
-    getTourList();
+    getBus();
   }, []);
-  const getTourList = () => {
-    setLoadingTable(true);
-    // const token = localStorage.getItem("idToken");
-    axios
-      .get(
-        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/tourList.json`
-      )
+  const getBus = async () => {
+    await axios
+      .get(`https://eagle-festival-2c130-default-rtdb.firebaseio.com/bus.json`)
       .then((res) => {
         const data = Object.entries(res.data).reverse();
-        setData(data);
+        setBus(data);
       })
       .catch((err) => {
         console.log("err: ", err);
@@ -41,290 +58,158 @@ const Index = () => {
         setLoadingTable(false);
       });
   };
+  const onRangeChange = (dates, dateStrings) => {
+    setDate(dateStrings);
+  };
+
+  const onFinish = (values) => {
+    console.log("object", values);
+    if (date && date.length === 2) {
+      const startDateRange = date[0];
+      const endDateRange = date[1];
+
+      // Function to check if a date is within any booked interval
+      const isDateBooked = (checkDate) => {
+        return data.some((item) => {
+          const startDate = item.startDate;
+          const endDate = item.endDate;
+
+          // Check if the checkDate falls within any booked interval
+          return checkDate >= startDate && checkDate <= endDate;
+        });
+      };
+
+      // Iterate through each date in the range to check if any are booked
+      let isBooked = false;
+      let currentDate = moment(startDateRange);
+      const endDate = moment(endDateRange);
+
+      while (currentDate <= endDate) {
+        const checkDate = currentDate.format("YYYY-MM-DD");
+        if (isDateBooked(checkDate)) {
+          isBooked = true;
+          break;
+        }
+        currentDate.add(1, "day");
+      }
+
+      if (isBooked) {
+        // console.log("Selected date range contains booked dates.");
+        console.log("zahialagdsan bn");
+        // Handle accordingly, e.g., show a message or disable further actions
+      } else {
+        console.log("zahialagdaaq.");
+        // Proceed with your logic for an available date range
+      }
+    } else {
+      console.warn("Invalid date range selected.");
+    }
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
-    <Layout header={1} noFooter>
+    <Layout header={4}>
       {/*====== Start Hero Section ======*/}
       <section className="hero-section">
         {/*=== Hero Wrapper ===*/}
-        <div className="hero-wrapper black-bg">
-          {/*=== Hero Slider ===*/}
-          <Slider {...home1Slider} className="hero-slider-one">
-            {/*=== Single Slider ===*/}
-            <div className="single-slider">
-              <div className="container-fluid">
-                <div className="row align-items-center">
-                  <div className="col-xl-6">
-                    {/*=== Hero Content ===*/}
-                    <div className="hero-content text-white">
-                      <h1 data-animation="fadeInDown" data-delay=".4s">
-                        Travel &amp; Adventure Camping
-                      </h1>
-                      <div className="text-button d-flex align-items-center">
-                        <p data-animation="fadeInLeft" data-delay=".5s">
-                          Nunc et dui nullam aliquam eget velit. Consectetur
-                          nulla convallis viverra quisque eleifend
-                        </p>
-                        <div
-                          className="hero-button"
-                          data-animation="fadeInRight"
-                          data-delay=".6s"
-                        >
-                          <Link legacyBehavior href="/about">
-                            <a className="main-btn primary-btn">
-                              Explore More
-                              <i className="fas fa-paper-plane" />
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-6">
-                    {/*=== Hero Image ===*/}
-                    <div className="hero-image" data-animation="fadeInRight">
-                      <img
-                        src="assets/images/hero/hero-one_img-1.jpg"
-                        alt="Hero Image"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/*=== Single Slider ===*/}
-            <div className="single-slider">
-              <div className="container-fluid">
-                <div className="row align-items-center">
-                  <div className="col-xl-6">
-                    {/*=== Hero Content ===*/}
-                    <div className="hero-content text-white">
-                      <h1 data-animation="fadeInDown" data-delay=".4s">
-                        Travel &amp; Adventure Tour
-                      </h1>
-                      <div className="text-button d-flex align-items-center">
-                        <p data-animation="fadeInLeft" data-delay=".5s">
-                          Nunc et dui nullam aliquam eget velit. Consectetur
-                          nulla convallis viverra quisque eleifend
-                        </p>
-                        <div
-                          className="hero-button"
-                          data-animation="fadeInRight"
-                          data-delay=".6s"
-                        >
-                          <Link legacyBehavior href="/about">
-                            <a className="main-btn primary-btn">
-                              Explore More
-                              <i className="fas fa-paper-plane" />
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-6">
-                    {/*=== Hero Image ===*/}
-                    <div className="hero-image" data-animation="fadeInRight">
-                      <img
-                        src="assets/images/hero/hero-one_img-2.jpg"
-                        alt="Hero Image"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Slider>
-        </div>
-      </section>
-      {/*====== End Hero Section ======*/}
-      {/*====== Start About Section ======*/}
-      <section className="about-section pt-100">
-        <div className="container-fluid">
-          <div className="row justify-content-center">
-            <div className="col-xl-6 col-lg-9">
-              {/*=== About Content Box ===*/}
-              <div className="about-content-box text-center mb-55 wow fadeInDown">
-                <div className="section-title mb-30">
-                  <span className="sub-title">About Company</span>
-                  <h2>We Are Most Funning Company About Travel &amp; Tours</h2>
-                </div>
-                <p>
-                  Sit amet consectetur. Velit integer eu tincidunt scelerisque.
-                  Sodales volutpat neque fermentum malesuada scelerisque massa
-                  lacus. Ultrices eget leo cras odio blandit rhoncus eu. At
-                  feugiat condimentum massa integer iaculis sit sit. Sagittis
-                  vitae quis sed vitae congue
-                </p>
-              </div>
-            </div>
+        <div className="hero-wrapper-four">
+          <div className="shape">
+            <span>
+              <img src="assets/images/hero/map.png" alt />
+            </span>
           </div>
-          <Slider
-            {...sliderActive4Item}
-            className="slider-active-4-item wow fadeInUp"
-          >
-            {/*=== Features Image Item ===*/}
-            <div className="single-features-item mb-40">
-              <div className="img-holder">
-                <img
-                  src="assets/images/features/feat-1.jpg"
-                  alt="Features Image"
-                />
-                <div className="content">
-                  <div className="text">
-                    <h4 className="title">Tent Camping Services</h4>
-                    <a href="#" className="icon-btn">
-                      <i className="far fa-arrow-right" />
-                    </a>
-                  </div>
-                  <p>Set unde omnis estenatus voluptatem aperiae.</p>
-                </div>
-              </div>
-            </div>
-            {/*=== Features Image Item ===*/}
-            <div className="single-features-item mb-40">
-              <div className="img-holder">
-                <img
-                  src="assets/images/features/feat-2.jpg"
-                  alt="Features Image"
-                />
-                <div className="content">
-                  <div className="text">
-                    <h4 className="title">Trailers and RV Spots</h4>
-                    <a href="#" className="icon-btn">
-                      <i className="far fa-arrow-right" />
-                    </a>
-                  </div>
-                  <p>Set unde omnis estenatus voluptatem aperiae.</p>
-                </div>
-              </div>
-            </div>
-            {/*=== Features Image Item ===*/}
-            <div className="single-features-item mb-40">
-              <div className="img-holder">
-                <img
-                  src="assets/images/features/feat-3.jpg"
-                  alt="Features Image"
-                />
-                <div className="content">
-                  <div className="text">
-                    <h4 className="title">Adventure and Climbing</h4>
-                    <a href="#" className="icon-btn">
-                      <i className="far fa-arrow-right" />
-                    </a>
-                  </div>
-                  <p>Set unde omnis estenatus voluptatem aperiae.</p>
-                </div>
-              </div>
-            </div>
-            {/*=== Features Image Item ===*/}
-            <div className="single-features-item mb-40">
-              <div className="img-holder">
-                <img
-                  src="assets/images/features/feat-4.jpg"
-                  alt="Features Image"
-                />
-                <div className="content">
-                  <div className="text">
-                    <h4 className="title">Couple Camping or Cabin</h4>
-                    <a href="#" className="icon-btn">
-                      <i className="far fa-arrow-right" />
-                    </a>
-                  </div>
-                  <p>Set unde omnis estenatus voluptatem aperiae.</p>
-                </div>
-              </div>
-            </div>
-            {/*=== Features Image Item ===*/}
-            <div className="single-features-item mb-40">
-              <div className="img-holder">
-                <img
-                  src="assets/images/features/feat-1.jpg"
-                  alt="Features Image"
-                />
-                <div className="content">
-                  <div className="text">
-                    <h4 className="title">Tent Camping Services</h4>
-                    <a href="#" className="icon-btn">
-                      <i className="far fa-arrow-right" />
-                    </a>
-                  </div>
-                  <p>Set unde omnis estenatus voluptatem aperiae.</p>
-                </div>
-              </div>
-            </div>
-            {/*=== Features Image Item ===*/}
-            <div className="single-features-item mb-40">
-              <div className="img-holder">
-                <img
-                  src="assets/images/features/feat-2.jpg"
-                  alt="Features Image"
-                />
-                <div className="content">
-                  <div className="text">
-                    <h4 className="title">Trailers and RV Spots</h4>
-                    <a href="#" className="icon-btn">
-                      <i className="far fa-arrow-right" />
-                    </a>
-                  </div>
-                  <p>Set unde omnis estenatus voluptatem aperiae.</p>
-                </div>
-              </div>
-            </div>
-            {/*=== Features Image Item ===*/}
-            <div className="single-features-item mb-40">
-              <div className="img-holder">
-                <img
-                  src="assets/images/features/feat-3.jpg"
-                  alt="Features Image"
-                />
-                <div className="content">
-                  <div className="text">
-                    <h4 className="title">Adventure and Climbing</h4>
-                    <a href="#" className="icon-btn">
-                      <i className="far fa-arrow-right" />
-                    </a>
-                  </div>
-                  <p>Set unde omnis estenatus voluptatem aperiae.</p>
-                </div>
-              </div>
-            </div>
-            {/*=== Features Image Item ===*/}
-            <div className="single-features-item mb-40">
-              <div className="img-holder">
-                <img
-                  src="assets/images/features/feat-4.jpg"
-                  alt="Features Image"
-                />
-                <div className="content">
-                  <div className="text">
-                    <h4 className="title">Couple Camping or Cabin</h4>
-                    <a href="#" className="icon-btn">
-                      <i className="far fa-arrow-right" />
-                    </a>
-                  </div>
-                  <p>Set unde omnis estenatus voluptatem aperiae.</p>
-                </div>
-              </div>
-            </div>
-          </Slider>
-        </div>
-      </section>
-      {/*====== End Hero Section ======*/}
-      {/*====== Start Booking Section ======*/}
-      <section className="booking-section pt-60 pb-50">
-        <div className="container">
-          <div className="row align-items-xl-center">
-            <div className="col-lg-6">
-              {/*=== Booking Content Box ===*/}
-              <div className="booking-content-box mb-50 wow fadeInLeft">
-                <div className="section-title mb-50">
-                  <span className="sub-title">Availability</span>
-                  <h2>Booking Your Best Tour Camping Availability</h2>
-                </div>
-                <form className="booking-form">
-                  <div className="row">
-                    <div className="col-md-6">
+          <div className="container">
+            <div className="row">
+              <div className="col-xl-7">
+                {/*=== Hero Content ===*/}
+                <div className="hero-content">
+                  <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
+                    {mainContext.language.heroContent.welcome}
+                  </span>
+                  <h1 className="wow fadeInDown" data-wow-delay=".5s">
+                    {mainContext.language.heroContent.title}
+                  </h1>
+                  <p className="wow fadeInUp" data-wow-delay=".6s">
+                    {mainContext.language.heroContent.description}
+                  </p>
+                  {/*=== Hero Search ===*/}
+                  <div
+                    className="hero-search-form mb-40 wow fadeInDown"
+                    data-wow-delay=".7s"
+                  >
+                    <Form
+                      name="basic"
+                      layout="inline"
+                      // labelCol={{
+                      //   span: 8,
+                      // }}
+                      // wrapperCol={{
+                      //   span: 16,
+                      // }}
+                      initialValues={{
+                        remember: true,
+                      }}
+                      onFinish={onFinish}
+                      onFinishFailed={onFinishFailed}
+                      autoComplete="off"
+                      size="large"
+                    >
+                      <Form.Item
+                        label={<div className="fw-medium">FROM</div>}
+                        name="from"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your FROM!",
+                          },
+                        ]}
+                      >
+                        <Input allowClear />
+                      </Form.Item>
+
+                      <Form.Item
+                        label={<div className="fw-medium">TO</div>}
+                        name="to"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your TO!",
+                          },
+                        ]}
+                      >
+                        <Input allowClear />
+                      </Form.Item>
+
+                      <Form.Item
+                        label={<div className="fw-medium">DATE</div>}
+                        name="date"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input your date!",
+                          },
+                        ]}
+                      >
+                        <RangePicker onChange={onRangeChange} size="large" />
+                      </Form.Item>
+
+                      <Form.Item>
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                          className="text-uppercase fw-medium"
+                        >
+                          find
+                        </Button>
+                      </Form.Item>
+                    </Form>
+
+                    {/* <form className="booking-form-two">
                       <div className="form_group">
+                        <span>Check In</span>
                         <label>
                           <i className="far fa-calendar-alt" />
                         </label>
@@ -334,9 +219,8 @@ const Index = () => {
                           placeholder="Check In"
                         />
                       </div>
-                    </div>
-                    <div className="col-md-6">
                       <div className="form_group">
+                        <span>Check Out</span>
                         <label>
                           <i className="far fa-calendar-alt" />
                         </label>
@@ -346,9 +230,8 @@ const Index = () => {
                           placeholder="Check Out"
                         />
                       </div>
-                    </div>
-                    <div className="col-md-6">
                       <div className="form_group">
+                        <span>Guest</span>
                         <label>
                           <i className="far fa-user-alt" />
                         </label>
@@ -359,13 +242,9 @@ const Index = () => {
                           name="text"
                         />
                       </div>
-                    </div>
-                    <div className="col-md-6">
                       <div className="form_group">
+                        <span>Accommodations</span>
                         <select className="wide">
-                          <option data-display="Accommodations">
-                            Accommodations
-                          </option>
                           <option value={1}>Classic Tent</option>
                           <option value={1}>Forest Camping</option>
                           <option value={1}>Small Trailer</option>
@@ -374,779 +253,722 @@ const Index = () => {
                           <option value={1}>Couple Tent</option>
                         </select>
                       </div>
-                    </div>
-                    <div className="col-md-12">
-                      <textarea
-                        name="comments"
-                        placeholder="Comments"
-                        className="form_control"
-                        cols={8}
-                        rows={3}
-                        defaultValue={""}
-                      />
-                    </div>
-                    <div className="col-md-12">
                       <div className="form_group">
-                        <button className="main-btn primary-btn">
-                          Check availability
-                          <i className="fas fa-paper-plane" />
+                        <button className="booking-btn">
+                          Check Availability{" "}
+                          <i className="far fa-angle-double-right" />
                         </button>
                       </div>
-                    </div>
+                    </form> */}
                   </div>
-                </form>
+                  <div
+                    className="avatar-box wow fadeInUp"
+                    data-wow-delay=".75s"
+                  >
+                    <img src="assets/images/about/avater.png" alt />
+                    <span>{mainContext.language.heroContent.follows}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="col-lg-6">
-              {/*=== Booking Image Box ===*/}
-              <div className="booking-image-box mb-50 ml-lg-45 wow fadeInRight">
-                <img
-                  src="assets/images/contact/contact-1.jpg"
-                  className="radius-60"
-                  alt="Contact Image"
-                />
+              <div className="col-xl-5 d-xl-block d-none">
+                <div
+                  className="hero-image wow fadeInRight"
+                  data-wow-delay=".8s"
+                >
+                  {/* bus4.webp */}
+                  {/* bus7.AVIF */}
+                  <img src="assets/images/hero/bus7.AVIF  " alt="hero image" />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/*====== End Hero Section ======*/}
-      {/*====== Start Activity Section ======*/}
-      <section className="activity-section">
-        <div className="activity-wrapper-bgc  text-white black-bg">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-xl-7">
-                <div className="section-title text-center mb-50 wow fadeInDown">
-                  <span className="sub-title">Popular Activity</span>
-                  <h2>Feel Real Adventure and Very Colse to Nature</h2>
-                </div>
-              </div>
-            </div>
-            <Tab.Container defaultActiveKey={"tab1"}>
-              <div className="row">
-                <div className="col-lg-4">
-                  {/*=== Activity Nav Tab ===*/}
-                  <div className="activity-nav-tab mb-50 wow fadeInLeft">
-                    <Nav as="ul" className="nav nav-tabs">
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          href="#tab1"
-                          className="nav-link"
-                          eventKey="tab1"
-                        >
-                          Tent Camping
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          href="#tab2"
-                          className="nav-link"
-                          eventKey="tab2"
-                        >
-                          Mountain Biking
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          href="#tab3"
-                          className="nav-link"
-                          eventKey="tab3"
-                        >
-                          Birdwatching
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          href="#tab4"
-                          className="nav-link"
-                          eventKey="tab4"
-                        >
-                          Fishing
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          href="#tab5"
-                          className="nav-link"
-                          eventKey="tab5"
-                        >
-                          Mountain Hiking
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          href="#tab6"
-                          className="nav-link"
-                          eventKey="tab6"
-                        >
-                          Mountain Hiking
-                        </Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                  </div>
-                </div>
-                <div className="col-lg-8">
-                  {/*=== Tab Content ===*/}
-                  <Tab.Content className="tab-content mb-50 wow fadeInRight">
-                    {/*=== Tab Pane ===*/}
-                    <Tab.Pane className="tab-pane fade" eventKey="tab1">
-                      <div className="row align-items-center">
-                        <div className="col-md-6">
-                          {/*=== Activity Content Box ===*/}
-                          <div className="activity-content-box pl-lg-40">
-                            <div className="icon">
-                              <i className="flaticon-camp" />
-                            </div>
-                            <h3 className="title">
-                              Real Adventure &amp; Enjoy Your Dream Tours
-                            </h3>
-                            <p>
-                              Sit amet consectetur velit integer tincidunt
-                              scelerisque. Sodales volutpat neque fermeny
-                              malesuada scelerisque massa lacus
-                            </p>
-                            <ul className="check-list">
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Family Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Couple Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Wild Camping
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          {/*=== Activity Image Box ===*/}
-                          <div className="activity-image-box">
-                            <img
-                              src="assets/images/gallery/activity.jpg"
-                              className="radius-12"
-                              alt="Image"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Tab.Pane>
-                    {/*=== Tab Pane ===*/}
-                    <Tab.Pane className="tab-pane fade" eventKey="tab2">
-                      <div className="row align-items-center">
-                        <div className="col-md-6">
-                          {/*=== Activity Content Box ===*/}
-                          <div className="activity-content-box pl-lg-40">
-                            <div className="icon">
-                              <i className="flaticon-camp" />
-                            </div>
-                            <h3 className="title">
-                              Real Adventure &amp; Enjoy Your Dream Tours
-                            </h3>
-                            <p>
-                              Sit amet consectetur velit integer tincidunt
-                              scelerisque. Sodales volutpat neque fermeny
-                              malesuada scelerisque massa lacus
-                            </p>
-                            <ul className="check-list">
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Family Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Couple Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Wild Camping
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          {/*=== Acctivity Image Box ===*/}
-                          <div className="activity-image-box">
-                            <img
-                              src="assets/images/gallery/activity.jpg"
-                              className="radius-12"
-                              alt="Image"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Tab.Pane>
-                    {/*=== Tab Pane ===*/}
-                    <Tab.Pane className="tab-pane fade" eventKey="tab3">
-                      <div className="row align-items-center">
-                        <div className="col-md-6">
-                          {/*=== Activity Content Box ===*/}
-                          <div className="activity-content-box pl-lg-40">
-                            <div className="icon">
-                              <i className="flaticon-camp" />
-                            </div>
-                            <h3 className="title">
-                              Real Adventure &amp; Enjoy Your Dream Tours
-                            </h3>
-                            <p>
-                              Sit amet consectetur velit integer tincidunt
-                              scelerisque. Sodales volutpat neque fermeny
-                              malesuada scelerisque massa lacus
-                            </p>
-                            <ul className="check-list">
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Family Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Couple Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Wild Camping
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          {/*=== Activity Image Box ===*/}
-                          <div className="activity-image-box">
-                            <img
-                              src="assets/images/gallery/activity.jpg"
-                              className="radius-12"
-                              alt="Image"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Tab.Pane>
-                    {/*=== Tab Pane ===*/}
-                    <Tab.Pane className="tab-pane fade" eventKey="tab4">
-                      <div className="row align-items-center">
-                        <div className="col-md-6">
-                          {/*=== Activity Content Box ===*/}
-                          <div className="activity-content-box pl-lg-40">
-                            <div className="icon">
-                              <i className="flaticon-camp" />
-                            </div>
-                            <h3 className="title">
-                              Real Adventure &amp; Enjoy Your Dream Tours
-                            </h3>
-                            <p>
-                              Sit amet consectetur velit integer tincidunt
-                              scelerisque. Sodales volutpat neque fermeny
-                              malesuada scelerisque massa lacus
-                            </p>
-                            <ul className="check-list">
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Family Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Couple Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Wild Camping
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          {/*=== Activity Image Box ===*/}
-                          <div className="activity-image-box">
-                            <img
-                              src="assets/images/gallery/activity.jpg"
-                              className="radius-12"
-                              alt="Image"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Tab.Pane>
-                    {/*=== Tab Pane ===*/}
-                    <Tab.Pane className="tab-pane fade" eventKey="tab5">
-                      <div className="row align-items-center">
-                        <div className="col-md-6">
-                          {/*=== Activity Content Box ===*/}
-                          <div className="activity-content-box pl-lg-40">
-                            <div className="icon">
-                              <i className="flaticon-camp" />
-                            </div>
-                            <h3 className="title">
-                              Real Adventure &amp; Enjoy Your Dream Tours
-                            </h3>
-                            <p>
-                              Sit amet consectetur velit integer tincidunt
-                              scelerisque. Sodales volutpat neque fermeny
-                              malesuada scelerisque massa lacus
-                            </p>
-                            <ul className="check-list">
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Family Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Couple Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Wild Camping
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          {/*=== Activity Image Box ===*/}
-                          <div className="activity-image-box">
-                            <img
-                              src="assets/images/gallery/activity.jpg"
-                              className="radius-12"
-                              alt="Image"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Tab.Pane>
-                    {/*=== Tab Pane ===*/}
-                    <Tab.Pane className="tab-pane fade" eventKey="tab6">
-                      <div className="row align-items-center">
-                        <div className="col-md-6">
-                          {/*=== Activity Cotent Box ===*/}
-                          <div className="activity-content-box pl-lg-40">
-                            <div className="icon">
-                              <i className="flaticon-camp" />
-                            </div>
-                            <h3 className="title">
-                              Real Adventure &amp; Enjoy Your Dream Tours
-                            </h3>
-                            <p>
-                              Sit amet consectetur velit integer tincidunt
-                              scelerisque. Sodales volutpat neque fermeny
-                              malesuada scelerisque massa lacus
-                            </p>
-                            <ul className="check-list">
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Family Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Couple Camping
-                              </li>
-                              <li>
-                                <i className="fas fa-badge-check" />
-                                Wild Camping
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          {/*=== Activity Image ===*/}
-                          <div className="activity-image-box">
-                            <img
-                              src="assets/images/gallery/activity.jpg"
-                              className="radius-12"
-                              alt="Image"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </div>
-              </div>
-            </Tab.Container>
-          </div>
-        </div>
-      </section>
-      {/*====== End Activity Section ======*/}
-      {/*====== Start Services Section ======*/}
-      <section className="services-seciton pt-100">
+      <section className="service-section-two black-bg pt-100 pb-100">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-xl-8 col-lg-10">
+            <div className="col-xl-7">
               {/*=== Section Title ===*/}
-              <div className="section-title text-center mb-60 wow fadeInDown">
-                <span className="sub-title">Category</span>
-                <h2>Amazing Adventure Camping Services for Enjoyed</h2>
+              <div className="section-title text-center text-white mb-45 wow fadeInDown">
+                <span className="sub-title">
+                  {" "}
+                  {mainContext.language.ourBus.title}
+                </span>
+                <h2> {mainContext.language.ourBus.bigTitle}</h2>
               </div>
             </div>
           </div>
+          {!bus && (
+            <div
+              style={{
+                justifyContent: "center",
+                display: "flex",
+              }}
+            >
+              <Spin size="large" />
+            </div>
+          )}
+
           <Slider
             {...sliderActive3Item}
             className="slider-active-3-item wow fadeInUp"
           >
-            {console.log("getData: ", getData)}
             {/*=== Single Service Item ===*/}
-            {getData.map((e) => (
-              <div className="single-service-item mb-40">
+            {bus?.map((e, i) => (
+              <div className="single-service-item-four" key={i}>
+                <div className="img-holder">
+                  <img src={e[1].data.img[0]} alt="Service Image" />
+                </div>
                 <div className="content">
-                  <h3 className="title">
-                    <Link legacyBehavior href="/tour-details">
-                      <a>{e[1].values.title}</a>
-                    </Link>
-                  </h3>
-                  <p>{e[1].values.description}</p>
+                  <a href="#" className="icon-btn">
+                    <i className="fas fa-heart" />
+                  </a>
+                  <h3 className="title">{e[1].data.busName}</h3>
+                  <p>{e[1].data.title}</p>
                   <div className="meta">
                     <span className="icon">
-                      <i className="flaticon-blanket" />
+                      <i className="fas fa-tv" />
                     </span>
                     <span className="icon">
-                      <i className="flaticon-cat" />
+                      <i className="fas fa-wifi" />
                     </span>
                     <span className="icon">
-                      <i className="flaticon-tent" />
+                      <i className="fas fa-snowflake" />
                     </span>
                     <span className="icon">
-                      <i className="flaticon-fire" />
+                      <i className="fas fa-plug" />
+                    </span>
+                    <span className="icon">
+                      <i className="fas fa-music" />
                     </span>
                   </div>
-                  <a href="#" className="icon-btn">
-                    <i className="far fa-arrow-right" />
-                  </a>
-                </div>
-                <div className="img-holder">
-                  <img src={e[1].values.img[0]} alt="Service Image" />
+                  <div className="action-btn">
+                    <Flex
+                      justify="space-between"
+                      align="center"
+                      className="fw-bold fs-5"
+                    >
+                      <span>
+                        <h3 className="title">
+                          {e[1].data.price
+                            .toFixed(0)
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                          ₮
+                        </h3>
+                      </span>
+                      <Link legacyBehavior href={`/bus-details?id=${e[0]}`}>
+                        <a className="main-btn primary-btn">
+                          {mainContext.language.ourBus.btn}
+                          <i className="far fa-paper-plane" />
+                        </a>
+                      </Link>
+                    </Flex>
+                  </div>
                 </div>
               </div>
             ))}
-
             {/*=== Single Service Item ===*/}
-            <div className="single-service-item mb-40">
-              <div className="content">
-                <h3 className="title">
-                  <Link legacyBehavior href="/tour-details">
-                    Glamping Cabin
-                  </Link>
-                </h3>
-                <p>
-                  Sit amet consecteturauris natoque name pellentue augue mattis
-                  faucibus
-                </p>
-                <div className="meta">
-                  <span className="icon">
-                    <i className="flaticon-blanket" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-cat" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-tent" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-fire" />
-                  </span>
-                </div>
-                <a href="#" className="icon-btn">
-                  <i className="far fa-arrow-right" />
-                </a>
-              </div>
-              <div className="img-holder">
-                <img
-                  src="assets/images/service/service-2.jpg"
-                  alt="Service Image"
-                />
+          </Slider>
+          {/*=== Text Box ===*/}
+          <div className="big-text pt-100 wow fadeInDown">
+            <img src="assets/images/bg/adventure.png" alt="Adventure" />
+          </div>
+        </div>
+      </section>
+      {/*====== End Hero Section ======*/}
+      {/*====== Start Features Section ======*/}
+      <section className="features-section gray-bg pt-100 pb-100">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="section-title mb-55 wow fadeInLeft">
+                <span className="sub-title">
+                  {mainContext.language.provide.title}
+                </span>
+                <h2>{mainContext.language.provide.bigTitle}</h2>
               </div>
             </div>
-            {/*=== Single Service Item ===*/}
-            <div className="single-service-item mb-40">
-              <div className="content">
-                <h3 className="title">
-                  <Link legacyBehavior href="/tour-details">
-                    RV Luxury Tent
-                  </Link>
-                </h3>
-                <p>
-                  Sit amet consecteturauris natoque name pellentue augue mattis
-                  faucibus
+            <div className="col-lg-6">
+              {/*=== Features Content Box ===*/}
+              <div className="features-content-box pl-lg-70 wow fadeInRight">
+                <p className="mb-25">
+                  {mainContext.language.provide.description}
                 </p>
-                <div className="meta">
-                  <span className="icon">
-                    <i className="flaticon-blanket" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-cat" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-tent" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-fire" />
-                  </span>
+                <div className="row justify-content-center">
+                  <div className="col-sm-4 col-6">
+                    {/*=== Counter Item ===*/}
+                    <div className="counter-item mb-55">
+                      <h2 className="number">
+                        <Counter end={356} />+
+                      </h2>
+                      <p>{mainContext.language.provide.happyTraveler}</p>
+                    </div>
+                  </div>
+                  <div className="col-sm-4 col-6">
+                    {/*=== Counter Item ===*/}
+                    <div className="counter-item mb-55">
+                      <h2 className="number">
+                        <Counter end={852} />+
+                      </h2>
+                      <p>{mainContext.language.provide.tentSites}</p>
+                    </div>
+                  </div>
+                  <div className="col-sm-4 col-6">
+                    {/*=== Counter Item ===*/}
+                    <div className="counter-item mb-55">
+                      <h2 className="number">
+                        <Counter end={99} />%
+                      </h2>
+                      <p>{mainContext.language.provide.positiveReviews}</p>
+                    </div>
+                  </div>
                 </div>
-                <a href="#" className="icon-btn">
-                  <i className="far fa-arrow-right" />
-                </a>
-              </div>
-              <div className="img-holder">
-                <img
-                  src="assets/images/service/service-3.jpg"
-                  alt="Service Image"
-                />
               </div>
             </div>
-            {/*=== Single Service Item ===*/}
-            <div className="single-service-item mb-40">
-              <div className="content">
-                <h3 className="title">
-                  <Link legacyBehavior href="/tour-details">
-                    RV Luxury Tent
-                  </Link>
-                </h3>
-                <p>
-                  Sit amet consecteturauris natoque name pellentue augue mattis
-                  faucibus
-                </p>
-                <div className="meta">
-                  <span className="icon">
-                    <i className="flaticon-blanket" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-cat" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-tent" />
-                  </span>
-                  <span className="icon">
-                    <i className="flaticon-fire" />
-                  </span>
-                </div>
-                <a href="#" className="icon-btn">
-                  <i className="far fa-arrow-right" />
-                </a>
-              </div>
+          </div>
+          {/*=== Features Slider ===*/}
+          <Slider
+            {...sliderActive5Item}
+            className="slider-active-5-item wow fadeInUp"
+          >
+            {/*=== Features Item ===*/}
+            <div className="single-features-item-three">
               <div className="img-holder">
                 <img
-                  src="assets/images/service/service-2.jpg"
-                  alt="Service Image"
+                  src="assets/images/features/feat-10.jpg"
+                  alt="Features Image"
                 />
+              </div>
+              <div className="content">
+                <h6>Wadi Musa, Ma'an Governorate, Jordan</h6>
+              </div>
+            </div>
+            {/*=== Features Item ===*/}
+            <div className="single-features-item-three">
+              <div className="img-holder">
+                <img
+                  src="assets/images/features/feat-11.jpg"
+                  alt="Features Image"
+                />
+              </div>
+              <div className="content">
+                <h6>Tambon Ko Kut, จ.ตราด, Thailand</h6>
+              </div>
+            </div>
+            {/*=== Features Item ===*/}
+            <div className="single-features-item-three">
+              <div className="img-holder">
+                <img
+                  src="assets/images/features/feat-12.jpg"
+                  alt="Features Image"
+                />
+              </div>
+              <div className="content">
+                <h6>Camper Trailer, New York</h6>
+              </div>
+            </div>
+            {/*=== Features Item ===*/}
+            <div className="single-features-item-three">
+              <div className="img-holder">
+                <img
+                  src="assets/images/features/feat-13.jpg"
+                  alt="Features Image"
+                />
+              </div>
+              <div className="content">
+                <h6>Wadi Musa, Ma'an Governorate, Jordan</h6>
+              </div>
+            </div>
+            {/*=== Features Item ===*/}
+            <div className="single-features-item-three">
+              <div className="img-holder">
+                <img
+                  src="assets/images/features/feat-14.jpg"
+                  alt="Features Image"
+                />
+              </div>
+              <div className="content">
+                <h6>Forest Tent Camping, South Africa</h6>
+              </div>
+            </div>
+            {/*=== Features Item ===*/}
+            <div className="single-features-item-three">
+              <div className="img-holder">
+                <img
+                  src="assets/images/features/feat-12.jpg"
+                  alt="Features Image"
+                />
+              </div>
+              <div className="content">
+                <h6>Camper Trailer, New York</h6>
               </div>
             </div>
           </Slider>
         </div>
       </section>
-      {/*====== End Services Section ======*/}
-      {/*====== Start Features Section ======*/}
-      <section className="features-section pb-60">
+      {/*=== End What We Section ===*/}
+      {/*====== Start Service Section ======*/}
+
+      <section className="who-we-section pt-100 pb-50">
         <div className="container">
-          <div className="row">
-            <div className="col-xl-4 col-lg-6 col-md-12">
-              {/*=== Fancy Icon Box ===*/}
-              <div className="fancy-icon-box mb-30 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-rabbit" />
-                </div>
-                <div className="text">
-                  <h4 className="title">Best Security</h4>
-                  <p>
-                    we denounce with righteous indignation and dislike men who
-                    are so beguiled
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-6 col-md-12">
-              {/*=== Fancy Icon Box ===*/}
-              <div className="fancy-icon-box mb-30 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-wifi-router" />
-                </div>
-                <div className="text">
-                  <h4 className="title">Free Internet</h4>
-                  <p>
-                    we denounce with righteous indignation and dislike men who
-                    are so beguiled
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-6 col-md-12">
-              {/*=== Fancy Icon Box ===*/}
-              <div className="fancy-icon-box mb-30 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-solar-energy" />
-                </div>
-                <div className="text">
-                  <h4 className="title">Solar Energy</h4>
-                  <p>
-                    we denounce with righteous indignation and dislike men who
-                    are so beguiled
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-6 col-md-12">
-              {/*=== Fancy Icon Box ===*/}
-              <div className="fancy-icon-box mb-30 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-cycling" />
-                </div>
-                <div className="text">
-                  <h4 className="title">Mountain Biking</h4>
-                  <p>
-                    we denounce with righteous indignation and dislike men who
-                    are so beguiled
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-6 col-md-12">
-              {/*=== Fancy Icon Box ===*/}
-              <div className="fancy-icon-box mb-30 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-fishing" />
-                </div>
-                <div className="text">
-                  <h4 className="title">Swimming &amp; Fishing </h4>
-                  <p>
-                    we denounce with righteous indignation and dislike men who
-                    are so beguiled
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-6 col-md-12">
-              {/*=== Fancy Icon Box ===*/}
-              <div className="fancy-icon-box mb-30 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-gym" />
-                </div>
-                <div className="text">
-                  <h4 className="title">GYM and Yoga</h4>
-                  <p>
-                    we denounce with righteous indignation and dislike men who
-                    are so beguiled
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/*====== End Features Section ======*/}
-      {/*====== Start CTA Section ======*/}
-      <section
-        className="cta-bg overlay bg_cover pt-140 pb-150"
-        style={{ backgroundImage: "url(assets/images/bg/cta-bg.jpg)" }}
-      >
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-8">
-              {/*=== CTA Content Box ===*/}
-              <div className="cta-content-box text-center text-white wow fadeInDown">
-                <h2 className="mb-35">
-                  Ready to Travel With Real Adventure and Enjoy Natural
-                </h2>
-                <Link legacyBehavior href="/about">
-                  <a className="main-btn primary-btn">
-                    Check Availability
-                    <i className="far fa-paper-plane" />
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/*====== End CTA Section ======*/}
-      {/*====== Start Fact Section ======*/}
-      <section className="fact-section pt-100">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-3 col-sm-6">
-              {/*=== Counter Item ===*/}
-              <div className="single-counter-item text-center mb-40 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-journey" />
-                </div>
-                <h2 className="number">
-                  <Counter end={8453} />+
-                </h2>
-                <p>Happy Traveler</p>
-              </div>
-            </div>
-            <div className="col-lg-3 col-sm-6">
-              {/*=== Counter Item ===*/}
-              <div className="single-counter-item text-center mb-40 wow fadeInDown">
-                <div className="icon">
-                  <i className="flaticon-tent-1" />
-                </div>
-                <h2 className="number">
-                  <Counter end={3568} />+
-                </h2>
-                <p>Tent Sites</p>
-              </div>
-            </div>
-            <div className="col-lg-3 col-sm-6">
-              {/*=== Counter Item ===*/}
-              <div className="single-counter-item text-center mb-40 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-reviews" />
-                </div>
-                <h2 className="number">
-                  <Counter end={99.3} decimals={1} />%
-                </h2>
-                <p>Positive Reviews</p>
-              </div>
-            </div>
-            <div className="col-lg-3 col-sm-6">
-              {/*=== Counter Item ===*/}
-              <div className="single-counter-item text-center mb-40 wow fadeInDown">
-                <div className="icon">
-                  <i className="flaticon-award" />
-                </div>
-                <h2 className="number">
-                  <Counter end={63} />K
-                </h2>
-                <p>Awards Winning</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/*====== End Fact Section ======*/}
-      {/*====== Start Testimonial Section ======*/}
-      <section className="testimonial-section pt-60">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-8">
-              {/*=== Section Title ===*/}
-              <div className="section-title text-center mb-50 wow fadeInDown">
-                <span className="sub-title">Testimonials</span>
-                <h2>What Our Traveler Say About Our Tour Services</h2>
-              </div>
-            </div>
-          </div>
           <div className="row align-items-xl-center">
-            <div className="col-xl-5 col-lg-12 order-2 order-xl-1">
-              {/*=== Testimonial Image ===*/}
-              <div className="testimonial-one_image-box mb-40 wow fadeInLeft">
+            <div className="col-xl-5 order-2 order-xl-1">
+              {/*=== We Image Box ===*/}
+              <div className="we-image-box text-center text-xl-left pr-lg-30 mb-50 wow fadeInLeft">
                 <img
-                  src="assets/images/testimonial/testimonial-1.jpg"
-                  alt="Testimonial Image"
+                  src="assets/images/features/feat-2.jpg"
+                  className="radius-top-left-right-288"
+                  alt="What We Image"
                 />
               </div>
             </div>
-            <div className="col-xl-7 col-lg-12 order-1 order-xl-2">
-              {/*=== Testimonial Slider ===*/}
+            <div className="col-xl-7 order-1 order-xl-2">
+              {/*=== We Content Box ===*/}
+              <div className="we-contnet-box mb-20 wow fadeInRight">
+                {/*=== Section Title ===*/}
+                <div className="section-title mb-45">
+                  <span className="sub-title">
+                    {mainContext.language.ourServices.title}
+                  </span>
+                  <h2>{mainContext.language.ourServices.bigTitle}</h2>
+                </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    {/*=== Fancy Icon Box ===*/}
+                    <div className="fancy-icon-box-three mb-30">
+                      <div className="icon">
+                        {/* <i className="flaticon-camping" /> */}
+                        <img src="assets/images/icon/support.png" alt="Icon" />
+                      </div>
+                      <div className="text">
+                        <h5 className="title">
+                          {mainContext.language.ourServices.supp}
+                        </h5>
+                        <a href="#" className="btn-link">
+                          {mainContext.language.ourServices.btn}{" "}
+                          <i className="far fa-long-arrow-right" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    {/*=== Fancy Icon Box ===*/}
+                    <div className="fancy-icon-box-three mb-30">
+                      <div className="icon">
+                        <img src="assets/images/icon/travel.png" alt="Icon" />
+                      </div>
+                      <div className="text">
+                        <h5 className="title">
+                          {" "}
+                          {mainContext.language.ourServices.consultations}
+                        </h5>
+                        <a href="#" className="btn-link">
+                          {mainContext.language.ourServices.btn}{" "}
+                          <i className="far fa-long-arrow-right" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    {/*=== Fancy Icon Box ===*/}
+                    <div className="fancy-icon-box-three mb-30">
+                      <div className="icon">
+                        {/* <i className="flaticon-oclock" /> */}
+                        <i className="far fa-clock" />
+                      </div>
+                      <div className="text">
+                        <h5 className="title">
+                          {" "}
+                          {mainContext.language.ourServices.scheduleOnTime}
+                        </h5>
+                        <a href="#" className="btn-link">
+                          {mainContext.language.ourServices.btn}{" "}
+                          <i className="far fa-long-arrow-right" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    {/*=== Fancy Icon Box ===*/}
+                    <div className="fancy-icon-box-three mb-30">
+                      <div className="icon">
+                        <i className="far fa-mobile" />
+                      </div>
+                      <div className="text">
+                        <h5 className="title">
+                          {" "}
+                          {mainContext.language.ourServices.onlineBooking}
+                        </h5>
+                        <a href="#" className="btn-link">
+                          {mainContext.language.ourServices.btn}{" "}
+                          <i className="far fa-long-arrow-right" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* <section className="places-section pt-100 pb-70">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-7">
+              
+              <div className="section-title text-center mb-50 wow fadeInDown">
+                <span className="sub-title">Popular Tour Place</span>
+                <h2>Visit &amp; Enjoy Adventure Life With Full Of Dreams</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              
+              <div className="single-place-item-three mb-30 wow fadeInUp">
+                <div className="place-img">
+                  <img
+                    src="assets/images/place/place-20.jpg"
+                    alt="Place Image"
+                  />
+                </div>
+                <div className="place-content">
+                  <h4 className="title">
+                    <Link legacyBehavior href="/tour-details">
+                      Hiking Mountains
+                    </Link>
+                  </h4>
+                  <p className="location">
+                    <i className="far fa-map-marker-alt" />
+                    Arefu, AG, Romania
+                  </p>
+                  <div className="meta">
+                    <span>
+                      <i className="far fa-calendar-alt" />
+                      25 Feb 2023
+                    </span>
+                    <a href="#" className="icon-btn">
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              
+              <div className="single-place-item-three mb-30 wow fadeInUp">
+                <div className="place-img">
+                  <img
+                    src="assets/images/place/place-21.jpg"
+                    alt="Place Image"
+                  />
+                </div>
+                <div className="place-content">
+                  <h4 className="title">
+                    <Link legacyBehavior href="/tour-details">
+                      Surfer Riding Wave
+                    </Link>
+                  </h4>
+                  <p className="location">
+                    <i className="far fa-map-marker-alt" />
+                    Arefu, AG, Romania
+                  </p>
+                  <div className="meta">
+                    <span>
+                      <i className="far fa-calendar-alt" />
+                      25 Feb 2023
+                    </span>
+                    <a href="#" className="icon-btn">
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              
+              <div className="single-place-item-three mb-30 wow fadeInUp">
+                <div className="place-img">
+                  <img
+                    src="assets/images/place/place-22.jpg"
+                    alt="Place Image"
+                  />
+                </div>
+                <div className="place-content">
+                  <h4 className="title">
+                    <Link legacyBehavior href="/tour-details">
+                      Tracing Hill On Cloud
+                    </Link>
+                  </h4>
+                  <p className="location">
+                    <i className="far fa-map-marker-alt" />
+                    Arefu, AG, Romania
+                  </p>
+                  <div className="meta">
+                    <span>
+                      <i className="far fa-calendar-alt" />
+                      25 Feb 2023
+                    </span>
+                    <a href="#" className="icon-btn">
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              
+              <div className="single-place-item-three mb-30 wow fadeInUp">
+                <div className="place-img">
+                  <img
+                    src="assets/images/place/place-23.jpg"
+                    alt="Place Image"
+                  />
+                </div>
+                <div className="place-content">
+                  <h4 className="title">
+                    <Link legacyBehavior href="/tour-details">
+                      Hill House On Sea
+                    </Link>
+                  </h4>
+                  <p className="location">
+                    <i className="far fa-map-marker-alt" />
+                    Gulf of Thailand, Thailand
+                  </p>
+                  <div className="meta">
+                    <span>
+                      <i className="far fa-calendar-alt" />
+                      25 Feb 2023
+                    </span>
+                    <a href="#" className="icon-btn">
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              
+              <div className="single-place-item-three mb-30 wow fadeInUp">
+                <div className="place-img">
+                  <img
+                    src="assets/images/place/place-24.jpg"
+                    alt="Place Image"
+                  />
+                </div>
+                <div className="place-content">
+                  <h4 className="title">
+                    <Link legacyBehavior href="/tour-details">
+                      Tent Camping
+                    </Link>
+                  </h4>
+                  <p className="location">
+                    <i className="far fa-map-marker-alt" />
+                    Wilderness, United States
+                  </p>
+                  <div className="meta">
+                    <span>
+                      <i className="far fa-calendar-alt" />
+                      25 Feb 2023
+                    </span>
+                    <a href="#" className="icon-btn">
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              
+              <div className="single-place-item-three mb-30 wow fadeInUp">
+                <div className="place-img">
+                  <img
+                    src="assets/images/place/place-25.jpg"
+                    alt="Place Image"
+                  />
+                </div>
+                <div className="place-content">
+                  <h4 className="title">
+                    <Link legacyBehavior href="/tour-details">
+                      Hiking Mountains
+                    </Link>
+                  </h4>
+                  <p className="location">
+                    <i className="far fa-map-marker-alt" />
+                    Arefu, AG, Romania
+                  </p>
+                  <div className="meta">
+                    <span>
+                      <i className="far fa-calendar-alt" />
+                      25 Feb 2023
+                    </span>
+                    <a href="#" className="icon-btn">
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              
+              <div className="single-place-item-three mb-30 wow fadeInUp">
+                <div className="place-img">
+                  <img
+                    src="assets/images/place/place-26.jpg"
+                    alt="Place Image"
+                  />
+                </div>
+                <div className="place-content">
+                  <h4 className="title">
+                    <Link legacyBehavior href="/tour-details">
+                      Climbing Up The Hills
+                    </Link>
+                  </h4>
+                  <p className="location">
+                    <i className="far fa-map-marker-alt" />
+                    Arefu, AG, Romania
+                  </p>
+                  <div className="meta">
+                    <span>
+                      <i className="far fa-calendar-alt" />
+                      25 Feb 2023
+                    </span>
+                    <a href="#" className="icon-btn">
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              
+              <div className="single-place-item-three mb-30 wow fadeInUp">
+                <div className="place-img">
+                  <img
+                    src="assets/images/place/place-27.jpg"
+                    alt="Place Image"
+                  />
+                </div>
+                <div className="place-content">
+                  <h4 className="title">
+                    <Link legacyBehavior href="/tour-details">
+                      Tracing Hill On Cloud
+                    </Link>
+                  </h4>
+                  <p className="location">
+                    <i className="far fa-map-marker-alt" />
+                    Nordegg, Canada
+                  </p>
+                  <div className="meta">
+                    <span>
+                      <i className="far fa-calendar-alt" />
+                      25 Feb 2023
+                    </span>
+                    <a href="#" className="icon-btn">
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+      {/*====== End Places Section ======*/}
+      {/*====== Start Why Choose Section ======*/}
+      {/* <section className="why-choose-section gray-bg pt-100 pb-50">
+        <div className="container">
+          <div className="row align-items-xl-center">
+            <div className="col-xl-7">
+              <div className="choose-content-box pr-lg-70">
+                <div className="section-title mb-45 wow fadeInDown">
+                  <span className="sub-title">Why Choose Us</span>
+                  <h2>People Why Choose Our Travel Adventure</h2>
+                </div>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="fancy-icon-box-four mb-45 wow fadeInUp">
+                      <div className="icon">
+                        <i className="flaticon-rabbit" />
+                      </div>
+                      <div className="text">
+                        <h4 className="title">Best Security</h4>
+                        <p>
+                          We denounce with righteous indignation and dislike
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="fancy-icon-box-four mb-45 wow fadeInUp">
+                      <div className="icon">
+                        <i className="flaticon-wifi-router" />
+                      </div>
+                      <div className="text">
+                        <h4 className="title">Free Internet</h4>
+                        <p>
+                          We denounce with righteous indignation and dislike
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="fancy-icon-box-four mb-45 wow fadeInUp">
+                      <div className="icon">
+                        <i className="flaticon-solar-energy" />
+                      </div>
+                      <div className="text">
+                        <h4 className="title">Solar Energy</h4>
+                        <p>
+                          We denounce with righteous indignation and dislike
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="fancy-icon-box-four mb-45 wow fadeInUp">
+                      <div className="icon">
+                        <i className="flaticon-cycling" />
+                      </div>
+                      <div className="text">
+                        <h4 className="title">Mountain Biking</h4>
+                        <p>
+                          We denounce with righteous indignation and dislike
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-5">
+              <div className="experience-box text-center text-xl-right mb-50 wow fadeInRight">
+                <img src="assets/images/features/years.png" alt />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+      {/*====== End Why Choose Section ======*/}
+      {/*====== Start Testimonial Section ======*/}
+      <section className="testimonial-section-two pt-100">
+        <div className="container">
+          {/* <div className="row align-items-xl-center">
+            <div className="col-xl-5 order-2 order-xl-1">
+              <div className="testimonial-image-box text-xl-left text-center wow fadeInLeft">
+                <img
+                  src="assets/images/testimonial/testimonial-2.png"
+                  alt="Icon Image"
+                />
+              </div>
+            </div>
+            <div className="col-xl-7 order-1 order-xl-2">
               <Slider
                 {...testimonialSliderOne}
                 className="testimonial-slider-one pl-lg-55 mb-40 wow fadeInRight"
               >
-                {/*=== Testimonial Item ===*/}
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -1196,7 +1018,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                {/*=== Testimonial Item ===*/}
+
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -1246,7 +1068,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                {/*=== Testimonial Item ===*/}
+
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -1298,314 +1120,185 @@ const Index = () => {
                 </div>
               </Slider>
             </div>
+          </div> */}
+
+          <div className="blog-area pt-60 pb-60">
+            <div className="row justify-content-center">
+              <div className="col-xl-7">
+                <div className="section-title text-center mb-45 wow fadeInDown">
+                  <span className="sub-title">News &amp; Blog</span>
+                  <h2>Amazing News &amp; Blog For Every Single Update</h2>
+                </div>
+              </div>
+            </div>
+            <div className="row justify-content-center">
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="single-blog-post-three mb-40 wow fadeInUp">
+                  <div className="post-thumbnail">
+                    <img src="assets/images/blog/blog-7.jpg" alt="Blog Image" />
+                  </div>
+                  <div className="entry-content">
+                    <div className="post-meta">
+                      <span>
+                        <i className="far fa-calendar-alt" />
+                        <a href="#">November 15, 2022</a>
+                      </span>
+                      <h3 className="title">
+                        <Link legacyBehavior href="/blog-details">
+                          <a>
+                            Meet Skeleton Svelte Taile Sind For Reactive UIs
+                          </a>
+                        </Link>
+                      </h3>
+                      <Link legacyBehavior href="/blog-details">
+                        <a className="main-btn filled-btn">
+                          {mainContext.language.ourServices.btn}
+                          <i className="far fa-paper-plane" />
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="single-blog-post-three mb-40 wow fadeInDown">
+                  <div className="post-thumbnail">
+                    <img src="assets/images/blog/blog-8.jpg" alt="Blog Image" />
+                  </div>
+                  <div className="entry-content">
+                    <div className="post-meta">
+                      <span>
+                        <i className="far fa-calendar-alt" />
+                        <a href="#">November 15, 2022</a>
+                      </span>
+                      <h3 className="title">
+                        <Link legacyBehavior href="/blog-details">
+                          <a>
+                            Meet Skeleton Svelte Taile Sind For Reactive UIs
+                          </a>
+                        </Link>
+                      </h3>
+                      <Link legacyBehavior href="/blog-details">
+                        <a className="main-btn filled-btn">
+                          {mainContext.language.ourServices.btn}
+                          <i className="far fa-paper-plane" />
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <div className="single-blog-post-three mb-40 wow fadeInUp">
+                  <div className="post-thumbnail">
+                    <img src="assets/images/blog/blog-9.jpg" alt="Blog Image" />
+                  </div>
+                  <div className="entry-content">
+                    <div className="post-meta">
+                      <span>
+                        <i className="far fa-calendar-alt" />
+                        <a href="#">November 15, 2022</a>
+                      </span>
+                      <h3 className="title">
+                        <Link legacyBehavior href="/blog-details">
+                          <a>
+                            Meet Skeleton Svelte Taile Sind For Reactive UIs
+                          </a>
+                        </Link>
+                      </h3>
+                      <Link legacyBehavior href="/blog-details">
+                        <a className="main-btn filled-btn">
+                          {mainContext.language.ourServices.btn}
+                          <i className="far fa-paper-plane" />
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       {/*====== End Testimonial Section ======*/}
-      {/*====== Start Blog Section ======*/}
-      <section className="blog-section pt-60 pb-60">
+      {/*====== Start Partners Section ======*/}
+      <section className="partners-section black-dark-bg">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-6">
-              {/*=== Section Title ===*/}
-              <div className="section-title text-center mb-45 wow fadeInDown">
-                <span className="sub-title">News &amp; Blog</span>
-                <h2>Amazing News &amp; Blog For Every Single Update</h2>
+          {/*=== Partners Slider ===*/}
+          <Slider
+            {...partnerSliderOne}
+            className="partner-slider-one pt-80 pb-50 wow fadeInUp"
+          >
+            {/*=== Partner Item ===*/}
+            <div className="single-partner-item">
+              <div className="partner-img">
+                <a href="#">
+                  <img
+                    src="assets/images/partner/partner-6.png"
+                    alt="Partner Image"
+                  />
+                </a>
               </div>
             </div>
-          </div>
-          <div className="row justify-content-center">
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              {/*=== Single Blog Post ===*/}
-              <div className="single-blog-post mb-40 wow fadeInUp">
-                <div className="post-thumbnail">
-                  <img src="assets/images/blog/blog-1.jpg" alt="Post Image" />
-                </div>
-                <div className="entry-content">
-                  <a href="#" className="cat-btn">
-                    Adventure
-                  </a>
-                  <div className="post-meta">
-                    <span>
-                      <i className="far fa-calendar-alt" />
-                      <a href="#">November 15, 2022</a>
-                    </span>
-                  </div>
-                  <h3 className="title">
-                    <Link legacyBehavior href="/blog-details">
-                      Meet Skeleton Svelte Taile Was Sind For Reactive UIs
-                    </Link>
-                  </h3>
-                  <Link legacyBehavior href="/blog-details">
-                    <a className="main-btn filled-btn">
-                      Read More
-                      <i className="far fa-paper-plane" />
-                    </a>
-                  </Link>
-                </div>
+            {/*=== Partner Item ===*/}
+            <div className="single-partner-item">
+              <div className="partner-img">
+                <a href="#">
+                  <img
+                    src="assets/images/partner/partner-7.png"
+                    alt="Partner Image"
+                  />
+                </a>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              {/*=== Single Blog Post ===*/}
-              <div className="single-blog-post mb-40 wow fadeInUp">
-                <div className="post-thumbnail">
-                  <img src="assets/images/blog/blog-2.jpg" alt="Post Image" />
-                </div>
-                <div className="entry-content">
-                  <a href="#" className="cat-btn">
-                    Adventure
-                  </a>
-                  <div className="post-meta">
-                    <span>
-                      <i className="far fa-calendar-alt" />
-                      <a href="#">November 15, 2022</a>
-                    </span>
-                  </div>
-                  <h3 className="title">
-                    <Link legacyBehavior href="/blog-details">
-                      Web Vitals Tools Boost Your to Sen Performance Scores
-                    </Link>
-                  </h3>
-                  <Link legacyBehavior href="/blog-details">
-                    <a className="main-btn filled-btn">
-                      Read More
-                      <i className="far fa-paper-plane" />
-                    </a>
-                  </Link>
-                </div>
+            {/*=== Partner Item ===*/}
+            <div className="single-partner-item">
+              <div className="partner-img">
+                <a href="#">
+                  <img
+                    src="assets/images/partner/partner-8.png"
+                    alt="Partner Image"
+                  />
+                </a>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              {/*=== Single Blog Post ===*/}
-              <div className="single-blog-post mb-40 wow fadeInUp">
-                <div className="post-thumbnail">
-                  <img src="assets/images/blog/blog-3.jpg" alt="Post Image" />
-                </div>
-                <div className="entry-content">
-                  <a href="#" className="cat-btn">
-                    Adventure
-                  </a>
-                  <div className="post-meta">
-                    <span>
-                      <i className="far fa-calendar-alt" />
-                      <a href="#">November 15, 2022</a>
-                    </span>
-                  </div>
-                  <h3 className="title">
-                    <Link legacyBehavior href="/blog-details">
-                      Smashing Podcast Episode See With Paul Billion-Dollar Idea
-                    </Link>
-                  </h3>
-                  <Link legacyBehavior href="/blog-details">
-                    <a className="main-btn filled-btn">
-                      Read More
-                      <i className="far fa-paper-plane" />
-                    </a>
-                  </Link>
-                </div>
+            {/*=== Partner Item ===*/}
+            <div className="single-partner-item">
+              <div className="partner-img">
+                <a href="#">
+                  <img
+                    src="assets/images/partner/partner-9.png"
+                    alt="Partner Image"
+                  />
+                </a>
               </div>
             </div>
-          </div>
+            {/*=== Partner Item ===*/}
+            <div className="single-partner-item">
+              <div className="partner-img">
+                <a href="#">
+                  <img
+                    src="assets/images/partner/partner-10.png"
+                    alt="Partner Image"
+                  />
+                </a>
+              </div>
+            </div>
+            {/*=== Partner Item ===*/}
+            <div className="single-partner-item">
+              <div className="partner-img">
+                <a href="#">
+                  <img
+                    src="assets/images/partner/partner-7.png"
+                    alt="Partner Image"
+                  />
+                </a>
+              </div>
+            </div>
+          </Slider>
         </div>
       </section>
-      {/*====== End Blog Section ======*/}
-      {/*====== Start Gallery Section ======*/}
-      <GallerySection />
-      {/*====== End Gallery Section ======*/}
-      <footer className="main-footer black-bg pt-230">
-        <div className="container">
-          {/*=== Footer Top ===*/}
-          <div className="footer-top pt-40 wow fadeInUp">
-            <div className="row">
-              <div className="col-lg-3 col-sm-6">
-                {/*=== Single Info Item ===*/}
-                <div className="single-info-item mb-40">
-                  <div className="icon">
-                    <i className="far fa-map-marker-alt" />
-                  </div>
-                  <div className="info">
-                    <span className="title">Location</span>
-                    <p>55 Main Street, Australia</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 col-sm-6">
-                {/*=== Single Info Item ===*/}
-                <div className="single-info-item mb-40">
-                  <div className="icon">
-                    <i className="far fa-envelope-open" />
-                  </div>
-                  <div className="info">
-                    <span className="title">Email</span>
-                    <p>
-                      <a href="mailto:support@gmail.com">support@gmail.com</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 col-sm-6">
-                {/*=== Single Info Item ===*/}
-                <div className="single-info-item mb-40">
-                  <div className="icon">
-                    <i className="far fa-map-marker-alt" />
-                  </div>
-                  <div className="info">
-                    <span className="title">Hotline</span>
-                    <p>
-                      <a href="tel:+000(123)456898">+000 (123) 456 898</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 col-sm-6">
-                {/*=== Social Box ===*/}
-                <div className="social-box mb-40 float-lg-end">
-                  <ul className="social-link">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-linkedin-in" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/*=== Footer Widget ===*/}
-          <div className="footer-widget-area pt-75 pb-30">
-            <div className="row">
-              <div className="col-lg-3 col-md-6">
-                {/*=== Footer Widget ===*/}
-                <div className="footer-widget about-company-widget mb-40 wow fadeInUp">
-                  <h4 className="widget-title">About</h4>
-                  <div className="footer-content">
-                    <p>
-                      To take trivial example which us ever undertakes laborious
-                      physica exercise except obsome
-                    </p>
-                    <a href="#" className="footer-logo">
-                      <img
-                        src="assets/images/logo/logo-white.png"
-                        alt="Site Logo"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-5 col-md-6">
-                {/*=== Footer Widget ===*/}
-                <div className="footer-widget service-nav-widget mb-40 pl-lg-70 wow fadeInDown">
-                  <h4 className="widget-title">Services</h4>
-                  <div className="footer-content">
-                    <ul className="footer-widget-nav">
-                      <li>
-                        <a href="#">Caravan Soler Tent</a>
-                      </li>
-                      <li>
-                        <a href="#">Family Tent Camping</a>
-                      </li>
-                      <li>
-                        <a href="#">Classic Tent Camping</a>
-                      </li>
-                      <li>
-                        <a href="#">Wild Tent Camping</a>
-                      </li>
-                      <li>
-                        <a href="#">Small Cabin Wood</a>
-                      </li>
-                    </ul>
-                    <ul className="footer-widget-nav">
-                      <li>
-                        <a href="#">Need a Career ?</a>
-                      </li>
-                      <li>
-                        <a href="#">Latest News &amp; Blog</a>
-                      </li>
-                      <li>
-                        <a href="#">Core Features</a>
-                      </li>
-                      <li>
-                        <a href="#">Meet Our teams</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6">
-                {/*=== Footer Widget ===*/}
-                <div className="footer-widget footer-newsletter-widget mb-40 pl-lg-100 wow fadeInUp">
-                  <h4 className="widget-title">Newsletter</h4>
-                  <div className="footer-content">
-                    <p>
-                      Which of us ever undertake laborious physical exercise
-                      except obtain
-                    </p>
-                    <form>
-                      <div className="form_group">
-                        <label>
-                          <i className="far fa-paper-plane" />
-                        </label>
-                        <input
-                          type="email"
-                          className="form_control"
-                          placeholder="Email Address"
-                          name="email"
-                          required
-                        />
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/*=== Footer Copyright ===*/}
-          <div className="footer-copyright">
-            <div className="row">
-              <div className="col-lg-6">
-                {/*=== Footer Text ===*/}
-                <div className="footer-text">
-                  <p>
-                    Copy@ 2023 <span style={{ color: "#F7921E" }}>GoWilds</span>
-                    , All Right Reserved
-                  </p>
-                </div>
-              </div>
-              <div className="col-lg-6">
-                {/*=== Footer Nav ===*/}
-                <div className="footer-nav float-lg-end">
-                  <ul>
-                    <li>
-                      <a href="#">Setting &amp; privacy</a>
-                    </li>
-                    <li>
-                      <a href="#">Faqs</a>
-                    </li>
-                    <li>
-                      <a href="#">Support</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/*====== End Partners Section ======*/}
     </Layout>
   );
 };

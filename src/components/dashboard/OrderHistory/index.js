@@ -8,7 +8,7 @@ import Edit from "./edit";
 import Delete from "./delete";
 // import Paragraph from "antd/es/skeleton/Paragraph";
 
-const TourComponent = () => {
+const OrderHistory = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -17,28 +17,35 @@ const TourComponent = () => {
   useEffect(() => {
     const localId = localStorage.getItem("localId");
     if (localId) {
-      getTourList();
+      getOrderHistory();
     }
   }, []);
 
   const data = getData.map((e, i) => ({
     key: i,
-    title: e[1].values ? e[1].values.title : "",
-    description: e[1].values ? e[1].values.description : "",
-    img: e[1].values ? (e[1].values.img ? e[1].values.img[0] : "") : "",
+    busName: e[1].data ? e[1].data.busName : "",
+    username: e[1].data ? e[1].data.username : "",
+    companyName: e[1].data ? e[1].data.companyName : "",
+    totalPrice: e[1].data ? e[1].data.totalPrice : "",
+    person: e[1].data ? e[1].data.person : "",
+    status: e[1].data ? e[1].data.status : "",
+    startDate: e[1].data ? e[1].data.startDate : "",
+    endDate: e[1].data ? e[1].data.endDate : "",
+    from: e[1].data ? e[1].data.from : "",
+    to: e[1].data ? e[1].data.to : "",
     action: e,
     allData: e,
   }));
-  const getTourList = () => {
+
+  const getOrderHistory = () => {
     setLoadingTable(true);
     // const token = localStorage.getItem("idToken");
     axios
       .get(
-        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/tourList.json`
+        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json`
       )
       .then((res) => {
         const data = Object.entries(res.data).reverse();
-        console.log("data: ", data);
         setData(data);
       })
       .catch((err) => {
@@ -137,39 +144,94 @@ const TourComponent = () => {
       ellipsis: true,
     },
     {
-      title: "Гарчиг",
-      dataIndex: "title",
-      key: "title",
+      title: "Эхлэх огноо",
+      dataIndex: "startDate",
+      key: "startDate",
       width: "100px",
       ellipsis: true,
-      ...getColumnSearchProps("title"),
+      ...getColumnSearchProps("startDate"),
     },
-
     {
-      title: "Зураг",
-      dataIndex: "img",
-      key: "img",
-      width: "80px",
-      render: (img) => (
-        <div>
-          <Image src={img} width={50} />
-        </div>
-      ),
+      title: "Төгсөх огноо",
+      dataIndex: "endDate",
+      key: "endDate",
+      width: "100px",
       ellipsis: true,
+      ...getColumnSearchProps("endDate"),
     },
     {
-      title: "Дэлгэрэнгуй",
-      dataIndex: "description",
-      key: "description",
+      title: "Автобус нэр",
+      dataIndex: "busName",
+      key: "busName",
+      width: "100px",
+      ellipsis: true,
+      ...getColumnSearchProps("busName"),
+    },
+    {
+      title: "Компани",
+      dataIndex: "companyName",
+      key: "companyName",
+      width: "100px",
+      ellipsis: true,
+      ...getColumnSearchProps("companyName"),
+    },
+    {
+      title: "Нэр",
+      dataIndex: "username",
+      key: "username",
+      width: "100px",
+      ellipsis: true,
+      ...getColumnSearchProps("username"),
+    },
+    {
+      title: "Суудалын тоо",
+      dataIndex: "person",
+      key: "person",
       width: "150px",
       ellipsis: true,
-      ...getColumnSearchProps("description"),
+      ...getColumnSearchProps("person"),
       sorter: (a, b) => a.description.length - b.description.length,
       sortDirections: ["descend", "ascend"],
       render: (a) => (
         <div style={{ display: "flex" }}>
           {/* <Paragraph copyable={{text: a }}></Paragraph> */}
           <div style={{ paddingLeft: "5px" }}>{a}</div>
+        </div>
+      ),
+    },
+    {
+      title: "Ханаас",
+      dataIndex: "from",
+      key: "from",
+      width: "100px",
+      ellipsis: true,
+      ...getColumnSearchProps("from"),
+    },
+    {
+      title: "Хүртэл",
+      dataIndex: "to",
+      key: "to",
+      width: "100px",
+      ellipsis: true,
+      ...getColumnSearchProps("to"),
+    },
+
+    {
+      title: "Үнэ",
+      dataIndex: "totalPrice",
+      key: "totalPrice",
+      width: "150px",
+      ellipsis: true,
+      fixed: "right",
+      ...getColumnSearchProps("totalPrice"),
+      sorter: (a, b) => a.description.length - b.description.length,
+      sortDirections: ["descend", "ascend"],
+      render: (a) => (
+        <div style={{ display: "flex" }}>
+          {/* <Paragraph copyable={{text: a }}></Paragraph> */}
+          <div style={{ paddingLeft: "5px" }}>
+            {a?.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}₮
+          </div>
         </div>
       ),
     },
@@ -183,10 +245,10 @@ const TourComponent = () => {
         <div style={{ display: "flex", gap: "10px" }}>
           <Edit
             data={action[0]}
-            getTourList={getTourList}
-            info={action[1].values}
+            getOrderHistory={getOrderHistory}
+            info={action[1].data}
           />
-          <Delete data={action[0]} getTourList={getTourList} />
+          <Delete data={action[0]} getOrderHistory={getOrderHistory} />
         </div>
       ),
     },
@@ -197,7 +259,6 @@ const TourComponent = () => {
       <section>
         <div>
           <div>
-            <Add getTourList={getTourList} />
             <Table
               columns={columns}
               bordered
@@ -206,7 +267,7 @@ const TourComponent = () => {
               loading={loadingTable}
               pagination={{
                 total: 0,
-                showTotal: (total) => `Нийт: ${total} - Нохой`,
+                showTotal: (total) => `Нийт: ${total} `,
               }}
             />
           </div>
@@ -215,4 +276,4 @@ const TourComponent = () => {
     </div>
   );
 };
-export default TourComponent;
+export default OrderHistory;

@@ -2,9 +2,10 @@ import MainContext from "@/src/components/context/mainContext/mainContext";
 import GallerySection from "@/src/components/GallerySection";
 import PageBanner from "@/src/components/PageBanner";
 import Layout from "@/src/layout/Layout";
-import { Button, DatePicker, Form, Input } from "antd";
+import { Button, DatePicker, Form, Input, Skeleton } from "antd";
+import axios from "axios";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const { RangePicker } = DatePicker;
 const data = [
@@ -29,7 +30,23 @@ const OurBus = () => {
   const mainContext = useContext(MainContext);
   const [form] = Form.useForm();
   const [date, setDate] = useState();
+  const [busList, setBusList] = useState();
 
+  useEffect(() => {
+    getBus();
+  }, []);
+
+  const getBus = async () => {
+    await axios
+      .get(`https://eagle-festival-2c130-default-rtdb.firebaseio.com/bus.json`)
+      .then((res) => {
+        const data = Object.entries(res.data).reverse();
+        setBusList(data);
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      });
+  };
   const onRangeChange = (dates, dateStrings) => {
     setDate(dateStrings);
   };
@@ -161,255 +178,149 @@ const OurBus = () => {
       {/*====== Start Places Section ======*/}
       <section className="places-section pb-100">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-4 col-md-6 col-sm-12 places-column">
-              {/*=== Single Place Item ===*/}
-              <div className="single-place-item mb-60 wow fadeInUp">
-                <div className="place-img ">
-                  <img
-                    src="assets/images/hero/bus2.png"
-                    alt="Place Image"
-                    className=" bg-info-subtle"
-                  />
-                </div>
-                <div className="place-content">
-                  <div className="info">
-                    <ul className="ratings">
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <a href="#">(4.9)</a>
-                      </li>
-                    </ul>
-                    <h4 className="title">
-                      <Link legacyBehavior href="/bus-details">
-                        <a>Sitting on Boat Spreading Her Arms</a>
-                      </Link>
-                    </h4>
-                    <p className="location fw-normal">
-                      <i className="fas fa-tv" />
-                      television
-                    </p>
+          {!busList ? (
+            <div
+              style={{
+                marginTop: "50px",
+                marginBottom: "350px",
+                justifyContent: "center",
+                display: "flex",
+                gap: "50px",
+                flexDirection: "column",
+              }}
+            >
+              <Skeleton active />
+              <Skeleton active />
+              <Skeleton active />
+              <Skeleton active />
+              <Skeleton active />
+            </div>
+          ) : (
+            <>
+              <div className="row justify-content-center">
+                {busList?.map((e, i) => (
+                  <div
+                    className="col-xl-4 col-md-6 col-sm-12 places-column"
+                    key={i}
+                  >
+                    {/*=== Single Place Item ===*/}
+                    <div className="single-place-item mb-60 wow fadeInUp">
+                      <div className="place-img ">
+                        <img
+                          src={e[1].data.img[0]}
+                          alt="Place Image"
+                          className=" bg-info-subtle"
+                        />
+                      </div>
+                      <div className="place-content">
+                        <div className="info">
+                          <ul className="ratings">
+                            <li>
+                              <i className="fas fa-star" />
+                            </li>
+                            <li>
+                              <i className="fas fa-star" />
+                            </li>
+                            <li>
+                              <i className="fas fa-star" />
+                            </li>
+                            <li>
+                              <i className="fas fa-star" />
+                            </li>
+                            <li>
+                              <i className="fas fa-star" />
+                            </li>
+                            <li>
+                              <a href="#">(4.9)</a>
+                            </li>
+                          </ul>
+                          <h4 className="title">
+                            <Link legacyBehavior href="/bus-details">
+                              <a>{e[1].data.busName}</a>
+                            </Link>
+                          </h4>
+                          <p className="location fw-normal">
+                            <i className="fas fa-tv" />
+                            television
+                          </p>
 
-                    <p className="location fw-normal">
-                      <i className="fas fa-wifi" />
-                      Free wifi
-                    </p>
-                    <p className="location fw-normal ">
-                      <i className="fas fa-microphone fs-5 " />
-                      Karaoke
-                    </p>
-                    <div className="meta">
-                      <span>
-                        <i className="far fa-usd-circle" />
-                        403.000₮
-                      </span>
-                      <span>
-                        <i className="far fa-user" />
-                        60
-                      </span>
-                      <span>
-                        <Link legacyBehavior href="/bus-details">
-                          <a>
-                            {mainContext.language.ourBus.btn}
-                            <i className="far fa-long-arrow-right" />
-                          </a>
-                        </Link>
-                      </span>
+                          <p className="location fw-normal">
+                            <i className="fas fa-wifi" />
+                            Free wifi
+                          </p>
+                          <p className="location fw-normal ">
+                            <i className="fas fa-microphone fs-5 " />
+                            Karaoke
+                          </p>
+                          <div className="meta">
+                            <span>
+                              <span
+                                style={{
+                                  color: "#004aad",
+                                  paddingRight: "5px",
+                                }}
+                              >
+                                ₮{" "}
+                              </span>
+
+                              {e[1].data.price
+                                .toFixed(0)
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                            </span>
+                            <span>
+                              <i className="far fa-user" />
+                              {e[1].data.chairNumber}
+                            </span>
+                            <span>
+                              <Link
+                                legacyBehavior
+                                href={`/bus-details?id=${e[0]}`}
+                              >
+                                <a>
+                                  {mainContext.language.ourBus.btn}
+                                  <i className="far fa-long-arrow-right" />
+                                </a>
+                              </Link>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            </div>
-            <div className="col-xl-4 col-md-6 col-sm-12 places-column">
-              {/*=== Single Place Item ===*/}
-              <div className="single-place-item mb-60 wow fadeInUp">
-                <div className="place-img ">
-                  <img
-                    src="assets/images/hero/bus2.png"
-                    alt="Place Image"
-                    className=" bg-info-subtle"
-                  />
+              {/* <div className="row">
+                <div className="col-lg-12"> 
+                  <ul className="gowilds-pagination wow fadeInUp text-center">
+                    <li>
+                      <a href="#">
+                        <i className="far fa-arrow-left" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="active">
+                        01
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">02</a>
+                    </li>
+                    <li>
+                      <a href="#">03</a>
+                    </li>
+                    <li>
+                      <a href="#">04</a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="far fa-arrow-right" />
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <div className="place-content">
-                  <div className="info">
-                    <ul className="ratings">
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <a href="#">(4.9)</a>
-                      </li>
-                    </ul>
-                    <h4 className="title">
-                      <Link legacyBehavior href="/bus-details">
-                        <a>Sitting on Boat Spreading Her Arms</a>
-                      </Link>
-                    </h4>
-                    <p className="location fw-normal">
-                      <i className="fas fa-tv" />
-                      television
-                    </p>
-
-                    <p className="location fw-normal">
-                      <i className="fas fa-wifi" />
-                      Free wifi
-                    </p>
-                    <p className="location fw-normal ">
-                      <i className="fas fa-microphone fs-5 " />
-                      Karaoke
-                    </p>
-                    <div className="meta">
-                      <span>
-                        <i className="far fa-usd-circle" />
-                        403.000₮
-                      </span>
-                      <span>
-                        <i className="far fa-user" />
-                        60
-                      </span>
-                      <span>
-                        <Link legacyBehavior href="/bus-details">
-                          <a>
-                            {mainContext.language.ourBus.btn}
-                            <i className="far fa-long-arrow-right" />
-                          </a>
-                        </Link>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6 col-sm-12 places-column">
-              {/*=== Single Place Item ===*/}
-              <div className="single-place-item mb-60 wow fadeInUp">
-                <div className="place-img ">
-                  <img
-                    src="assets/images/hero/bus2.png"
-                    alt="Place Image"
-                    className=" bg-info-subtle"
-                  />
-                </div>
-                <div className="place-content">
-                  <div className="info">
-                    <ul className="ratings">
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <a href="#">(4.9)</a>
-                      </li>
-                    </ul>
-                    <h4 className="title">
-                      <Link legacyBehavior href="/bus-details">
-                        <a>Sitting on Boat Spreading Her Arms</a>
-                      </Link>
-                    </h4>
-                    <p className="location fw-normal">
-                      <i className="fas fa-tv" />
-                      television
-                    </p>
-
-                    <p className="location fw-normal">
-                      <i className="fas fa-wifi" />
-                      Free wifi
-                    </p>
-                    <p className="location fw-normal ">
-                      <i className="fas fa-microphone fs-5 " />
-                      Karaoke
-                    </p>
-                    <div className="meta">
-                      <span>
-                        <i className="far fa-usd-circle" />
-                        403.000₮
-                      </span>
-                      <span>
-                        <i className="far fa-user" />
-                        60
-                      </span>
-                      <span>
-                        <Link legacyBehavior href="/bus-details">
-                          <a>
-                            {mainContext.language.ourBus.btn}
-                            <i className="far fa-long-arrow-right" />
-                          </a>
-                        </Link>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
-              {/*=== Gowilds Pagination ===*/}
-              <ul className="gowilds-pagination wow fadeInUp text-center">
-                <li>
-                  <a href="#">
-                    <i className="far fa-arrow-left" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="active">
-                    01
-                  </a>
-                </li>
-                <li>
-                  <a href="#">02</a>
-                </li>
-                <li>
-                  <a href="#">03</a>
-                </li>
-                <li>
-                  <a href="#">04</a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="far fa-arrow-right" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+              </div> */}
+            </>
+          )}
         </div>
       </section>
       {/*====== End Places Section ======*/}

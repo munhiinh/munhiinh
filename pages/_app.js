@@ -11,12 +11,12 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.pathname === "/") {
-      router.push("/index-4");
-    }
+    // if (router.pathname === "/") {
+    //   router.push("/index-4");
+    // }
     setTimeout(() => {
       setLoader(false);
-    }, 1000);
+    }, 800);
   }, []);
 
   return (

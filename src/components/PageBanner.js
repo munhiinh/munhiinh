@@ -16,9 +16,7 @@ const PageBanner = ({ pageTitle }) => {
               <h1 className="page-title">{pageTitle}</h1>
               <ul className="breadcrumb-link text-white">
                 <li>
-                  <Link href="/index-4">
-                    {mainContext.language.header.home}
-                  </Link>
+                  <Link href="/">{mainContext.language.header.home}</Link>
                 </li>
                 <li className="active">{pageTitle}</li>
               </ul>

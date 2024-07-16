@@ -13,7 +13,7 @@ const DefaultHeader = () => {
             <div className="col-xl-3 d-none d-xl-block">
               {/*====== Site Branding ======*/}
               <div className="site-brading">
-                <Link legacyBehavior href="/index-4">
+                <Link legacyBehavior href="/">
                   <a className="brand-logo">
                     <img src="assets/images/logo/logo-black1.png" alt="Logo" />
                   </a>

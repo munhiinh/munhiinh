@@ -7,10 +7,11 @@ import {
   testimonialSliderOne,
 } from "@/src/sliderProps";
 import { Button, DatePicker, Flex, Form, Input } from "antd";
+import axios from "axios";
 import moment from "moment";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Slider from "react-slick";
 const { RangePicker } = DatePicker;
 const data = [
@@ -33,11 +34,30 @@ const data = [
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
 });
+
 const Index4 = () => {
   const mainContext = useContext(MainContext);
   const [form] = Form.useForm();
   const [date, setDate] = useState();
-
+  const [bus, setBus] = useState();
+  useEffect(() => {
+    getBus();
+  }, []);
+  const getBus = async () => {
+    await axios
+      .get(`https://eagle-festival-2c130-default-rtdb.firebaseio.com/bus.json`)
+      .then((res) => {
+        const data = Object.entries(res.data).reverse();
+        console.log("data; ", data);
+        setBus(data);
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      })
+      .finally(() => {
+        setLoadingTable(false);
+      });
+  };
   const onRangeChange = (dates, dateStrings) => {
     setDate(dateStrings);
   };
@@ -85,10 +105,10 @@ const Index4 = () => {
       console.warn("Invalid date range selected.");
     }
   };
-
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
     <Layout header={4}>
       {/*====== Start Hero Section ======*/}

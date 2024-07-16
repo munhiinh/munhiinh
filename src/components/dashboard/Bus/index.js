@@ -8,7 +8,7 @@ import Edit from "./edit";
 import Delete from "./delete";
 // import Paragraph from "antd/es/skeleton/Paragraph";
 
-const TourComponent = () => {
+const Bus = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -17,28 +17,30 @@ const TourComponent = () => {
   useEffect(() => {
     const localId = localStorage.getItem("localId");
     if (localId) {
-      getTourList();
+      getBus();
     }
   }, []);
 
   const data = getData.map((e, i) => ({
     key: i,
-    title: e[1].values ? e[1].values.title : "",
-    description: e[1].values ? e[1].values.description : "",
-    img: e[1].values ? (e[1].values.img ? e[1].values.img[0] : "") : "",
+    busName: e[1].data ? e[1].data.busName : "",
+    description: e[1].data ? e[1].data.description : "",
+    price: e[1].data ? e[1].data.price : "",
+    adventages: e[1].data ? e[1].data.adventages : "",
+    title: e[1].data ? e[1].data.title : "",
+    chairNumber: e[1].data ? e[1].data.chairNumber : "",
+    img: e[1].data ? (e[1].data.img ? e[1].data.img[0] : "") : "",
     action: e,
     allData: e,
   }));
-  const getTourList = () => {
+
+  const getBus = () => {
     setLoadingTable(true);
     // const token = localStorage.getItem("idToken");
     axios
-      .get(
-        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/tourList.json`
-      )
+      .get(`https://eagle-festival-2c130-default-rtdb.firebaseio.com/bus.json`)
       .then((res) => {
         const data = Object.entries(res.data).reverse();
-        console.log("data: ", data);
         setData(data);
       })
       .catch((err) => {
@@ -137,6 +139,14 @@ const TourComponent = () => {
       ellipsis: true,
     },
     {
+      title: "Автобус нэр",
+      dataIndex: "busName",
+      key: "busName",
+      width: "100px",
+      ellipsis: true,
+      ...getColumnSearchProps("busName"),
+    },
+    {
       title: "Гарчиг",
       dataIndex: "title",
       key: "title",
@@ -156,6 +166,55 @@ const TourComponent = () => {
         </div>
       ),
       ellipsis: true,
+    },
+    {
+      title: "Суудалын тоо",
+      dataIndex: "chairNumber",
+      key: "chairNumber",
+      width: "150px",
+      ellipsis: true,
+      ...getColumnSearchProps("chairNumber"),
+      sorter: (a, b) => a.description.length - b.description.length,
+      sortDirections: ["descend", "ascend"],
+      render: (a) => (
+        <div style={{ display: "flex" }}>
+          {/* <Paragraph copyable={{text: a }}></Paragraph> */}
+          <div style={{ paddingLeft: "5px" }}>{a}</div>
+        </div>
+      ),
+    },
+    {
+      title: "Үнэ",
+      dataIndex: "price",
+      key: "price",
+      width: "150px",
+      ellipsis: true,
+      ...getColumnSearchProps("price"),
+      sorter: (a, b) => a.description.length - b.description.length,
+      sortDirections: ["descend", "ascend"],
+      render: (a) => (
+        <div style={{ display: "flex" }}>
+          {/* <Paragraph copyable={{text: a }}></Paragraph> */}
+          <div style={{ paddingLeft: "5px" }}>{a}</div>
+        </div>
+      ),
+    },
+    {
+      title: "Давуу тал",
+      dataIndex: "adventages",
+      key: "adventages",
+      width: "150px",
+      ellipsis: true,
+      render: (data) => (
+        <div style={{ display: "flex" }}>
+          {/* <Paragraph copyable={{text: a }}></Paragraph> */}
+          {data?.map((e, i) => (
+            <div style={{ paddingLeft: "5px" }} key={i}>
+              {e.name} |
+            </div>
+          ))}
+        </div>
+      ),
     },
     {
       title: "Дэлгэрэнгуй",
@@ -181,12 +240,8 @@ const TourComponent = () => {
       fixed: "right",
       render: (action) => (
         <div style={{ display: "flex", gap: "10px" }}>
-          <Edit
-            data={action[0]}
-            getTourList={getTourList}
-            info={action[1].values}
-          />
-          <Delete data={action[0]} getTourList={getTourList} />
+          <Edit data={action[0]} getBus={getBus} info={action[1].data} />
+          <Delete data={action[0]} getBus={getBus} />
         </div>
       ),
     },
@@ -197,7 +252,7 @@ const TourComponent = () => {
       <section>
         <div>
           <div>
-            <Add getTourList={getTourList} />
+            <Add getBus={getBus} />
             <Table
               columns={columns}
               bordered
@@ -215,4 +270,4 @@ const TourComponent = () => {
     </div>
   );
 };
-export default TourComponent;
+export default Bus;

@@ -56,7 +56,7 @@ const DeskTopMenu = () => {
           ) : null}
           <li className="menu-item has-children">
             <a href="#">
-              <Link href="index-4">{mainContext.language.header.home}</Link>
+              <Link href="/">{mainContext.language.header.home}</Link>
               {/* <span className="dd-trigger">
                 <i className="far fa-angle-down" />
               </span> */}
@@ -77,12 +77,12 @@ const DeskTopMenu = () => {
               <li>
                 <Link href="our-bus"> {mainContext.language.header.bus}</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="bus-details">
                   {" "}
                   {mainContext.language.header.busDetails}
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </li>
           {/* <li className="menu-item has-children">

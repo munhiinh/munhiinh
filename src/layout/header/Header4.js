@@ -14,7 +14,7 @@ const Header4 = () => {
           <div className="primary-menu">
             {/*====== Site Branding ======*/}
             <div className="site-branding">
-              <Link legacyBehavior href="/index-4">
+              <Link legacyBehavior href="/">
                 <a className="brand-logo">
                   <img
                     src="assets/images/logo/brand-logo-white.png"
