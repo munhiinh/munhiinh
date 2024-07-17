@@ -276,7 +276,7 @@ const Index4 = () => {
                 >
                   {/* bus4.webp */}
                   {/* bus7.AVIF */}
-                  <img src="assets/images/hero/bus7.AVIF  " alt="hero image" />
+                  <img src="assets/images/hero/bus7.png  " alt="hero image" />
                 </div>
               </div>
             </div>

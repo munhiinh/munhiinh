@@ -10,10 +10,13 @@ import {
 import { Button, DatePicker, Flex, Form, Input, Skeleton, Spin } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { Nav, Tab } from "react-bootstrap";
 import Slider from "react-slick";
+import { EnvironmentOutlined } from "@ant-design/icons";
+
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
 });
@@ -143,12 +146,6 @@ const Index = () => {
                     <Form
                       name="basic"
                       layout="inline"
-                      // labelCol={{
-                      //   span: 8,
-                      // }}
-                      // wrapperCol={{
-                      //   span: 16,
-                      // }}
                       initialValues={{
                         remember: true,
                       }}
@@ -156,10 +153,19 @@ const Index = () => {
                       onFinishFailed={onFinishFailed}
                       autoComplete="off"
                       size="large"
+                      style={{ gap: "10px" }}
                     >
                       <Form.Item
                         label={<div className="fw-medium">FROM</div>}
                         name="from"
+                        labelCol={{
+                          xl: { span: 6 },
+                          xs: { span: 6 },
+                        }}
+                        wrapperCol={{
+                          xl: { span: 20 },
+                          xs: { span: 22 },
+                        }}
                         rules={[
                           {
                             required: true,
@@ -167,12 +173,24 @@ const Index = () => {
                           },
                         ]}
                       >
-                        <Input allowClear />
+                        <Input
+                          prefix={<EnvironmentOutlined />}
+                          allowClear
+                          placeholder="From"
+                        />
                       </Form.Item>
 
                       <Form.Item
                         label={<div className="fw-medium">TO</div>}
                         name="to"
+                        labelCol={{
+                          xl: { span: 6 },
+                          xs: { span: 7 },
+                        }}
+                        wrapperCol={{
+                          xl: { span: 20 },
+                          xs: { span: 23 },
+                        }}
                         rules={[
                           {
                             required: true,
@@ -180,12 +198,24 @@ const Index = () => {
                           },
                         ]}
                       >
-                        <Input allowClear />
+                        <Input
+                          prefix={<EnvironmentOutlined />}
+                          allowClear
+                          placeholder="To"
+                        />
                       </Form.Item>
 
                       <Form.Item
                         label={<div className="fw-medium">DATE</div>}
                         name="date"
+                        labelCol={{
+                          xl: { span: 6 },
+                          xs: { span: 6 },
+                        }}
+                        wrapperCol={{
+                          xl: { span: 18 },
+                          xs: { span: 18 },
+                        }}
                         rules={[
                           {
                             required: true,
@@ -196,11 +226,17 @@ const Index = () => {
                         <RangePicker onChange={onRangeChange} size="large" />
                       </Form.Item>
 
-                      <Form.Item>
+                      <Form.Item
+                        wrapperCol={{
+                          xl: { offset: 5 },
+                          xl: { offset: 0 },
+                        }}
+                      >
                         <Button
                           type="primary"
                           htmlType="submit"
                           className="text-uppercase fw-medium"
+                          style={{ width: "100px" }}
                         >
                           find
                         </Button>
@@ -277,7 +313,12 @@ const Index = () => {
                 >
                   {/* bus4.webp */}
                   {/* bus7.AVIF */}
-                  <img src="assets/images/hero/bus7.png  " alt="hero image" />
+                  <Image
+                    width={2000}
+                    height={2000}
+                    src="/assets/images/hero/bus7.png"
+                    alt="hero image"
+                  />
                 </div>
               </div>
             </div>
@@ -600,7 +641,7 @@ const Index = () => {
                           {mainContext.language.ourServices.onlineBooking}
                         </h5>
                         <a href="#" className="btn-link">
-                          {mainContext.language.ourServices.btn}{" "}
+                          {mainContext.language.ourServices.btn}
                           <i className="far fa-long-arrow-right" />
                         </a>
                       </div>

@@ -159,6 +159,7 @@ const Checkout = () => {
           person: localDatas.person,
           busId: router.query.id,
           busName: bus?.busName,
+          orderDays: orderDays,
           totalPrice: bus?.price * orderDays,
           status: 0,
         };

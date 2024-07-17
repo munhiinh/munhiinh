@@ -104,7 +104,7 @@ const Payment = () => {
         {/*=== Place Slider ===*/}
         <div className="place-slider-area overflow-hidden wow fadeInUp"></div>
         <PageBanner pageTitle={mainContext.language.header.checkout} />
-        {console.log("orderHistoryData: ", orderHistoryData)}
+        {/* {console.log("orderHistoryData: ", orderHistoryData)} */}
         <div className="container">
           <div className="tour-details-wrapper pt-80">
             {/*=== Tour Title Wrapper ===*/}
@@ -112,7 +112,7 @@ const Payment = () => {
               <div className="row">
                 <div className="col-xl-6">
                   <div className="tour-title mb-20">
-                    <h3 className="title">Billing Details</h3>
+                    <h3 className="title">Payment Details</h3>
                     <p>
                       <i className="far fa-map-marker-alt" />
                       Ulaanbaatar of Mongolian
@@ -138,7 +138,8 @@ const Payment = () => {
                       </div>
                       <div className="info">
                         <h4>
-                          <span>Durations</span>1 Days
+                          <span>Durations</span>
+                          {orderHistoryData?.[0]?.orderDays} Days
                         </h4>
                       </div>
                     </div>
@@ -152,7 +153,7 @@ const Payment = () => {
                       <div className="info">
                         <h4>
                           <span>Price</span>
-                          {bus?.price
+                          {orderHistoryData[0]?.totalPrice
                             .toFixed(0)
                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                           ₮
@@ -164,7 +165,20 @@ const Payment = () => {
               </div>
             </div>
             <div style={{ marginBottom: "140px" }}>
-              <Result status={"success"} title="Tanii zahilaga amjilttai " />
+              <Result
+                status="success"
+                title="Successfully Purchased Order!"
+                subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
+                extra={[
+                  <Button
+                    type="primary"
+                    key="console"
+                    onClick={() => router.push("/")}
+                  >
+                    Go back home
+                  </Button>,
+                ]}
+              />
             </div>
           </div>
         </div>

@@ -68,22 +68,8 @@ const DeskTopMenu = () => {
           </li>
           <li className="menu-item has-children">
             <a href="#">
-              {mainContext.language.header.bus}
-              <span className="dd-trigger">
-                <i className="far fa-angle-down" />
-              </span>
+              <Link href="our-bus"> {mainContext.language.header.bus}</Link>
             </a>
-            <ul className="sub-menu">
-              <li>
-                <Link href="our-bus"> {mainContext.language.header.bus}</Link>
-              </li>
-              {/* <li>
-                <Link href="bus-details">
-                  {" "}
-                  {mainContext.language.header.busDetails}
-                </Link>
-              </li> */}
-            </ul>
           </li>
           {/* <li className="menu-item has-children">
             <a href="#">
@@ -170,6 +156,7 @@ const DeskTopMenu = () => {
 
 const MobileMenu = () => {
   const [activeMenu, setActiveMenu] = useState("");
+  const mainContext = useContext(MainContext);
   const activeMenuSet = (value) =>
       setActiveMenu(activeMenu === value ? "" : value),
     activeLi = (value) =>
@@ -178,61 +165,22 @@ const MobileMenu = () => {
     <nav className="main-menu d-block d-xl-none">
       <ul>
         <li className="menu-item has-children">
-          <a href="#">
-            Home
-            <span className="dd-trigger" onClick={() => activeMenuSet("home")}>
-              <i className="far fa-angle-down" />
+          <a href="#" style={{ padding: 0 }}>
+            <span onClick={() => activeMenuSet("home")}>
+              <Link href={"/"} onClick={() => activeMenuSet("home")}>
+                {mainContext.language.header.home}
+              </Link>
             </span>
           </a>
-          <ul className="sub-menu" style={activeLi("home")}>
-            <li>
-              <Link href="/">Home 01</Link>
-            </li>
-            <li>
-              <Link href="index-2">Home 02</Link>
-            </li>
-            <li>
-              <Link href="index-3">Home 03</Link>
-            </li>
-            <li>
-              <Link href="index-4">Home 04</Link>
-            </li>
-          </ul>
         </li>
         <li className="menu-item has-children">
-          <a href="#">
-            Tours
-            <span className="dd-trigger" onClick={() => activeMenuSet("Tours")}>
-              <i className="far fa-angle-down" />
+          <a href="#" style={{ padding: 0 }}>
+            <span onClick={() => activeMenuSet("home")}>
+              <Link href={"/our-bus"} onClick={() => activeMenuSet("home")}>
+                {mainContext.language.header.bus}
+              </Link>
             </span>
           </a>
-          <ul className="sub-menu" style={activeLi("Tours")}>
-            <li>
-              <Link href="tour">Tours</Link>
-            </li>
-            <li>
-              <Link href="tour-details">Tours Details</Link>
-            </li>
-          </ul>
-        </li>
-        <li className="menu-item has-children">
-          <a href="#">
-            Destination
-            <span
-              className="dd-trigger"
-              onClick={() => activeMenuSet("Destination")}
-            >
-              <i className="far fa-angle-down" />
-            </span>
-          </a>
-          <ul className="sub-menu" style={activeLi("Destination")}>
-            <li>
-              <Link href="destination">Destination</Link>
-            </li>
-            <li>
-              <Link href="destination-details">Destination Details</Link>
-            </li>
-          </ul>
         </li>
         <li className="menu-item has-children">
           <a href="#">
@@ -252,29 +200,23 @@ const MobileMenu = () => {
         </li>
         <li className="menu-item has-children">
           <a href="#">
-            Pages
+            {mainContext.language.header.pages}
             <span className="dd-trigger" onClick={() => activeMenuSet("Pages")}>
               <i className="far fa-angle-down" />
             </span>
           </a>
           <ul className="sub-menu" style={activeLi("Pages")}>
             <li>
-              <Link href="about">About Us</Link>
+              <Link href="about"> {mainContext.language.header.aboutUs}</Link>
             </li>
             <li>
-              <Link href="gallery">Our Gallery</Link>
+              <Link href="gallery">
+                {" "}
+                {mainContext.language.header.ourGallery}
+              </Link>
             </li>
             <li>
-              <Link href="events">Our Events</Link>
-            </li>
-            <li>
-              <Link href="shop">Our Shop</Link>
-            </li>
-            <li>
-              <Link href="product-details">Product Details</Link>
-            </li>
-            <li>
-              <Link href="contact">Contact</Link>
+              <Link href="contact"> {mainContext.language.header.contact}</Link>
             </li>
           </ul>
         </li>

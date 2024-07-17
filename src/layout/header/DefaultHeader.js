@@ -91,7 +91,7 @@ const DefaultHeader = () => {
           <div className="primary-menu gray-bg">
             {/*====== Site Branding ======*/}
             <div className="site-brading d-block d-xl-none">
-              <Link legacyBehavior href="/index-3">
+              <Link legacyBehavior href="/">
                 <a className="brand-logo">
                   <img src="assets/images/logo/logo-black1.png" alt="Logo" />
                 </a>
@@ -131,10 +131,9 @@ const DefaultHeader = () => {
               <Menu />
               {/*====== Menu Button ======*/}
               <div className="menu-button mt-40 d-xl-none">
-                <Link legacyBehavior href="/contact">
+                <Link legacyBehavior href="/our-bus">
                   <a className="main-btn secondary-btn">
                     {mainContext.language.header.bookNow}
-
                     <i className="fas fa-paper-plane" />
                   </a>
                 </Link>
@@ -149,7 +148,7 @@ const DefaultHeader = () => {
                 </select>
               </div> */}
               <div className="menu-button d-xl-block d-none">
-                <Link legacyBehavior href="/contact">
+                <Link legacyBehavior href="/our-bus">
                   <a className="main-btn primary-btn">
                     {mainContext.language.header.bookNow}
                     <i className="fas fa-paper-plane" />

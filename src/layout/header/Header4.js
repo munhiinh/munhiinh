@@ -70,7 +70,7 @@ const Header4 = () => {
             {/*====== Nav Right Item ======*/}
             <div className="nav-right-item">
               <div className="menu-button d-xl-block d-none">
-                <Link legacyBehavior href="/contact">
+                <Link legacyBehavior href="/our-bus">
                   <a className="main-btn primary-btn">
                     {mainContext.language.header.bookNow}
                     <i className="fas fa-paper-plane" />

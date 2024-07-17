@@ -19,7 +19,6 @@ export default class RelatedTours extends Component {
   render() {
     return (
       <div className="related-tour-place wow fadeInUp">
-        {console.log("this.next: ", this.props.bus)}
         <div className="row">
           <div className="col-md-8">
             <div className="section-title mb-35">
@@ -107,7 +106,7 @@ export default class RelatedTours extends Component {
                       {e[1].data.chairNumber}
                     </span>
                     <span>
-                      <Link legacyBehavior href="/tour-details">
+                      <Link legacyBehavior href={`/bus-details?id=${e[0]}`}>
                         <a>
                           Details
                           <i className="far fa-long-arrow-right" />

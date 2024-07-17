@@ -2,10 +2,21 @@ import MainContext from "@/src/components/context/mainContext/mainContext";
 import GallerySection from "@/src/components/GallerySection";
 import PageBanner from "@/src/components/PageBanner";
 import Layout from "@/src/layout/Layout";
-import { Button, DatePicker, Form, Input, Skeleton } from "antd";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  Skeleton,
+  message,
+  notification,
+} from "antd";
 import axios from "axios";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
+import { EnvironmentOutlined } from "@ant-design/icons";
+import moment from "moment";
+import Image from "next/image";
 
 const { RangePicker } = DatePicker;
 const data = [
@@ -31,9 +42,11 @@ const OurBus = () => {
   const [form] = Form.useForm();
   const [date, setDate] = useState();
   const [busList, setBusList] = useState();
-
+  const [orderHistoryData, setOrderHistoryData] = useState([]);
+  const [api, contextHolder] = notification.useNotification();
   useEffect(() => {
     getBus();
+    getOrderHistory();
   }, []);
 
   const getBus = async () => {
@@ -47,48 +60,140 @@ const OurBus = () => {
         console.log("err: ", err);
       });
   };
+
+  const getOrderHistory = async () => {
+    await axios
+      .get(
+        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json`
+      )
+      .then((res) => {
+        const data = Object.entries(res.data).reverse();
+        setOrderHistoryData(data);
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      });
+  };
+
   const onRangeChange = (dates, dateStrings) => {
     setDate(dateStrings);
   };
 
   const onFinish = (values) => {
-    console.log("object", values);
     if (date && date.length === 2) {
       const startDateRange = date[0];
       const endDateRange = date[1];
+      const busDatas = [];
+      const busOrderData = [];
+      let isBusBooked = false;
 
-      // Function to check if a date is within any booked interval
-      const isDateBooked = (checkDate) => {
-        return data.some((item) => {
-          const startDate = item.startDate;
-          const endDate = item.endDate;
-
-          // Check if the checkDate falls within any booked interval
-          return checkDate >= startDate && checkDate <= endDate;
+      busList.forEach((element) => {
+        const orderHistory = orderHistoryData.filter(
+          (e) => e[1].data.busId === element[0]
+        );
+        busDatas.push({
+          busId: element[0],
+          busName: element[1].data.busName,
+          orderHistory: orderHistory,
+          data: element[1].data,
         });
-      };
+      });
 
-      // Iterate through each date in the range to check if any are booked
-      let isBooked = false;
-      let currentDate = moment(startDateRange);
-      const endDate = moment(endDateRange);
+      busDatas.forEach((element) => {
+        element.data = { ...element.data, busId: element.busId };
+        const isDateBooked = (checkDate) => {
+          return element.orderHistory.some((item) => {
+            const startDate = item[1].data.startDate;
+            const endDate = item[1].data.endDate;
+            return checkDate >= startDate && checkDate <= endDate;
+          });
+        };
 
-      while (currentDate <= endDate) {
-        const checkDate = currentDate.format("YYYY-MM-DD");
-        if (isDateBooked(checkDate)) {
-          isBooked = true;
-          break;
+        let isBooked = false;
+        let currentDate = moment(startDateRange);
+        const endDate = moment(endDateRange);
+
+        while (currentDate <= endDate) {
+          const checkDate = currentDate.format("YYYY-MM-DD");
+          if (isDateBooked(checkDate)) {
+            isBooked = true;
+            break;
+          }
+          currentDate.add(1, "day");
         }
-        currentDate.add(1, "day");
-      }
 
-      if (isBooked) {
-        // console.log("Selected date range contains booked dates.");
-        console.log("zahialagdsan bn");
-        // Handle accordingly, e.g., show a message or disable further actions
+        if (!isBooked) {
+          busOrderData.push(element.data);
+          isBusBooked = true;
+        }
+      });
+      if (isBusBooked) {
+        api["success"]({
+          message: <div className="fw-bold">Захиалах боломжтой автобус!</div>,
+          description: (
+            <div className="fw-normal">
+              <div>Эхлэх өдөр: {startDateRange}</div>
+              <div>Дуусах өдөр: {endDateRange}</div>
+
+              {busOrderData?.map((e, i) => (
+                <Link
+                  href={`/bus-details?id=${e.busId}`}
+                  key={i}
+                  style={{
+                    display: "flex",
+                    gap: "5px",
+                    border: "1px solid #ccc",
+                    margin: "10px 0px",
+                    borderRadius: "10px",
+                    padding: "5px",
+                  }}
+                >
+                  <div style={{ width: "80px", height: "50px" }}>
+                    <Image
+                      alt="Munkhiinh xxk"
+                      width={100}
+                      height={50}
+                      src={e?.img?.[0]}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      lineHeight: "17px",
+                    }}
+                  >
+                    <div className="text-uppercase fw-bold">{e.busName}</div>
+                    <div>
+                      Chair number:
+                      <span className="fw-bold px-2">{e.chairNumber}</span>
+                    </div>
+                    <div>
+                      price:
+                      <span className="fw-bold px-2">
+                        {e.price
+                          .toFixed(0)
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        {"₮"}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ),
+          duration: 60,
+        });
       } else {
-        console.log("zahialagdaaq.");
-        // Proceed with your logic for an available date range
+        api["error"]({
+          message: <div className="fw-bold">Захиалгатай байна!</div>,
+          description: (
+            <div className="fw-normal">
+              Тухай нь сонгосон өдөр захиалгатай байна. Та дахин оролдоно уу!
+            </div>
+          ),
+          duration: 10,
+        });
       }
     } else {
       console.warn("Invalid date range selected.");
@@ -104,16 +209,11 @@ const OurBus = () => {
       {/*====== Start Booking Section ======*/}
       <section className="booking-form-section pb-100">
         <div className="container-fluid">
+          {contextHolder}
           <div className="booking-form-wrapper p-r z-2">
             <Form
               name="basic"
               layout="inline"
-              // labelCol={{
-              //   span: 8,
-              // }}
-              // wrapperCol={{
-              //   span: 16,
-              // }}
               initialValues={{
                 remember: true,
               }}
@@ -121,10 +221,19 @@ const OurBus = () => {
               onFinishFailed={onFinishFailed}
               autoComplete="off"
               size="large"
+              style={{ gap: "10px" }}
             >
               <Form.Item
                 label={<div className="fw-medium">FROM</div>}
                 name="from"
+                labelCol={{
+                  xl: { span: 6 },
+                  xs: { span: 6 },
+                }}
+                wrapperCol={{
+                  xl: { span: 20 },
+                  xs: { span: 21 },
+                }}
                 rules={[
                   {
                     required: true,
@@ -132,12 +241,24 @@ const OurBus = () => {
                   },
                 ]}
               >
-                <Input allowClear />
+                <Input
+                  allowClear
+                  prefix={<EnvironmentOutlined style={{ color: "#ccc" }} />}
+                  placeholder="From"
+                />
               </Form.Item>
 
               <Form.Item
                 label={<div className="fw-medium">TO</div>}
                 name="to"
+                labelCol={{
+                  xl: { span: 6 },
+                  xs: { span: 7 },
+                }}
+                wrapperCol={{
+                  xl: { span: 20 },
+                  xs: { span: 22 },
+                }}
                 rules={[
                   {
                     required: true,
@@ -145,12 +266,24 @@ const OurBus = () => {
                   },
                 ]}
               >
-                <Input allowClear />
+                <Input
+                  allowClear
+                  prefix={<EnvironmentOutlined style={{ color: "#ccc" }} />}
+                  placeholder="To"
+                />
               </Form.Item>
 
               <Form.Item
                 label={<div className="fw-medium">DATE</div>}
                 name="date"
+                labelCol={{
+                  xl: { span: 6 },
+                  xs: { span: 6 },
+                }}
+                wrapperCol={{
+                  xl: { span: 18 },
+                  xs: { span: 17 },
+                }}
                 rules={[
                   {
                     required: true,
