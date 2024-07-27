@@ -7,7 +7,16 @@ import {
   sliderActive5Item,
   testimonialSliderOne,
 } from "@/src/sliderProps";
-import { Button, DatePicker, Flex, Form, Input, Skeleton, Spin } from "antd";
+import {
+  Button,
+  DatePicker,
+  Flex,
+  Form,
+  Input,
+  Skeleton,
+  Spin,
+  notification,
+} from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -16,36 +25,25 @@ import { useContext, useEffect, useState } from "react";
 import { Nav, Tab } from "react-bootstrap";
 import Slider from "react-slick";
 import { EnvironmentOutlined } from "@ant-design/icons";
+import moment from "moment";
 
 const Counter = dynamic(() => import("@/src/components/Counter"), {
   ssr: false,
 });
 const { RangePicker } = DatePicker;
-const data = [
-  {
-    name: "amraa1",
-    startDate: "2024-07-05",
-    endDate: "2024-07-06",
-  },
-  {
-    name: "amraa2",
-    startDate: "2024-07-07",
-    endDate: "2024-07-20",
-  },
-  {
-    name: "amraa4",
-    startDate: "2024-08-10",
-    endDate: "2024-08-20",
-  },
-];
+
 const Index = () => {
   const [loadingTable, setLoadingTable] = useState(false);
   const mainContext = useContext(MainContext);
   const [form] = Form.useForm();
   const [date, setDate] = useState();
   const [bus, setBus] = useState();
+
+  const [orderHistoryData, setOrderHistoryData] = useState([]);
+  const [api, contextHolder] = notification.useNotification();
   useEffect(() => {
     getBus();
+    getOrderHistory();
   }, []);
   const getBus = async () => {
     await axios
@@ -61,48 +59,139 @@ const Index = () => {
         setLoadingTable(false);
       });
   };
+
+  const getOrderHistory = async () => {
+    await axios
+      .get(
+        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json`
+      )
+      .then((res) => {
+        const data = Object.entries(res.data).reverse();
+        setOrderHistoryData(data);
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      });
+  };
+
   const onRangeChange = (dates, dateStrings) => {
     setDate(dateStrings);
   };
-
   const onFinish = (values) => {
-    console.log("object", values);
     if (date && date.length === 2) {
       const startDateRange = date[0];
       const endDateRange = date[1];
+      const busDatas = [];
+      const busOrderData = [];
+      let isBusBooked = false;
 
-      // Function to check if a date is within any booked interval
-      const isDateBooked = (checkDate) => {
-        return data.some((item) => {
-          const startDate = item.startDate;
-          const endDate = item.endDate;
-
-          // Check if the checkDate falls within any booked interval
-          return checkDate >= startDate && checkDate <= endDate;
+      bus?.forEach((element) => {
+        const orderHistory = orderHistoryData.filter(
+          (e) => e[1].data.busId === element[0]
+        );
+        busDatas.push({
+          busId: element[0],
+          busName: element[1].data.busName,
+          orderHistory: orderHistory,
+          data: element[1].data,
         });
-      };
+      });
 
-      // Iterate through each date in the range to check if any are booked
-      let isBooked = false;
-      let currentDate = moment(startDateRange);
-      const endDate = moment(endDateRange);
+      busDatas.forEach((element) => {
+        element.data = { ...element.data, busId: element.busId };
+        const isDateBooked = (checkDate) => {
+          return element.orderHistory.some((item) => {
+            const startDate = item[1].data.startDate;
+            const endDate = item[1].data.endDate;
+            return checkDate >= startDate && checkDate <= endDate;
+          });
+        };
 
-      while (currentDate <= endDate) {
-        const checkDate = currentDate.format("YYYY-MM-DD");
-        if (isDateBooked(checkDate)) {
-          isBooked = true;
-          break;
+        let isBooked = false;
+        let currentDate = moment(startDateRange);
+        const endDate = moment(endDateRange);
+
+        while (currentDate <= endDate) {
+          const checkDate = currentDate.format("YYYY-MM-DD");
+          if (isDateBooked(checkDate)) {
+            isBooked = true;
+            break;
+          }
+          currentDate.add(1, "day");
         }
-        currentDate.add(1, "day");
-      }
 
-      if (isBooked) {
-        // console.log("Selected date range contains booked dates.");
-        console.log("zahialagdsan bn");
-        // Handle accordingly, e.g., show a message or disable further actions
+        if (!isBooked) {
+          busOrderData.push(element.data);
+          isBusBooked = true;
+        }
+      });
+      if (isBusBooked) {
+        api["success"]({
+          message: <div className="fw-bold">Захиалах боломжтой автобус!</div>,
+          description: (
+            <div className="fw-normal">
+              <div>Эхлэх өдөр: {startDateRange}</div>
+              <div>Дуусах өдөр: {endDateRange}</div>
+
+              {busOrderData?.map((e, i) => (
+                <Link
+                  href={`/bus-details?id=${e.busId}`}
+                  key={i}
+                  style={{
+                    display: "flex",
+                    gap: "5px",
+                    border: "1px solid #ccc",
+                    margin: "10px 0px",
+                    borderRadius: "10px",
+                    padding: "5px",
+                  }}
+                >
+                  <div style={{ width: "80px", height: "50px" }}>
+                    <Image
+                      alt="Munkhiinh xxk"
+                      width={100}
+                      height={50}
+                      src={e?.img?.[0]}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      lineHeight: "17px",
+                    }}
+                  >
+                    <div className="text-uppercase fw-bold">{e.busName}</div>
+                    <div>
+                      Chair number:
+                      <span className="fw-bold px-2">{e.chairNumber}</span>
+                    </div>
+                    <div>
+                      price:
+                      <span className="fw-bold px-2">
+                        {e.price
+                          .toFixed(0)
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        {"₮"}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ),
+          duration: 60,
+        });
       } else {
-        console.log("zahialagdaaq.");
-        // Proceed with your logic for an available date range
+        api["error"]({
+          message: <div className="fw-bold">Захиалгатай байна!</div>,
+          description: (
+            <div className="fw-normal">
+              Тухай нь сонгосон өдөр захиалгатай байна. Та дахин оролдоно уу!
+            </div>
+          ),
+          duration: 10,
+        });
       }
     } else {
       console.warn("Invalid date range selected.");
@@ -118,6 +207,7 @@ const Index = () => {
       {/*====== Start Hero Section ======*/}
       <section className="hero-section">
         {/*=== Hero Wrapper ===*/}
+        {contextHolder}
         <div className="hero-wrapper-four">
           <div className="shape">
             <span>
@@ -153,7 +243,7 @@ const Index = () => {
                       onFinishFailed={onFinishFailed}
                       autoComplete="off"
                       size="large"
-                      style={{ gap: "10px" }}
+                      style={{ gap: "2px" }}
                     >
                       <Form.Item
                         label={<div className="fw-medium">FROM</div>}
@@ -174,7 +264,9 @@ const Index = () => {
                         ]}
                       >
                         <Input
-                          prefix={<EnvironmentOutlined />}
+                          prefix={
+                            <EnvironmentOutlined style={{ color: "#ccc" }} />
+                          }
                           allowClear
                           placeholder="From"
                         />
@@ -199,7 +291,9 @@ const Index = () => {
                         ]}
                       >
                         <Input
-                          prefix={<EnvironmentOutlined />}
+                          prefix={
+                            <EnvironmentOutlined style={{ color: "#ccc" }} />
+                          }
                           allowClear
                           placeholder="To"
                         />
@@ -226,12 +320,7 @@ const Index = () => {
                         <RangePicker onChange={onRangeChange} size="large" />
                       </Form.Item>
 
-                      <Form.Item
-                        wrapperCol={{
-                          xl: { offset: 5 },
-                          xl: { offset: 0 },
-                        }}
-                      >
+                      <Form.Item>
                         <Button
                           type="primary"
                           htmlType="submit"

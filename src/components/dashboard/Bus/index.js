@@ -237,7 +237,6 @@ const Bus = () => {
       dataIndex: "allData",
       key: "allData",
       width: "100px",
-      fixed: "right",
       render: (action) => (
         <div style={{ display: "flex", gap: "10px" }}>
           <Edit data={action[0]} getBus={getBus} info={action[1].data} />

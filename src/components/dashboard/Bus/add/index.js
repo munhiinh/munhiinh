@@ -222,7 +222,12 @@ const Add = ({ getBus }) => {
                     </Row>
                   </div>
                 ))}
-                <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
+                <Form.Item
+                  wrapperCol={{
+                    xl: { span: 18, offset: 6 },
+                    xs: { span: 20, offset: 0 },
+                  }}
+                >
                   <Button
                     type="dashed"
                     onClick={() => add()}

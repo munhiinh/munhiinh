@@ -4,7 +4,9 @@ import PageBanner from "@/src/components/PageBanner";
 import RelatedTours from "@/src/components/sliders/RelatedTours";
 import Layout from "@/src/layout/Layout";
 import {
+  Button,
   DatePicker,
+  Empty,
   Form,
   Input,
   InputNumber,
@@ -45,6 +47,7 @@ const BusDetails = () => {
   const [api, contextHolder] = notification.useNotification();
   const [orderHistoryData, setOrderHistoryData] = useState([]);
   const [orderDays, setOrderDays] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getBusDetails();
@@ -64,6 +67,7 @@ const BusDetails = () => {
   };
 
   const getBusDetails = async () => {
+    setLoading(true);
     const token = localStorage.getItem("idToken");
     await axios
       .get(
@@ -75,7 +79,9 @@ const BusDetails = () => {
       })
       .catch((err) => {
         console.log("err: ", err);
-        message.error("Өгөгдөл байхгүй байна!");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -145,8 +151,6 @@ const BusDetails = () => {
       }
 
       if (isBooked) {
-        // console.log("Selected date range contains booked dates.");
-        console.log("zahialagdsan bn");
         api["error"]({
           message: <div className="fw-bold">Захиалгатай байна!!!</div>,
           description: (
@@ -156,8 +160,6 @@ const BusDetails = () => {
           ),
           duration: 10,
         });
-
-        // Handle accordingly, e.g., show a message or disable further actions
       } else {
         const data = [];
         data.push({
@@ -189,7 +191,7 @@ const BusDetails = () => {
         {contextHolder}
 
         <div className="container">
-          {!bus ? (
+          {loading && (
             <div
               style={{
                 marginTop: "50px",
@@ -205,6 +207,24 @@ const BusDetails = () => {
               <Skeleton active />
               <Skeleton active />
               <Skeleton active />
+            </div>
+          )}
+          {!bus ? (
+            <div
+              style={{
+                marginTop: "50px",
+                marginBottom: "350px",
+                justifyContent: "center",
+                display: "flex",
+                gap: "50px",
+                flexDirection: "column",
+              }}
+            >
+              <Empty description="No data">
+                <Button type="primary" onClick={() => router.push("/")}>
+                  Go to home
+                </Button>
+              </Empty>
             </div>
           ) : (
             <div className="tour-details-wrapper pt-80">

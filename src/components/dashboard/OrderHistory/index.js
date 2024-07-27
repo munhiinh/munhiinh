@@ -1,4 +1,4 @@
-import { Button, Image, Input, Space, Table } from "antd";
+import { Button, Image, Input, Select, Space, Table } from "antd";
 import Highlighter from "react-highlight-words";
 import { useEffect, useRef, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
@@ -14,28 +14,49 @@ const OrderHistory = () => {
   const searchInput = useRef(null);
   const [getData, setData] = useState([]);
   const [loadingTable, setLoadingTable] = useState(false);
+  const [busList, setBusList] = useState();
+  const [filterBus, setFilterBus] = useState("");
   useEffect(() => {
     const localId = localStorage.getItem("localId");
     if (localId) {
       getOrderHistory();
+      getBus();
     }
   }, []);
 
-  const data = getData.map((e, i) => ({
-    key: i,
-    busName: e[1].data ? e[1].data.busName : "",
-    username: e[1].data ? e[1].data.username : "",
-    companyName: e[1].data ? e[1].data.companyName : "",
-    totalPrice: e[1].data ? e[1].data.totalPrice : "",
-    person: e[1].data ? e[1].data.person : "",
-    status: e[1].data ? e[1].data.status : "",
-    startDate: e[1].data ? e[1].data.startDate : "",
-    endDate: e[1].data ? e[1].data.endDate : "",
-    from: e[1].data ? e[1].data.from : "",
-    to: e[1].data ? e[1].data.to : "",
-    action: e,
-    allData: e,
-  }));
+  const getBus = async () => {
+    await axios
+      .get(`https://eagle-festival-2c130-default-rtdb.firebaseio.com/bus.json`)
+      .then((res) => {
+        const data = Object.entries(res.data).reverse();
+        setBusList(data);
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      });
+  };
+
+  const data = getData
+    .filter((item) => {
+      return filterBus.toLowerCase() === ""
+        ? item
+        : item.busName.toLowerCase().includes(filterBus);
+    })
+    .map((e, i) => ({
+      key: i,
+      busName: e.busName,
+      username: e.username,
+      companyName: e.companyName,
+      totalPrice: e.totalPrice,
+      person: e.person,
+      status: e.status,
+      startDate: e.startDate,
+      endDate: e.endDate,
+      from: e.from,
+      to: e.to,
+      action: e,
+      allData: e,
+    }));
 
   const getOrderHistory = () => {
     setLoadingTable(true);
@@ -46,7 +67,11 @@ const OrderHistory = () => {
       )
       .then((res) => {
         const data = Object.entries(res.data).reverse();
-        setData(data);
+        const mapdata = [];
+        data.forEach((element) => {
+          mapdata.push({ ...element[1].data, id: element[0] });
+        });
+        setData(mapdata);
       })
       .catch((err) => {
         console.log("err: ", err);
@@ -147,7 +172,6 @@ const OrderHistory = () => {
       title: "Эхлэх огноо",
       dataIndex: "startDate",
       key: "startDate",
-      width: "100px",
       ellipsis: true,
       ...getColumnSearchProps("startDate"),
     },
@@ -155,7 +179,6 @@ const OrderHistory = () => {
       title: "Төгсөх огноо",
       dataIndex: "endDate",
       key: "endDate",
-      width: "100px",
       ellipsis: true,
       ...getColumnSearchProps("endDate"),
     },
@@ -163,7 +186,6 @@ const OrderHistory = () => {
       title: "Автобус нэр",
       dataIndex: "busName",
       key: "busName",
-      width: "100px",
       ellipsis: true,
       ...getColumnSearchProps("busName"),
     },
@@ -171,7 +193,6 @@ const OrderHistory = () => {
       title: "Компани",
       dataIndex: "companyName",
       key: "companyName",
-      width: "100px",
       ellipsis: true,
       ...getColumnSearchProps("companyName"),
     },
@@ -222,7 +243,7 @@ const OrderHistory = () => {
       key: "totalPrice",
       width: "150px",
       ellipsis: true,
-      fixed: "right",
+      // fixed: "right",
       ...getColumnSearchProps("totalPrice"),
       sorter: (a, b) => a.description.length - b.description.length,
       sortDirections: ["descend", "ascend"],
@@ -240,24 +261,43 @@ const OrderHistory = () => {
       dataIndex: "allData",
       key: "allData",
       width: "100px",
-      fixed: "right",
+      // fixed: "right",
       render: (action) => (
         <div style={{ display: "flex", gap: "10px" }}>
-          <Edit
-            data={action[0]}
-            getOrderHistory={getOrderHistory}
-            info={action[1].data}
-          />
-          <Delete data={action[0]} getOrderHistory={getOrderHistory} />
+          <Edit data={action} getOrderHistory={getOrderHistory} info={action} />
+          <Delete data={action} getOrderHistory={getOrderHistory} />
         </div>
       ),
     },
   ];
+  const onChange = (value) => {
+    setFilterBus(value ? value : "");
+  };
+
+  const onSearch = (value) => {
+    console.log("search:", value);
+  };
+
   return (
     <div>
       {/* <SidebarBreadCumb title="Нохой нэмэх" /> */}
       <section>
         <div>
+          <div>
+            <Select
+              allowClear
+              showSearch
+              placeholder="Автобус сонгох"
+              optionFilterProp="label"
+              onChange={onChange}
+              onSearch={onSearch}
+              options={busList?.map((e) => ({
+                value: e[1].data.busName,
+                label: e[1].data.busName,
+              }))}
+              style={{ width: "200px" }}
+            />
+          </div>
           <div>
             <Table
               columns={columns}

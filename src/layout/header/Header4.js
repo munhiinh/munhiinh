@@ -20,7 +20,7 @@ const Header4 = () => {
                     src="assets/images/logo/brand-logo-white.png"
                     alt="Site Logo"
                     width={230}
-                    height={100}
+                    height={60}
                   />
                 </a>
               </Link>

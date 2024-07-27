@@ -71,38 +71,6 @@ const DeskTopMenu = () => {
               <Link href="our-bus"> {mainContext.language.header.bus}</Link>
             </a>
           </li>
-          {/* <li className="menu-item has-children">
-            <a href="#">
-              {mainContext.language.header.destination}
-              <span className="dd-trigger">
-                <i className="far fa-angle-down" />
-              </span>
-            </a>
-            <ul className="sub-menu">
-              <li>
-                <Link href="destination">Destination</Link>
-              </li>
-              <li>
-                <Link href="destination-details">Destination Details</Link>
-              </li>
-            </ul>
-          </li> */}
-          <li className="menu-item has-children">
-            <a href="#">
-              {mainContext.language.header.blog}
-              <span className="dd-trigger">
-                <i className="far fa-angle-down" />
-              </span>
-            </a>
-            <ul className="sub-menu">
-              <li>
-                <Link href="blog-list">Blog List</Link>
-              </li>
-              <li>
-                <Link href="blog-details">Blog Details</Link>
-              </li>
-            </ul>
-          </li>
           <li className="menu-item has-children">
             <a href="#">
               {mainContext.language.header.pages}
@@ -119,15 +87,6 @@ const DeskTopMenu = () => {
                   {mainContext.language.header.ourGallery}
                 </Link>
               </li>
-              {/* <li>
-                <Link href="events">Our Events</Link>
-              </li> */}
-              {/* <li>
-                <Link href="shop">Our Shop</Link>
-              </li>
-              <li>
-                <Link href="product-details">Product Details</Link>
-              </li> */}
               <li>
                 <Link href="contact">
                   {mainContext.language.header.contact}
