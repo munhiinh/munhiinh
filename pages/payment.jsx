@@ -19,7 +19,7 @@ import {
   Skeleton,
   Space,
 } from "antd";
-
+import emailjs from "emailjs-com";
 import axios from "axios";
 import moment from "moment";
 import Link from "next/link";
@@ -39,12 +39,14 @@ const Payment = () => {
   const [api, contextHolder] = notification.useNotification();
 
   useEffect(() => {
-    getBusDetails();
-    getBus();
-
-    if (localStorage.getItem("data")) {
-      setLocalData(JSON.parse(localStorage.getItem("data")));
-    }
+    return () => {
+      getBusDetails();
+      getBus();
+      getOrderHistory();
+      if (localStorage.getItem("data")) {
+        setLocalData(JSON.parse(localStorage.getItem("data")));
+      }
+    };
   }, []);
 
   const getBus = async () => {
@@ -53,6 +55,7 @@ const Payment = () => {
         `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json`
       )
       .then((res) => {
+        console.log("bus");
         const data = Object.entries(res.data).reverse();
         setBusList(data);
       })
@@ -69,7 +72,6 @@ const Payment = () => {
       )
       .then((res) => {
         setBus(res.data.data);
-        getOrderHistory();
       })
       .catch((err) => {
         console.log("err: ", err);
@@ -89,22 +91,77 @@ const Payment = () => {
             orderDataList.push(element[1]?.data);
           }
         });
+
         setOrderHistoryData(orderDataList);
+        email(orderDataList[0]);
       })
       .catch((err) => {
         console.log("err: ", err);
       });
   };
 
+  const email = async (data) => {
+    const mailData = {
+      client_name: "munhiinhdaambe@gmail.com",
+      email: data.email,
+      name: data.username,
+      busName: data.busName,
+      day: data.orderDays,
+      price: data.totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+      message: "Таны захиалга амжилттай төлөгдлөө",
+    };
+    emailjs
+      .send(
+        "service_vfeb1rk", // service id service_rq0sez5
+        "template_3k9z01y", // template id
+        mailData,
+        "uZb0rDKmRujoy7mfg" // public api uZb0rDKmRujoy7mfg
+      )
+      .then(
+        (res) => {
+          console.log("res ===> ", res);
+        },
+        (err) => {
+          message.error("Амжилтгүй хүсэлт");
+        }
+      );
+
+    await setTimeout(() => {
+      const mailDataAdmin = {
+        client_name: data.email,
+        email: "munhiinhdaambe@gmail.com",
+        name: data.username,
+        busName: data.busName,
+        day: data.orderDays,
+        price: data.totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        message: "Таны захиалга амжилттай төлөгдлөө",
+      };
+      emailjs
+        .send(
+          "service_vfeb1rk", // service id service_rq0sez5
+          "template_3k9z01y", // template id
+          mailDataAdmin,
+          "uZb0rDKmRujoy7mfg" // public api uZb0rDKmRujoy7mfg
+        )
+        .then(
+          (res) => {
+            console.log("res ===> ", res);
+          },
+          (err) => {
+            message.error("Амжилтгүй хүсэлт");
+          }
+        );
+    }, 2500);
+  };
   return (
     <Layout extraClass={"pt-160"}>
       {/*====== Start Place Details Section ======*/}
       {contextHolder}
+
       <section className="place-details-section">
         {/*=== Place Slider ===*/}
         <div className="place-slider-area overflow-hidden wow fadeInUp"></div>
         <PageBanner pageTitle={mainContext.language.header.checkout} />
-        {/* {console.log("orderHistoryData: ", orderHistoryData)} */}
         <div className="container">
           <div className="tour-details-wrapper pt-80">
             {/*=== Tour Title Wrapper ===*/}
