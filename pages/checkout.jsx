@@ -65,6 +65,7 @@ const Checkout = () => {
   }, []);
 
   useEffect(() => {}, [form]);
+  useEffect(() => {}, [paymentType]);
 
   const getBus = async () => {
     await axios
@@ -206,7 +207,9 @@ const Checkout = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  const onChangeForm = (e) => {};
+  const onChangeForm = () => {
+    setPaymentType(form?.getFieldValue("paymentMethod"));
+  };
   const getQpayInvoice = async () => {
     const token = localStorage.getItem("qpay_access_token");
     const headers = {
@@ -224,13 +227,11 @@ const Checkout = () => {
     await axios
       .post("api/invoicePost/invoice", body, { headers: headers })
       .then((res) => {
-        console.log("res: ", res.data);
         setQrData(res.data);
       })
       .catch((err) => {
         console.log("err: ", err);
       });
-    console.log("qpay invoice ::", body);
   };
   return (
     <Layout extraClass={"pt-160"}>
@@ -412,10 +413,10 @@ const Checkout = () => {
                       </Radio.Group>
                     </Form.Item>
                     <div>
-                      {form?.getFieldValue("paymentMethod") === "qpay" ? (
+                      {console.log("paymentType: ", paymentType)}
+                      {paymentType === "qpay" ? (
                         <div>
                           Qr code
-                          {console.log("qrData: ", qrData?.qr_image)}
                           <Image
                             preview={true}
                             src={"data:image/png;base64," + qrData?.qr_image}
