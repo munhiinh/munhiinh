@@ -420,100 +420,6 @@ const Checkout = () => {
                 <Row gutter={20}>
                   <Col xs={24} xl={12}>
                     <Form.Item
-                      label={
-                        <div className="fw-normal fs-5">Payment method</div>
-                      }
-                      name="paymentMethod"
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your payment method!",
-                        },
-                      ]}
-                    >
-                      <Radio.Group
-                        style={{ paddingLeft: "10px", fontWeight: "500" }}
-                      >
-                        <Space direction="vertical" size={"middle"}>
-                          <Radio value={"qpay"}>Qpay</Radio>
-                          <Radio value={"checkPayment"}>Check payment</Radio>
-                          <Radio value={"Chash"}>Chash on delivery</Radio>
-                          <Radio value={"Paypal"}>Paypal</Radio>
-                        </Space>
-                      </Radio.Group>
-                    </Form.Item>
-                    <div>
-                      {paymentType === "qpay" &&
-                      successPayment !== "success" ? (
-                        <div>
-                          <Image
-                            preview={true}
-                            src={"data:image/png;base64," + qrData?.qr_image}
-                            alt="Munhiinh daambe xxk"
-                            width={200}
-                            height={200}
-                          />
-                          <div>
-                            <Button
-                              type="primary"
-                              onClick={payCheckFunc}
-                              size="middle"
-                              icon={<CheckOutlined />}
-                            >
-                              Check pay
-                            </Button>
-                            <div
-                              style={{
-                                display: "flex",
-                                width: "100%",
-                                flexFlow: "wrap",
-                              }}
-                            >
-                              {qrData?.urls.map((e, i) => (
-                                <a href={e.link} key={i}>
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      alignItems: "center",
-                                      width: "112px",
-                                      margin: "10px 0px",
-                                    }}
-                                  >
-                                    <Image
-                                      src={e.logo}
-                                      preview={false}
-                                      alt="obortech"
-                                      width={50}
-                                      style={{ borderRadius: "24px" }}
-                                    />
-                                    <div
-                                      style={{
-                                        fontWeight: "600",
-                                        marginTop: "5px",
-                                        textAlign: "center",
-                                      }}
-                                    >
-                                      {e.description}
-                                    </div>
-                                  </div>
-                                </a>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      ) : null}
-
-                      {paymentType === "success" ? (
-                        <div>
-                          Төлбөр амжилттай төгдсөн байна. Та цаашин үргэжлүүлнэ
-                          үү?
-                        </div>
-                      ) : null}
-                    </div>
-                  </Col>
-                  <Col xs={24} xl={12}>
-                    <Form.Item
                       label={<div className="fw-normal fs-5">Cart Totals</div>}
                       name="cartTotals"
                       rules={[
@@ -595,6 +501,100 @@ const Checkout = () => {
                       </Flex>
                       <Input hidden />
                     </Form.Item>
+                  </Col>
+                  <Col xs={24} xl={12}>
+                    <Form.Item
+                      label={
+                        <div className="fw-normal fs-5">Payment method</div>
+                      }
+                      name="paymentMethod"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your payment method!",
+                        },
+                      ]}
+                    >
+                      <Radio.Group
+                        style={{ paddingLeft: "10px", fontWeight: "500" }}
+                      >
+                        <Space direction="vertical" size={"middle"}>
+                          <Radio value={"qpay"}>Qpay</Radio>
+                          <Radio value={"checkPayment"}>Check payment</Radio>
+                          <Radio value={"Chash"}>Chash on delivery</Radio>
+                          <Radio value={"Paypal"}>Paypal</Radio>
+                        </Space>
+                      </Radio.Group>
+                    </Form.Item>
+                    <div>
+                      {paymentType === "qpay" &&
+                      successPayment !== "success" ? (
+                        <div>
+                          <Image
+                            preview={true}
+                            src={"data:image/png;base64," + qrData?.qr_image}
+                            alt="Munhiinh daambe xxk"
+                            width={200}
+                            height={200}
+                          />
+                          <div>
+                            <Button
+                              type="primary"
+                              onClick={payCheckFunc}
+                              size="middle"
+                              icon={<CheckOutlined />}
+                            >
+                              Check pay
+                            </Button>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "100%",
+                                flexFlow: "wrap",
+                              }}
+                            >
+                              {qrData?.urls.slice(0, 6).map((e, i) => (
+                                <a href={e.link} key={i}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "center",
+                                      width: "112px",
+                                      margin: "10px 0px",
+                                    }}
+                                  >
+                                    <Image
+                                      src={e.logo}
+                                      preview={false}
+                                      alt="obortech"
+                                      width={50}
+                                      style={{ borderRadius: "24px" }}
+                                    />
+                                    <div
+                                      style={{
+                                        fontWeight: "600",
+                                        marginTop: "5px",
+                                        textAlign: "center",
+                                      }}
+                                    >
+                                      {e.description}
+                                    </div>
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ) : null}
+
+                      {paymentType === "success" ? (
+                        <div>
+                          Төлбөр амжилттай төгдсөн байна. Та цаашин үргэжлүүлнэ
+                          үү?
+                        </div>
+                      ) : null}
+                    </div>
                   </Col>
                 </Row>
                 <Form.Item
