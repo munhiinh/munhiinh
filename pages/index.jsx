@@ -45,6 +45,41 @@ const Index = () => {
     getBus();
     getOrderHistory();
   }, []);
+
+  useEffect(() => {
+    return () => {
+      getQpayToken();
+    };
+  }, []);
+  const getQpayToken = () => {
+    setTimeout(() => {
+      if (!localStorage.getItem("qpay_access_token")) {
+        const username = "MUNKHIINKH_DAAMBE";
+        const password = "isvFH48i";
+        const token = `${username}:${password}`;
+        const basicAuth = Buffer.from(token).toString("base64");
+        axios
+          .post("https://merchant.qpay.mn/v2/auth/token", "", {
+            headers: {
+              Authorization: "Basic " + basicAuth,
+            },
+          })
+          .then((res) => {
+            if (res.data) {
+              localStorage.setItem("qpay_access_token", res.data.access_token);
+              localStorage.setItem("qpay_expires_in", res.data.expires_in);
+              localStorage.setItem(
+                "qpay_refresh_token",
+                res.data.refresh_token
+              );
+            }
+          })
+          .catch((err) => {
+            console.log("err: ", err);
+          });
+      }
+    }, 800);
+  };
   const getBus = async () => {
     await axios
       .get(`https://eagle-festival-2c130-default-rtdb.firebaseio.com/bus.json`)

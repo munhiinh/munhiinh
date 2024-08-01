@@ -1,6 +1,7 @@
 import MainContext from "@/src/components/context/mainContext/mainContext";
 import GallerySection from "@/src/components/GallerySection";
 import PageBanner from "@/src/components/PageBanner";
+import QpayInvoice from "@/src/components/qpay-invoice";
 import RelatedTours from "@/src/components/sliders/RelatedTours";
 import Layout from "@/src/layout/Layout";
 import {
@@ -10,6 +11,7 @@ import {
   DatePicker,
   Flex,
   Form,
+  Image,
   Input,
   message,
   notification,
@@ -37,25 +39,32 @@ const Checkout = () => {
   const [orderHistoryData, setOrderHistoryData] = useState([]);
   const [api, contextHolder] = notification.useNotification();
   const [orderDays, setOrderDays] = useState(0);
+  const [paymentType, setPaymentType] = useState(0);
+  const [qrData, setQrData] = useState();
+  const [form] = Form.useForm();
   useEffect(() => {
-    getBusDetails();
-    getBus();
+    return () => {
+      getBusDetails();
+      getBus();
 
-    if (localStorage.getItem("data")) {
-      setLocalData(JSON.parse(localStorage.getItem("data")));
-      const dates = JSON.parse(localStorage.getItem("data"));
-      const startDate = new Date(dates[0].date[0]);
-      const endDate = new Date(dates[0].date[1]);
+      if (localStorage.getItem("data")) {
+        setLocalData(JSON.parse(localStorage.getItem("data")));
+        const dates = JSON.parse(localStorage.getItem("data"));
+        const startDate = new Date(dates[0].date[0]);
+        const endDate = new Date(dates[0].date[1]);
 
-      // Calculate the difference in milliseconds
-      const differenceMs = endDate - startDate;
+        // Calculate the difference in milliseconds
+        const differenceMs = endDate - startDate;
 
-      // Convert milliseconds to days
-      const differenceDays = differenceMs / (1000 * 60 * 60 * 24);
+        // Convert milliseconds to days
+        const differenceDays = differenceMs / (1000 * 60 * 60 * 24);
 
-      setOrderDays(differenceDays + 1);
-    }
+        setOrderDays(differenceDays + 1);
+      }
+    };
   }, []);
+
+  useEffect(() => {}, [form]);
 
   const getBus = async () => {
     await axios
@@ -99,6 +108,7 @@ const Checkout = () => {
           }
         });
         setOrderHistoryData(orderDataList);
+        getQpayInvoice();
       })
       .catch((err) => {
         console.log("err: ", err);
@@ -196,6 +206,32 @@ const Checkout = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+  const onChangeForm = (e) => {};
+  const getQpayInvoice = async () => {
+    const token = localStorage.getItem("qpay_access_token");
+    const headers = {
+      Authorization: "Bearer " + token,
+    };
+    const body = {
+      invoice_code: "MUNKHIINKH_DAAMBE_INVOICE",
+      sender_invoice_no: "A123A1231",
+      invoice_receiver_code: "MH821212291",
+      invoice_description: "Munhiinh daambe xxk",
+      sender_branch_code: "Munhiinh daambe xxk",
+      amount: 100,
+      callback_url: "https://korean-exam.vercel.app/payment=123",
+    };
+    await axios
+      .post("api/invoicePost/invoice", body, { headers: headers })
+      .then((res) => {
+        console.log("res: ", res.data);
+        setQrData(res.data);
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      });
+    console.log("qpay invoice ::", body);
+  };
   return (
     <Layout extraClass={"pt-160"}>
       {/*====== Start Place Details Section ======*/}
@@ -265,6 +301,7 @@ const Checkout = () => {
             </div>
             <div style={{ marginBottom: "140px" }}>
               <Form
+                form={form}
                 name="basic"
                 initialValues={{
                   remember: true,
@@ -272,6 +309,7 @@ const Checkout = () => {
                 }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
+                onChange={onChangeForm}
                 autoComplete="off"
                 layout="vertical"
                 size="large"
@@ -367,12 +405,67 @@ const Checkout = () => {
                       >
                         <Space direction="vertical" size={"middle"}>
                           <Radio value={"qpay"}>Qpay</Radio>
-                          <Radio value={1}>Check payment</Radio>
-                          <Radio value={2}>Chash on delivery</Radio>
-                          <Radio value={3}>Paypal</Radio>
+                          <Radio value={"checkPayment"}>Check payment</Radio>
+                          <Radio value={"Chash"}>Chash on delivery</Radio>
+                          <Radio value={"Paypal"}>Paypal</Radio>
                         </Space>
                       </Radio.Group>
                     </Form.Item>
+                    <div>
+                      {form?.getFieldValue("paymentMethod") === "qpay" ? (
+                        <div>
+                          Qr code
+                          {console.log("qrData: ", qrData?.qr_image)}
+                          <Image
+                            preview={true}
+                            src={"data:image/png;base64," + qrData?.qr_image}
+                            alt="Munhiinh daambe xxk"
+                            width={200}
+                            height={200}
+                          />
+                          <div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "100%",
+                                flexFlow: "wrap",
+                              }}
+                            >
+                              {qrData?.urls.map((e, i) => (
+                                <a href={e.link} key={i}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "center",
+                                      width: "112px",
+                                      margin: "10px 0px",
+                                    }}
+                                  >
+                                    <Image
+                                      src={e.logo}
+                                      preview={false}
+                                      alt="obortech"
+                                      width={50}
+                                      style={{ borderRadius: "24px" }}
+                                    />
+                                    <div
+                                      style={{
+                                        fontWeight: "600",
+                                        marginTop: "5px",
+                                        textAlign: "center",
+                                      }}
+                                    >
+                                      {e.description}
+                                    </div>
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
                   </Col>
                   <Col xs={24} xl={12}>
                     <Form.Item
