@@ -39,14 +39,12 @@ const Payment = () => {
   const [api, contextHolder] = notification.useNotification();
 
   useEffect(() => {
-    return () => {
-      getBusDetails();
-      getBus();
-      getOrderHistory();
-      if (localStorage.getItem("data")) {
-        setLocalData(JSON.parse(localStorage.getItem("data")));
-      }
-    };
+    getBusDetails();
+    getBus();
+    getOrderHistory();
+    if (localStorage.getItem("data")) {
+      setLocalData(JSON.parse(localStorage.getItem("data")));
+    }
   }, []);
 
   const getBus = async () => {
