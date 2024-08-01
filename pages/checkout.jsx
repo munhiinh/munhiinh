@@ -43,25 +43,23 @@ const Checkout = () => {
   const [qrData, setQrData] = useState();
   const [form] = Form.useForm();
   useEffect(() => {
-    return () => {
-      getBusDetails();
-      getBus();
+    getBusDetails();
+    getBus();
 
-      if (localStorage.getItem("data")) {
-        setLocalData(JSON.parse(localStorage.getItem("data")));
-        const dates = JSON.parse(localStorage.getItem("data"));
-        const startDate = new Date(dates[0].date[0]);
-        const endDate = new Date(dates[0].date[1]);
+    if (localStorage.getItem("data")) {
+      setLocalData(JSON.parse(localStorage.getItem("data")));
+      const dates = JSON.parse(localStorage.getItem("data"));
+      const startDate = new Date(dates[0].date[0]);
+      const endDate = new Date(dates[0].date[1]);
 
-        // Calculate the difference in milliseconds
-        const differenceMs = endDate - startDate;
+      // Calculate the difference in milliseconds
+      const differenceMs = endDate - startDate;
 
-        // Convert milliseconds to days
-        const differenceDays = differenceMs / (1000 * 60 * 60 * 24);
+      // Convert milliseconds to days
+      const differenceDays = differenceMs / (1000 * 60 * 60 * 24);
 
-        setOrderDays(differenceDays + 1);
-      }
-    };
+      setOrderDays(differenceDays + 1);
+    }
   }, []);
 
   useEffect(() => {}, [form]);
@@ -313,7 +311,7 @@ const Checkout = () => {
                 onChange={onChangeForm}
                 autoComplete="off"
                 layout="vertical"
-                size="large"
+                size="middle"
               >
                 <Row gutter={20}>
                   <Col xs={24} xl={12}>
