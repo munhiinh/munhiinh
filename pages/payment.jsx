@@ -151,6 +151,7 @@ const Payment = () => {
         );
     }, 2500);
   };
+
   return (
     <Layout extraClass={"pt-160"}>
       {/*====== Start Place Details Section ======*/}

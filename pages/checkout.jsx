@@ -4,6 +4,7 @@ import PageBanner from "@/src/components/PageBanner";
 import QpayInvoice from "@/src/components/qpay-invoice";
 import RelatedTours from "@/src/components/sliders/RelatedTours";
 import Layout from "@/src/layout/Layout";
+import { CheckOutlined } from "@ant-design/icons";
 import {
   Button,
   Checkbox,
@@ -41,6 +42,7 @@ const Checkout = () => {
   const [orderDays, setOrderDays] = useState(0);
   const [paymentType, setPaymentType] = useState(0);
   const [qrData, setQrData] = useState();
+  const [successPayment, setSuccessPayment] = useState();
   const [form] = Form.useForm();
   useEffect(() => {
     getBusDetails();
@@ -231,6 +233,36 @@ const Checkout = () => {
         console.log("err: ", err);
       });
   };
+  const payCheckFunc = () => {
+    const token = localStorage.getItem("qpay_access_token");
+    const headers = {
+      Authorization: "Bearer " + token,
+    };
+    const body = {
+      object_type: "INVOICE",
+      object_id: qrData?.invoice_id,
+      offset: {
+        page_number: 1,
+        page_limit: 100,
+      },
+    };
+    axios.post("/api/check/check", body, { headers: headers }).then((res) => {
+      if (res.data.count === 0) {
+        api["error"]({
+          message: "Таны төлбөр төлөгдөөгүй байна!",
+          description:
+            "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
+        });
+      } else {
+        setSuccessPayment("success");
+        api["success"]({
+          message: "Таны төлбөр амжилттай төлөгдсөн байна.",
+          description:
+            "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
+        });
+      }
+    });
+  };
   return (
     <Layout extraClass={"pt-160"}>
       {/*====== Start Place Details Section ======*/}
@@ -411,10 +443,9 @@ const Checkout = () => {
                       </Radio.Group>
                     </Form.Item>
                     <div>
-                      {console.log("paymentType: ", paymentType)}
-                      {paymentType === "qpay" ? (
+                      {paymentType === "qpay" &&
+                      successPayment !== "success" ? (
                         <div>
-                          Qr code
                           <Image
                             preview={true}
                             src={"data:image/png;base64," + qrData?.qr_image}
@@ -423,6 +454,14 @@ const Checkout = () => {
                             height={200}
                           />
                           <div>
+                            <Button
+                              type="primary"
+                              onClick={payCheckFunc}
+                              size="middle"
+                              icon={<CheckOutlined />}
+                            >
+                              Check pay
+                            </Button>
                             <div
                               style={{
                                 display: "flex",
@@ -462,6 +501,13 @@ const Checkout = () => {
                               ))}
                             </div>
                           </div>
+                        </div>
+                      ) : null}
+
+                      {paymentType === "success" ? (
+                        <div>
+                          Төлбөр амжилттай төгдсөн байна. Та цаашин үргэжлүүлнэ
+                          үү?
                         </div>
                       ) : null}
                     </div>
