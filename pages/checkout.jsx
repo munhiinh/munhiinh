@@ -78,6 +78,7 @@ const Checkout = () => {
       mediaQuery.removeEventListener("change", handleChange);
     };
   }, []);
+  useEffect(() => {}, [current]);
   useEffect(() => {
     // If timer has finished, do nothing
     if (secondsLeft <= 0) return;
@@ -293,8 +294,11 @@ const Checkout = () => {
               `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json?&auth=${token}`,
               {
                 ...information,
-                invoice_id: qrData?.invoice_id,
-                orderNumber: orderNumber,
+                data: {
+                  ...information.data,
+                  invoice_id: qrData?.invoice_id,
+                  orderNumber: orderNumber,
+                },
               }
             )
             .then((res2) => {
