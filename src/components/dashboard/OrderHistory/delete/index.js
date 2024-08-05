@@ -7,14 +7,14 @@ const Delete = (props) => {
     const token = localStorage.getItem("idToken");
     axios
       .delete(
-        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/bus/${props.data}.json?&auth=${token}`
+        `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory/${props.data}.json?&auth=${token}`
       )
       .then((res) => {
         message.success("Амжилттай устлаа");
-        props.getBus();
+        props.getOrderHistory();
       })
       .catch((err) => {
-        props.getBus();
+        props.getOrderHistory();
       });
   };
   return (

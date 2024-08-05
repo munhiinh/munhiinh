@@ -40,7 +40,7 @@ const OrderHistory = () => {
     .filter((item) => {
       return filterBus.toLowerCase() === ""
         ? item
-        : item.busName.toLowerCase().includes(filterBus);
+        : item?.busName?.toLowerCase().includes(filterBus.toLowerCase());
     })
     .map((e, i) => ({
       key: i,
@@ -264,8 +264,8 @@ const OrderHistory = () => {
       // fixed: "right",
       render: (action) => (
         <div style={{ display: "flex", gap: "10px" }}>
-          <Edit data={action} getOrderHistory={getOrderHistory} info={action} />
-          <Delete data={action} getOrderHistory={getOrderHistory} />
+          {/* <Edit data={action} getOrderHistory={getOrderHistory} info={action} /> */}
+          <Delete data={action?.id} getOrderHistory={getOrderHistory} />
         </div>
       ),
     },
@@ -283,6 +283,7 @@ const OrderHistory = () => {
       {/* <SidebarBreadCumb title="Нохой нэмэх" /> */}
       <section>
         <div>
+          {console.log("getData: ", getData)}
           <div>
             <Select
               allowClear

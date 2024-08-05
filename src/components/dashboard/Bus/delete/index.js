@@ -17,6 +17,7 @@ const Delete = (props) => {
         props.getBus();
       });
   };
+
   return (
     <div>
       <Popconfirm title="Устгахдаа итгэлтэй байна уу?" onConfirm={deleteFunc}>

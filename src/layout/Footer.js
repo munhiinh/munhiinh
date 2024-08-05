@@ -49,18 +49,21 @@ const Footer = ({ bg, extraClass }) => {
             <div className="col-lg-3 col-md-6">
               {/*=== Footer Widget ===*/}
               <div className="footer-widget about-company-widget mb-40">
-                <h4 className="widget-title">About</h4>
+                <h4 className="widget-title">Бидний тухай</h4>
                 <div className="footer-content">
-                  <p>
-                    To take trivial example which us ever undertakes laborious
-                    physica exercise except obsome
+                  <p style={{ textAlign: "justify" }}>
+                    Мөнхийнх Даамбэ ХХК нь Монгол улсын автобус түрээсийн
+                    үйлчилгээг бид хэрэглэгч үйлчлүүлэгчдийн шаардлага, хүсэл
+                    сонирхлыг дээдлэн, ажил үйлчилгээг үр дүнтэй явуулж, үйл
+                    ажиллагаандаа чанарыг эрхэмлэн ажилладаг.
                   </p>
                   <a href="#" className="footer-logo">
                     <img
+                      style={{ width: "200px" }}
                       src={
                         bg === "gray"
                           ? "assets/images/logo/logo-black1.png"
-                          : "assets/images/logo/logo-white.png"
+                          : "assets/images/logo/brand-logo-white.png"
                       }
                       alt="Site Logo"
                     />
@@ -71,23 +74,23 @@ const Footer = ({ bg, extraClass }) => {
             <div className="col-lg-5 col-md-6">
               {/*=== Footer Widget ===*/}
               <div className="footer-widget service-nav-widget mb-40 pl-lg-70">
-                <h4 className="widget-title">Services</h4>
+                <h4 className="widget-title">Үйлчилгээнүүд</h4>
                 <div className="footer-content">
                   <ul className="footer-widget-nav">
                     <li>
-                      <a href="#">Caravan Soler Tent</a>
+                      <a href="#">Сургуулийн кемп</a>
                     </li>
                     <li>
-                      <a href="#">Family Tent Camping</a>
+                      <a href="#">Гэр бүлийн кемп</a>
                     </li>
                     <li>
-                      <a href="#">Classic Tent Camping</a>
+                      <a href="#">Найз нөхдийн кемп</a>
                     </li>
                     <li>
-                      <a href="#">Wild Tent Camping</a>
+                      <a href="#">Албан байгууллагын кемп</a>
                     </li>
                     <li>
-                      <a href="#">Small Cabin Wood</a>
+                      <a href="#">Гадаад жуулчлалын кемп</a>
                     </li>
                   </ul>
                   <ul className="footer-widget-nav">
@@ -110,12 +113,9 @@ const Footer = ({ bg, extraClass }) => {
             <div className="col-lg-4 col-md-6">
               {/*=== Footer Widget ===*/}
               <div className="footer-widget footer-newsletter-widget mb-40 pl-lg-100">
-                <h4 className="widget-title">Newsletter</h4>
+                <h4 className="widget-title">Санал</h4>
                 <div className="footer-content">
-                  <p>
-                    Which of us ever undertake laborious physical exercise
-                    except obtain
-                  </p>
+                  <p>Та бидэнд санал гомдол илгээж болно.</p>
                   <form>
                     <div className="form_group">
                       <label>
@@ -124,7 +124,7 @@ const Footer = ({ bg, extraClass }) => {
                       <input
                         type="email"
                         className="form_control"
-                        placeholder="Email Address"
+                        placeholder="Е-майл хаяг"
                         name="email"
                         required
                       />
@@ -142,8 +142,9 @@ const Footer = ({ bg, extraClass }) => {
               {/*=== Footer Text ===*/}
               <div className="footer-text">
                 <p>
-                  Copy@ 2023 <span style={{ color: "#F7921E" }}>GoWilds</span>,
-                  All Right Reserved
+                  Copy@ 2024{" "}
+                  <span style={{ color: "#F7921E" }}>Munhiinh daambe XXK </span>
+                  , All Right Reserved
                 </p>
               </div>
             </div>

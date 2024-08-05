@@ -65,7 +65,6 @@ const Edit = (props) => {
     </div>
   );
   const showModal = () => {
-    console.log("props: ", props.info);
     if (props.info.img.length === 1) {
       setFileList([
         {
@@ -140,7 +139,6 @@ const Edit = (props) => {
         },
       ]);
     }
-    console.log("info ", props.info);
     setInfo(props.info);
     setIsModalOpen(true);
   };
@@ -194,7 +192,6 @@ const Edit = (props) => {
           setIsModalOpen(false);
         })
         .catch((err) => {
-          console.log("err: ", err);
           message.error("error");
           setIsModalOpen(false);
         })
@@ -222,6 +219,7 @@ const Edit = (props) => {
           size="middle"
           initialValues={{
             remember: true,
+            title: getInfo?.title,
             busName: getInfo.busName,
             adventages: getInfo.adventages,
             price: getInfo.price,

@@ -19,23 +19,6 @@ import moment from "moment";
 import Image from "next/image";
 
 const { RangePicker } = DatePicker;
-const data = [
-  {
-    name: "amraa1",
-    startDate: "2024-07-05",
-    endDate: "2024-07-06",
-  },
-  {
-    name: "amraa2",
-    startDate: "2024-07-07",
-    endDate: "2024-07-20",
-  },
-  {
-    name: "amraa4",
-    startDate: "2024-08-10",
-    endDate: "2024-08-20",
-  },
-];
 
 const OurBus = () => {
   const mainContext = useContext(MainContext);
@@ -44,6 +27,28 @@ const OurBus = () => {
   const [busList, setBusList] = useState();
   const [orderHistoryData, setOrderHistoryData] = useState([]);
   const [api, contextHolder] = notification.useNotification();
+  const [isWideScreen, setIsWideScreen] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleChange = (e) => {
+      setIsWideScreen(e.matches);
+    };
+
+    // Set initial state
+    handleChange(mediaQuery);
+
+    // Add event listener
+    mediaQuery.addEventListener("change", handleChange);
+
+    // Clean up listener on component unmount
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
   useEffect(() => {
     getBus();
     getOrderHistory();
@@ -223,7 +228,7 @@ const OurBus = () => {
               size="large"
               style={{ gap: "10px" }}
             >
-              <Form.Item
+              {/* <Form.Item
                 label={<div className="fw-medium">FROM</div>}
                 name="from"
                 labelCol={{
@@ -246,18 +251,18 @@ const OurBus = () => {
                   prefix={<EnvironmentOutlined style={{ color: "#ccc" }} />}
                   placeholder="From"
                 />
-              </Form.Item>
+              </Form.Item> */}
 
               <Form.Item
-                label={<div className="fw-medium">TO</div>}
+                label={<div className="fw-medium">Очих газар</div>}
                 name="to"
                 labelCol={{
-                  xl: { span: 6 },
-                  xs: { span: 7 },
+                  xl: { span: 8 },
+                  xs: { span: 6 },
                 }}
                 wrapperCol={{
                   xl: { span: 20 },
-                  xs: { span: 22 },
+                  xs: { span: 15 },
                 }}
                 rules={[
                   {
@@ -274,15 +279,15 @@ const OurBus = () => {
               </Form.Item>
 
               <Form.Item
-                label={<div className="fw-medium">DATE</div>}
+                label={<div className="fw-medium">Хугацаа</div>}
                 name="date"
                 labelCol={{
-                  xl: { span: 6 },
+                  xl: { span: 8 },
                   xs: { span: 6 },
                 }}
                 wrapperCol={{
-                  xl: { span: 18 },
-                  xs: { span: 17 },
+                  xl: { span: 17 },
+                  xs: { span: 13 },
                 }}
                 rules={[
                   {
@@ -294,13 +299,14 @@ const OurBus = () => {
                 <RangePicker onChange={onRangeChange} size="large" />
               </Form.Item>
 
-              <Form.Item>
+              <Form.Item style={{ width: isWideScreen ? "" : "100%" }}>
                 <Button
+                  style={{ width: isWideScreen ? "" : "100%" }}
                   type="primary"
                   htmlType="submit"
                   className="text-uppercase fw-medium"
                 >
-                  find my journey
+                  Автобус хайх
                 </Button>
               </Form.Item>
             </Form>

@@ -41,6 +41,28 @@ const Index = () => {
 
   const [orderHistoryData, setOrderHistoryData] = useState([]);
   const [api, contextHolder] = notification.useNotification();
+  const [isWideScreen, setIsWideScreen] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleChange = (e) => {
+      setIsWideScreen(e.matches);
+    };
+
+    // Set initial state
+    handleChange(mediaQuery);
+
+    // Add event listener
+    mediaQuery.addEventListener("change", handleChange);
+
+    // Clean up listener on component unmount
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
   useEffect(() => {
     getBus();
     getOrderHistory();
@@ -280,8 +302,8 @@ const Index = () => {
                       size="large"
                       style={{ gap: "2px" }}
                     >
-                      <Form.Item
-                        label={<div className="fw-medium">FROM</div>}
+                      {/* <Form.Item
+                        label={<div className="fw-medium">Эхлэх цэг</div>}
                         name="from"
                         labelCol={{
                           xl: { span: 6 },
@@ -305,18 +327,18 @@ const Index = () => {
                           allowClear
                           placeholder="From"
                         />
-                      </Form.Item>
+                      </Form.Item> */}
 
                       <Form.Item
-                        label={<div className="fw-medium">TO</div>}
+                        label={<div className="fw-medium">Очих газар </div>}
                         name="to"
                         labelCol={{
-                          xl: { span: 6 },
-                          xs: { span: 7 },
+                          xl: { span: 7 },
+                          xs: { span: 8 },
                         }}
                         wrapperCol={{
-                          xl: { span: 20 },
-                          xs: { span: 23 },
+                          xl: { span: 18 },
+                          xs: { span: 14 },
                         }}
                         rules={[
                           {
@@ -335,15 +357,15 @@ const Index = () => {
                       </Form.Item>
 
                       <Form.Item
-                        label={<div className="fw-medium">DATE</div>}
+                        label={<div className="fw-medium">Өдөр </div>}
                         name="date"
                         labelCol={{
                           xl: { span: 6 },
-                          xs: { span: 6 },
+                          xs: { span: 8 },
                         }}
                         wrapperCol={{
                           xl: { span: 18 },
-                          xs: { span: 18 },
+                          xs: { span: 13 },
                         }}
                         rules={[
                           {
@@ -355,14 +377,14 @@ const Index = () => {
                         <RangePicker onChange={onRangeChange} size="large" />
                       </Form.Item>
 
-                      <Form.Item>
+                      <Form.Item style={{ width: isWideScreen ? "" : "100%" }}>
                         <Button
                           type="primary"
                           htmlType="submit"
-                          className="text-uppercase fw-medium"
-                          style={{ width: "100px" }}
+                          className="text-uppercase"
+                          style={{ width: isWideScreen ? "" : "100%" }}
                         >
-                          find
+                          Автобус хайх
                         </Button>
                       </Form.Item>
                     </Form>
@@ -600,72 +622,72 @@ const Index = () => {
             <div className="single-features-item-three">
               <div className="img-holder">
                 <img
-                  src="assets/images/features/feat-10.jpg"
+                  src="assets/images/features/auto1.jpg"
                   alt="Features Image"
                 />
               </div>
               <div className="content">
-                <h6>Wadi Musa, Ma'an Governorate, Jordan</h6>
+                <h6>Хөвсгөл аялал</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
             <div className="single-features-item-three">
               <div className="img-holder">
                 <img
-                  src="assets/images/features/feat-11.jpg"
+                  src="assets/images/features/auto2.jpg"
                   alt="Features Image"
                 />
               </div>
               <div className="content">
-                <h6>Tambon Ko Kut, จ.ตราด, Thailand</h6>
+                <h6>Арханхай аялал</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
             <div className="single-features-item-three">
               <div className="img-holder">
                 <img
-                  src="assets/images/features/feat-12.jpg"
+                  src="assets/images/features/auto3.jpg"
                   alt="Features Image"
                 />
               </div>
               <div className="content">
-                <h6>Camper Trailer, New York</h6>
+                <h6>Өмнөговь аялал</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
             <div className="single-features-item-three">
               <div className="img-holder">
                 <img
-                  src="assets/images/features/feat-13.jpg"
+                  src="assets/images/features/auto4.jpg"
                   alt="Features Image"
                 />
               </div>
               <div className="content">
-                <h6>Wadi Musa, Ma'an Governorate, Jordan</h6>
+                <h6>Мөнхийнх амралт</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
             <div className="single-features-item-three">
               <div className="img-holder">
                 <img
-                  src="assets/images/features/feat-14.jpg"
+                  src="assets/images/features/auto5.jpg"
                   alt="Features Image"
                 />
               </div>
               <div className="content">
-                <h6>Forest Tent Camping, South Africa</h6>
+                <h6>тойр.мн аялал</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
             <div className="single-features-item-three">
               <div className="img-holder">
                 <img
-                  src="assets/images/features/feat-12.jpg"
+                  src="assets/images/features/auto6.jpg"
                   alt="Features Image"
                 />
               </div>
               <div className="content">
-                <h6>Camper Trailer, New York</h6>
+                <h6>Урьхан </h6>
               </div>
             </div>
           </Slider>
@@ -1287,7 +1309,7 @@ const Index = () => {
             </div>
           </div> */}
 
-          <div className="blog-area pt-60 pb-60">
+          {/* <div className="blog-area pt-60 pb-60">
             <div className="row justify-content-center">
               <div className="col-xl-7">
                 <div className="section-title text-center mb-45 wow fadeInDown">
@@ -1382,7 +1404,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       {/*====== End Testimonial Section ======*/}

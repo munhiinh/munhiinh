@@ -233,7 +233,7 @@ const BusDetails = () => {
                 <div className="row">
                   <div className="col-xl-6">
                     <div className="tour-title mb-20">
-                      <h3 className="title">{bus?.busName}</h3>
+                      <h3 className="title">Улсын дугаар - {bus?.busName}</h3>
                       <p>
                         <i className="far fa-map-marker-alt" />
                         Ulaanbaatar of Mongolian
@@ -262,7 +262,7 @@ const BusDetails = () => {
                         </div>
                         <div className="info">
                           <h4>
-                            <span>Durations</span>1 Days
+                            <span>Хугацаа</span> 1 өдөр
                           </h4>
                         </div>
                       </div>
@@ -272,7 +272,7 @@ const BusDetails = () => {
                         </div>
                         <div className="info">
                           <h4>
-                            <span>Tour Type</span>Locality Tour
+                            <span>Жуулчлалын төрөл</span>Орон нутгийн аялал
                           </h4>
                         </div>
                       </div>
@@ -329,7 +329,7 @@ const BusDetails = () => {
                 <div className="col-xl-8">
                   {/*=== Place Content Wrap ===*/}
                   <div className="place-content-wrap pt-45 wow fadeInUp">
-                    <h3 className="title">Explore Bus</h3>
+                    <h3 className="title">Автобус мэдээлэл</h3>
                     <p>{bus?.description}</p>
                     {/* <h4>Advance Facilities</h4>
                   <p>

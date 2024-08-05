@@ -281,36 +281,34 @@ const Checkout = () => {
         page_limit: 100,
       },
     };
-    await axios
-      .post("/api/check/check", body, { headers: headers })
-      .then((res) => {
-        if (res.data.count === 0) {
-          return;
-        } else {
-          setCurrent(current + 1);
-          const token = localStorage.getItem("idToken");
-          axios
-            .post(
-              `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json?&auth=${token}`,
-              {
-                ...information,
-                data: {
-                  ...information.data,
-                  invoice_id: qrData?.invoice_id,
-                  orderNumber: orderNumber,
-                },
-              }
-            )
-            .then((res2) => {
-              if (res2.data.name) {
-                email(information.data);
-              }
-            })
-            .catch((err) => {
-              message.error("Амжилтгүй сервер дээр алдаа гарлаа!");
-            });
-        }
-      });
+    axios.post("/api/check/check", body, { headers: headers }).then((res) => {
+      if (res.data.count === 0) {
+        return;
+      } else {
+        setCurrent(current + 1);
+        const token = localStorage.getItem("idToken");
+        axios
+          .post(
+            `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json?&auth=${token}`,
+            {
+              ...information,
+              data: {
+                ...information.data,
+                invoice_id: qrData?.invoice_id,
+                orderNumber: orderNumber,
+              },
+            }
+          )
+          .then((res2) => {
+            if (res2.data.name) {
+              email(information.data);
+            }
+          })
+          .catch((err) => {
+            message.error("Амжилтгүй сервер дээр алдаа гарлаа!");
+          });
+      }
+    });
   };
   const email = async (data) => {
     const mailData = {
