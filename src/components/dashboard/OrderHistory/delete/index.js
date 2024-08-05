@@ -11,9 +11,8 @@ const Delete = (props) => {
       )
       .then((res) => {
         message.success("Амжилттай устлаа");
-        props.getOrderHistory();
       })
-      .catch((err) => {
+      .finally(() => {
         props.getOrderHistory();
       });
   };

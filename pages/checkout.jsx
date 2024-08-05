@@ -54,11 +54,13 @@ const Checkout = () => {
   const [current, setCurrent] = useState(0);
   const [information, setInformation] = useState();
   const [secondsLeft, setSecondsLeft] = useState(30 * 60);
-  const [orderNumber, setOrderNumber] = useState(0);
+  const [orderNumber, setOrderNumber] = useState("MH12345");
   const [segmentValue, setSegment] = useState(0);
   const [isWideScreen, setIsWideScreen] = useState(
     window.matchMedia("(min-width: 768px)").matches
   );
+
+  const [isOk, setIsOk] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
@@ -93,7 +95,7 @@ const Checkout = () => {
 
     // Clear the interval when the component is unmounted or timer is finished
     return () => clearInterval(intervalId);
-  }, [secondsLeft]);
+  }, [secondsLeft, current]);
 
   useEffect(() => {
     getBusDetails();
@@ -141,6 +143,7 @@ const Checkout = () => {
       .then((res) => {
         setBus(res.data.data);
         getOrderHistory();
+        getQpayInvoice();
       })
       .catch((err) => {
         console.log("err: ", err);
@@ -152,15 +155,17 @@ const Checkout = () => {
         `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json`
       )
       .then((res) => {
-        const data = Object.entries(res.data).reverse();
-        const orderDataList = [];
-        data.forEach((element) => {
-          if (element[1].data?.busId === router.query.id) {
-            orderDataList.push(element[1]?.data);
-          }
-        });
-        setOrderHistoryData(orderDataList);
-        getQpayInvoice();
+        console.log("getOrderHistory: ", res.data);
+        if (res.data) {
+          const data = Object.entries(res.data).reverse();
+          const orderDataList = [];
+          data.forEach((element) => {
+            if (element[1].data?.busId === router.query.id) {
+              orderDataList.push(element[1]?.data);
+            }
+          });
+          setOrderHistoryData(orderDataList);
+        }
       })
       .catch((err) => {
         console.log("err: ", err);
@@ -240,10 +245,13 @@ const Checkout = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   const onChangeForm = () => {
     setPaymentType(form?.getFieldValue("paymentMethod"));
   };
+
   const getQpayInvoice = async () => {
+    console.log("getQpayInvoice");
     const token = localStorage.getItem("qpay_access_token");
     const headers = {
       Authorization: "Bearer " + token,
@@ -257,7 +265,7 @@ const Checkout = () => {
       invoice_description: "MUNHIINH DAAMBE XXK " + orderNumber,
       sender_branch_code: "Munhiinh daambe xxk",
       amount: 100,
-      callback_url: "https://korean-exam.vercel.app/payment=123",
+      callback_url: "https://korean-exam.vercel.app/payment=123" + orderNumber,
     };
     await axios
       .post("api/invoicePost/invoice", body, { headers: headers })
@@ -268,6 +276,7 @@ const Checkout = () => {
         console.log("err: ", err);
       });
   };
+
   const payCheckFunc = async () => {
     const token = localStorage.getItem("qpay_access_token");
     const headers = {
@@ -281,34 +290,36 @@ const Checkout = () => {
         page_limit: 100,
       },
     };
-    axios.post("/api/check/check", body, { headers: headers }).then((res) => {
-      if (res.data.count === 0) {
-        return;
-      } else {
-        setCurrent(current + 1);
-        const token = localStorage.getItem("idToken");
-        axios
-          .post(
-            `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json?&auth=${token}`,
-            {
-              ...information,
-              data: {
-                ...information.data,
-                invoice_id: qrData?.invoice_id,
-                orderNumber: orderNumber,
-              },
-            }
-          )
-          .then((res2) => {
-            if (res2.data.name) {
-              email(information.data);
-            }
-          })
-          .catch((err) => {
-            message.error("Амжилтгүй сервер дээр алдаа гарлаа!");
-          });
-      }
-    });
+    await axios
+      .post("/api/check/check", body, { headers: headers })
+      .then((res) => {
+        if (res.data.count === 0) {
+          return;
+        } else {
+          setCurrent(current + 1);
+          const token = localStorage.getItem("idToken");
+          axios
+            .post(
+              `https://eagle-festival-2c130-default-rtdb.firebaseio.com/orderHistory.json?&auth=${token}`,
+              {
+                ...information,
+                data: {
+                  ...information.data,
+                  invoice_id: qrData?.invoice_id,
+                  orderNumber: orderNumber,
+                },
+              }
+            )
+            .then((res2) => {
+              if (res2.data.name) {
+                email(information.data);
+              }
+            })
+            .catch((err) => {
+              message.error("Амжилтгүй сервер дээр алдаа гарлаа!");
+            });
+        }
+      });
   };
   const email = async (data) => {
     const mailData = {
