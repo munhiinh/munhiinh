@@ -3,10 +3,10 @@ import PageBanner from "@/src/components/PageBanner";
 import Layout from "@/src/layout/Layout";
 import { partnerSliderOne, testimonialSliderOne } from "@/src/sliderProps";
 import Link from "next/link";
-import Slider from "react-slick"; 
-const About = () => { 
+import Slider from "react-slick";
+const About = () => {
   return (
-    <Layout extraClass={"pt-160"}> 
+    <Layout extraClass={"pt-160"}>
       <PageBanner pageTitle={"About Us"} />
       {/*====== Start Features Section ======*/}
       <section className="features-section pt-100 pb-50">
@@ -157,8 +157,8 @@ const About = () => {
             <div className="col-xl-7">
               {/*====== Section Title ======*/}
               <div className="section-title text-center mb-50 wow fadeInDown">
-                <span className="sub-title">Team Member</span>
-                <h2>We’ve Expert Team Members Meet With Team</h2>
+                <span className="sub-title">Багийн гишүүд</span>
+                <h2>Манай байгууллагын мэргэшсэн гишүүд</h2>
               </div>
             </div>
           </div>
@@ -167,113 +167,116 @@ const About = () => {
               {/*====== Single Team Item ======*/}
               <div className="single-team-item mb-30 wow fadeInUp">
                 <div className="member-img">
-                  <img src="assets/images/team/team-1.jpg" alt="Team Image" />
+                  <img src="assets/images/team/muugii.png" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Donald D. Schafer</h4>
+                  <h4 className="title">Даваадавга Мөнхбат</h4>
+                  <p className="position">Захирал</p>
+                  <ul className="social-link">
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-facebook-f" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-twitter" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-instagram" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-linkedin-in" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6 col-sm-12">
+              {/*====== Single Team Item ======*/}
+              <div className="single-team-item mb-30 wow fadeInUp">
+                <div className="member-img">
+                  <img src="assets/images/team/bvree.jpg" alt="Team Image" />
+                </div>
+                <div className="member-info">
+                  <h4 className="title">Батбаяр Бүрэнжаргал</h4>
+                  <p className="position">Жолооч &amp; Мэргэшсэн</p>
+                  <ul className="social-link">
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-facebook-f" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-twitter" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-instagram" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-linkedin-in" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6 col-sm-12">
+              {/*====== Single Team Item ======*/}
+              <div className="single-team-item mb-30 wow fadeInUp">
+                <div className="member-img">
+                  <img
+                    src="assets/images/team/choijilsuren.png"
+                    alt="Team Image"
+                  />
+                </div>
+                <div className="member-info">
+                  <h4 className="title">Даваадавга чойжилсүрэн</h4>
+                  <p className="position">Жолооч &amp; Мэргэшсэн</p>
+                  <ul className="social-link">
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-facebook-f" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-twitter" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-instagram" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-linkedin-in" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6 col-sm-12">
+              {/*====== Single Team Item ======*/}
+              <div className="single-team-item mb-30 wow fadeInUp">
+                <div className="member-img">
+                  <img src="assets/images/team/amra.jpg" alt="Team Image" />
+                </div>
+                <div className="member-info">
+                  <h4 className="title">Батбаяр Амарбаяр</h4>
                   <p className="position">CEO &amp; Founder</p>
-                  <ul className="social-link">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-linkedin-in" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              {/*====== Single Team Item ======*/}
-              <div className="single-team-item mb-30 wow fadeInUp">
-                <div className="member-img">
-                  <img src="assets/images/team/team-2.jpg" alt="Team Image" />
-                </div>
-                <div className="member-info">
-                  <h4 className="title">William E. Combs</h4>
-                  <p className="position">Web Designer</p>
-                  <ul className="social-link">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-linkedin-in" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              {/*====== Single Team Item ======*/}
-              <div className="single-team-item mb-30 wow fadeInUp">
-                <div className="member-img">
-                  <img src="assets/images/team/team-3.jpg" alt="Team Image" />
-                </div>
-                <div className="member-info">
-                  <h4 className="title">Daniel G. Santana</h4>
-                  <p className="position">Senior Manager</p>
-                  <ul className="social-link">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-linkedin-in" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              {/*====== Single Team Item ======*/}
-              <div className="single-team-item mb-30 wow fadeInUp">
-                <div className="member-img">
-                  <img src="assets/images/team/team-4.jpg" alt="Team Image" />
-                </div>
-                <div className="member-info">
-                  <h4 className="title">Mario M. Troutman</h4>
-                  <p className="position">Web Developer</p>
                   <ul className="social-link">
                     <li>
                       <a href="#">
@@ -306,8 +309,8 @@ const About = () => {
                   <img src="assets/images/team/team-5.jpg" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Don O. Vaillancourt</h4>
-                  <p className="position">Junior Marketer</p>
+                  <h4 className="title">Батсүх Алтансүрэн</h4>
+                  <p className="position">Жолооч &amp; Мэргэшсэн</p>
                   <ul className="social-link">
                     <li>
                       <a href="#">
@@ -340,7 +343,7 @@ const About = () => {
                   <img src="assets/images/team/team-6.jpg" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Eugene J. Gilliam</h4>
+                  <h4 className="title">Буянжаргал Сүмбээ</h4>
                   <p className="position">Graphics Designer</p>
                   <ul className="social-link">
                     <li>
