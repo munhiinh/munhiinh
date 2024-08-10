@@ -19,8 +19,8 @@ const Header4 = () => {
                   <img
                     src="assets/images/logo/brand-logo-white.png"
                     alt="Site Logo"
-                    width={230}
-                    height={60}
+                    width={180}
+                    height={80}
                   />
                 </a>
               </Link>

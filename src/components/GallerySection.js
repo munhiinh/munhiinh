@@ -11,10 +11,10 @@ const GallerySection = () => {
           {/*=== Single Gallery Item ===*/}
           <div className="single-gallery-item">
             <div className="gallery-img">
-              <img src="assets/images/gallery/gl-1.jpg" alt="Gallery Image" />
+              <img src="assets/images/gallery/gall2.jfif" alt="Gallery Image" />
               <div className="hover-overlay">
                 <a
-                  href="assets/images/gallery/gl-1.jpg"
+                  href="assets/images/gallery/gall2.jfif"
                   className="icon-btn img-popup"
                 >
                   <i className="far fa-plus" />
@@ -25,10 +25,10 @@ const GallerySection = () => {
           {/*=== Single Gallery Item ===*/}
           <div className="single-gallery-item">
             <div className="gallery-img">
-              <img src="assets/images/gallery/gl-2.jpg" alt="Gallery Image" />
+              <img src="assets/images/gallery/gall3.jfif" alt="Gallery Image" />
               <div className="hover-overlay">
                 <a
-                  href="assets/images/gallery/gl-2.jpg"
+                  href="assets/images/gallery/gall3.jfif"
                   className="icon-btn img-popup"
                 >
                   <i className="far fa-plus" />
@@ -39,10 +39,10 @@ const GallerySection = () => {
           {/*=== Single Gallery Item ===*/}
           <div className="single-gallery-item">
             <div className="gallery-img">
-              <img src="assets/images/gallery/gl-3.jpg" alt="Gallery Image" />
+              <img src="assets/images/gallery/gall4.jfif" alt="Gallery Image" />
               <div className="hover-overlay">
                 <a
-                  href="assets/images/gallery/gl-3.jpg"
+                  href="assets/images/gallery/gall4.jfif"
                   className="icon-btn img-popup"
                 >
                   <i className="far fa-plus" />
@@ -53,10 +53,10 @@ const GallerySection = () => {
           {/*=== Single Gallery Item ===*/}
           <div className="single-gallery-item">
             <div className="gallery-img">
-              <img src="assets/images/gallery/gl-4.jpg" alt="Gallery Image" />
+              <img src="assets/images/gallery/gall5.jfif" alt="Gallery Image" />
               <div className="hover-overlay">
                 <a
-                  href="assets/images/gallery/gl-4.jpg"
+                  href="assets/images/gallery/gall5.jfif"
                   className="icon-btn img-popup"
                 >
                   <i className="far fa-plus" />
@@ -67,10 +67,10 @@ const GallerySection = () => {
           {/*=== Single Gallery Item ===*/}
           <div className="single-gallery-item">
             <div className="gallery-img">
-              <img src="assets/images/gallery/gl-5.jpg" alt="Gallery Image" />
+              <img src="assets/images/gallery/gall6.jfif" alt="Gallery Image" />
               <div className="hover-overlay">
                 <a
-                  href="assets/images/gallery/gl-5.jpg"
+                  href="assets/images/gallery/gall6.jfif"
                   className="icon-btn img-popup"
                 >
                   <i className="far fa-plus" />
@@ -81,10 +81,10 @@ const GallerySection = () => {
           {/*=== Single Gallery Item ===*/}
           <div className="single-gallery-item">
             <div className="gallery-img">
-              <img src="assets/images/gallery/gl-3.jpg" alt="Gallery Image" />
+              <img src="assets/images/gallery/gall1.jfif" alt="Gallery Image" />
               <div className="hover-overlay">
                 <a
-                  href="assets/images/gallery/gl-3.jpg"
+                  href="assets/images/gallery/gall1.jfif"
                   className="icon-btn img-popup"
                 >
                   <i className="far fa-plus" />

@@ -15,7 +15,12 @@ const DefaultHeader = () => {
               <div className="site-brading">
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
-                    <img src="assets/images/logo/logo-black1.png" alt="Logo" />
+                    <img
+                      width={180}
+                      height={80}
+                      src="assets/images/logo/brand-logo-white.png"
+                      alt="Logo"
+                    />
                   </a>
                 </Link>
               </div>

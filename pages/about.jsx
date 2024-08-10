@@ -9,13 +9,11 @@ const About = () => {
     <Layout extraClass={"pt-160"}>
       <PageBanner pageTitle={"About Us"} />
       {/*====== Start Features Section ======*/}
-      <section className="features-section pt-100 pb-50">
+      {/* <section className="features-section pt-100 pb-50">
         <div className="container">
           <div className="row align-items-xl-center">
-            <div className="col-xl-5">
-              {/*=== Features Content Box ===*/}
+            <div className="col-xl-5"> 
               <div className="features-content-box pr-lg-70 mb-50 wow fadeInLeft">
-                {/*=== Section Title ===*/}
                 <div className="section-title mb-30">
                   <span className="sub-title">Availability</span>
                   <h2>Explore GoWilds Real Adventure &amp; Travels</h2>
@@ -34,8 +32,7 @@ const About = () => {
             <div className="col-xl-7">
               <div className="features-item-area mb-20 pl-lg-70">
                 <div className="row">
-                  <div className="col-md-6">
-                    {/*=== Fancy Icon Box ===*/}
+                  <div className="col-md-6"> 
                     <div className="fancy-icon-box-two mb-30 wow fadeInUp">
                       <div className="icon">
                         <i className="flaticon-camping" />
@@ -49,8 +46,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    {/*=== Fancy Icon Box ===*/}
+                  <div className="col-md-6"> 
                     <div className="fancy-icon-box-two mb-30 wow fadeInUp">
                       <div className="icon">
                         <i className="flaticon-biking-mountain" />
@@ -64,8 +60,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    {/*=== Fancy Icon Box ===*/}
+                  <div className="col-md-6"> 
                     <div className="fancy-icon-box-two mb-30 wow fadeInUp">
                       <div className="icon">
                         <i className="flaticon-fishing-2" />
@@ -79,8 +74,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    {/*=== Fancy Icon Box ===*/}
+                  <div className="col-md-6"> 
                     <div className="fancy-icon-box-two mb-30 wow fadeInUp">
                       <div className="icon">
                         <i className="flaticon-caravan" />
@@ -99,7 +93,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/*====== End Features Section ======*/}
       {/*====== Start We Section ======*/}
       <section className="who-we-section">
@@ -109,7 +103,7 @@ const About = () => {
               {/*=== We Image Box ===*/}
               <div className="we-image-box text-center text-lg-left wow fadeInDown">
                 <img
-                  src="assets/images/gallery/we-1.jpg"
+                  src="assets/images/features/auto1.jpg"
                   className="radius-top-left-right-288"
                   alt="Image"
                 />
@@ -119,29 +113,30 @@ const About = () => {
               {/*=== We Content Box ===*/}
               <div className="we-one_content-box">
                 <div className="section-title mb-30 wow fadeInUp">
-                  <span className="sub-title">Who We Are</span>
-                  <h2>Great Opportunity For Adventure &amp; Travels</h2>
+                  <span className="sub-title">Танилцуулга</span>
+                  <h2>Манай байгууллагын танилцуулга</h2>
                 </div>
                 <p className="wow fadeInDown">
-                  Set perspiciatis unde omnis iste natus error voluptatem
-                  accusantium doloremue laudantium totam rem aperiam eaque quae
-                  abillo inventore veritatis et quasi architecto beatae vitae
-                  dicta sunt explicabo.
+                  Мөнхийнх Даамбэ ХХК нь Монгол улсын авто тээврийн үндэсний
+                  төвийн стандартын шаардлага хангасан автобус түрээсийн
+                  үйлчилгээг 2020 оноос өнөөг хүртэл үйлчлүүлэгчдийн шаардлага,
+                  хүсэл сонирхлыг дээдлэн, ажил үйлчилгээг үр дүнтэй явуулж, үйл
+                  ажиллагаандаа чанарыг эрхэмлэн ажиллаж байна.
                 </p>
                 <div className="skill-wrapper wow fadeInUp">
                   <div className="single-skill-circle text-center">
                     <div className="inner-circle">
                       <div className="line" />
-                      <span className="number">60%</span>
+                      <span className="number">100%</span>
                     </div>
-                    <h5>Saticfied Clients</h5>
+                    <h5>Автобусны аюулгүй байдал</h5>
                   </div>
                   <div className="single-skill-circle text-center">
                     <div className="inner-circle">
                       <div className="line" />
-                      <span className="number">93%</span>
+                      <span className="number">100%</span>
                     </div>
-                    <h5>Success Rate</h5>
+                    <h5>Хэрэглэгчийн сэтгэл хангамж</h5>
                   </div>
                 </div>
               </div>
@@ -158,7 +153,7 @@ const About = () => {
               {/*====== Section Title ======*/}
               <div className="section-title text-center mb-50 wow fadeInDown">
                 <span className="sub-title">Багийн гишүүд</span>
-                <h2>Манай байгууллагын мэргэшсэн гишүүд</h2>
+                <h2>Манай байгууллагын мэргэшсэн хамт олон</h2>
               </div>
             </div>
           </div>
@@ -170,11 +165,11 @@ const About = () => {
                   <img src="assets/images/team/muugii.png" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Даваадавга Мөнхбат</h4>
+                  <h4 className="title">Д. Мөнхбат</h4>
                   <p className="position">Захирал</p>
                   <ul className="social-link">
                     <li>
-                      <a href="#">
+                      <a href="https://www.facebook.com/munkhbat.davaadagva">
                         <i className="fab fa-facebook-f" />
                       </a>
                     </li>
@@ -204,11 +199,11 @@ const About = () => {
                   <img src="assets/images/team/bvree.jpg" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Батбаяр Бүрэнжаргал</h4>
+                  <h4 className="title">Б. Бүрэнжаргал</h4>
                   <p className="position">Жолооч &amp; Мэргэшсэн</p>
                   <ul className="social-link">
                     <li>
-                      <a href="#">
+                      <a href="https://www.facebook.com/bvrenjargal.batbayar">
                         <i className="fab fa-facebook-f" />
                       </a>
                     </li>
@@ -241,7 +236,7 @@ const About = () => {
                   />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Даваадавга чойжилсүрэн</h4>
+                  <h4 className="title">Д. Чойжилсүрэн</h4>
                   <p className="position">Жолооч &amp; Мэргэшсэн</p>
                   <ul className="social-link">
                     <li>
@@ -272,14 +267,17 @@ const About = () => {
               {/*====== Single Team Item ======*/}
               <div className="single-team-item mb-30 wow fadeInUp">
                 <div className="member-img">
-                  <img src="assets/images/team/amra.jpg" alt="Team Image" />
+                  <img
+                    src="assets/images/team/uuganbayar.jfif"
+                    alt="Team Image"
+                  />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Батбаяр Амарбаяр</h4>
-                  <p className="position">CEO &amp; Founder</p>
+                  <h4 className="title">Г. Ууганбаяр</h4>
+                  <p className="position">Менежер</p>
                   <ul className="social-link">
                     <li>
-                      <a href="#">
+                      <a href="https://www.facebook.com/uugnaa.gantulga">
                         <i className="fab fa-facebook-f" />
                       </a>
                     </li>
@@ -306,10 +304,10 @@ const About = () => {
               {/*====== Single Team Item ======*/}
               <div className="single-team-item mb-30 wow fadeInUp">
                 <div className="member-img">
-                  <img src="assets/images/team/team-5.jpg" alt="Team Image" />
+                  <img src="assets/images/team/tugs.jfif" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Батсүх Алтансүрэн</h4>
+                  <h4 className="title">Б. Гантөгс</h4>
                   <p className="position">Жолооч &amp; Мэргэшсэн</p>
                   <ul className="social-link">
                     <li>
@@ -340,11 +338,11 @@ const About = () => {
               {/*====== Single Team Item ======*/}
               <div className="single-team-item mb-30 wow fadeInUp">
                 <div className="member-img">
-                  <img src="assets/images/team/team-6.jpg" alt="Team Image" />
+                  <img src="assets/images/team/gantig.jfif" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Буянжаргал Сүмбээ</h4>
-                  <p className="position">Graphics Designer</p>
+                  <h4 className="title">Ч. Гантигхүү</h4>
+                  <p className="position">Жолооч &amp; Мэргэшсэн</p>
                   <ul className="social-link">
                     <li>
                       <a href="#">
@@ -381,8 +379,8 @@ const About = () => {
             <div className="col-xl-6">
               <div className="we-content-box mb-10 wow fadeInLeft">
                 <div className="section-title mb-30">
-                  <span className="sub-title">Who We Are</span>
-                  <h2>Great Opportunity For Adventure &amp; Travels</h2>
+                  <span className="sub-title">Бидний тухай</span>
+                  <h2>Үйлчилгээний давуу талууд</h2>
                 </div>
                 <div className="features-list_one">
                   <div className="single-features-list mb-40">
@@ -395,10 +393,10 @@ const About = () => {
                       </div>
                     </div>
                     <div className="content">
-                      <h4>Safety First Always</h4>
+                      <h4>Аюулгүй байдал нэгт</h4>
                       <p>
-                        Set perspiciatis unde omnis estenatus voluptatem
-                        accusantium laudantium totarem aperiae
+                        Стандратын шаардлага хангасан автобус болон мэргэшсэн
+                        жолооч
                       </p>
                     </div>
                   </div>
@@ -412,11 +410,8 @@ const About = () => {
                       </div>
                     </div>
                     <div className="content">
-                      <h4>Low Price &amp; Friendly</h4>
-                      <p>
-                        Quis autem vel eum iure reprehenderit voluptate velit
-                        esse nihile molestiae consequatur.
-                      </p>
+                      <h4>Тав тухтай орчин</h4>
+                      <p>Зурагт хөгжим, караоке, bluetooth, air condition</p>
                     </div>
                   </div>
                   <div className="single-features-list mb-40">
@@ -429,10 +424,10 @@ const About = () => {
                       </div>
                     </div>
                     <div className="content">
-                      <h4>Trusted Travel Guide</h4>
+                      <h4>Цаг баримтлах</h4>
                       <p>
-                        At vero accusamus dignissimos ducimus blanditiis
-                        praesentium voluptatum deleniti atque quos
+                        Үйлчлүүлэгчийн тухайн маршрут захиалсан цаг минут бүрт
+                        хурдан шуурхай үйлчлүүлнэ
                       </p>
                     </div>
                   </div>
@@ -445,7 +440,7 @@ const About = () => {
                   <div className="col-md-6">
                     <div className="we-image mb-30 wow fadeInLeft">
                       <img
-                        src="assets/images/gallery/we-3.jpg"
+                        src="assets/images/gallery/gall2.jfif"
                         alt="we Image"
                       />
                     </div>
@@ -453,7 +448,7 @@ const About = () => {
                   <div className="col-md-6">
                     <div className="we-image mb-30 wow fadeInRight">
                       <img
-                        src="assets/images/gallery/we-4.jpg"
+                        src="assets/images/gallery/gall1.jfif"
                         alt="we Image"
                       />
                     </div>
@@ -461,7 +456,7 @@ const About = () => {
                   <div className="col-md-12">
                     <div className="we-image mb-30 pr-lg-30 text-md-end wow fadeInDown">
                       <img
-                        src="assets/images/gallery/we-5.jpg"
+                        src="assets/images/gallery/gall3.jfif"
                         alt="we Image"
                       />
                     </div>
@@ -474,14 +469,13 @@ const About = () => {
       </section>
       {/*====== End What We Section ======*/}
       {/*====== Start CTA Section ======*/}
-      <section
+      {/* <section
         className="cta-bg overlay bg_cover pt-150 pb-150"
         style={{ backgroundImage: "url(assets/images/bg/cta-bg.jpg)" }}
       >
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-xl-8">
-              {/*=== CTA Content Box ===*/}
+            <div className="col-xl-8"> 
               <div className="cta-content-box text-center text-white wow fadeInDown">
                 <h2 className="mb-35">
                   Ready to Travel With Real Adventure and Enjoy Natural
@@ -496,14 +490,13 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/*====== End CTA Section ======*/}
       {/*====== Start Testimonial Section ======*/}
-      <section className="testimonial-section pt-60 pb-60">
+      {/* <section className="testimonial-section pt-60 pb-60">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-xl-8">
-              {/*=== Section Title ===*/}
+            <div className="col-xl-8"> 
               <div className="section-title text-center mb-60 wow fadeInDown">
                 <span className="sub-title">Testimonials</span>
                 <h2>What Our Traveler Say About Our Tour Services</h2>
@@ -511,8 +504,7 @@ const About = () => {
             </div>
           </div>
           <div className="row align-items-xl-center">
-            <div className="col-xl-5 col-lg-12 order-2 order-xl-1">
-              {/*=== Testimonial Image ===*/}
+            <div className="col-xl-5 col-lg-12 order-2 order-xl-1"> 
               <div className="testimonial-one_image-box mb-40 wow fadeInLeft">
                 <img
                   src="assets/images/testimonial/testimonial-1.jpg"
@@ -520,13 +512,11 @@ const About = () => {
                 />
               </div>
             </div>
-            <div className="col-xl-7 col-lg-12 order-1 order-xl-2">
-              {/*=== Testimonial Slider ===*/}
+            <div className="col-xl-7 col-lg-12 order-1 order-xl-2"> 
               <Slider
                 {...testimonialSliderOne}
                 className="testimonial-slider-one pl-lg-55 mb-40 wow fadeInRight"
-              >
-                {/*=== Testimonial Item ===*/}
+              > 
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -575,8 +565,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                {/*=== Testimonial Item ===*/}
+                </div> 
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -625,8 +614,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-                {/*=== Testimonial Item ===*/}
+                </div> 
                 <div className="gw-testimonial-item">
                   <div className="testimonial-inner-content">
                     <div className="quote-rating-box">
@@ -680,7 +668,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/*====== End Testimonial Section ======*/}
       {/*====== Start Partners Section ======*/}
       <section className="partners-section">
@@ -695,7 +683,7 @@ const About = () => {
               <div className="partner-img">
                 <a href="#">
                   <img
-                    src="assets/images/partner/partner-1.png"
+                    src="assets/images/gallery/partner-1.png"
                     alt="Partner Image"
                   />
                 </a>

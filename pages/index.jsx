@@ -627,7 +627,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Хөвсгөл аялал</h6>
+                <h6>Хархорин </h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
@@ -639,7 +639,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Арханхай аялал</h6>
+                <h6>Улаанбаатар аялал</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
@@ -651,7 +651,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Өмнөговь аялал</h6>
+                <h6>Ө.в хархорин</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
@@ -663,7 +663,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Мөнхийнх амралт</h6>
+                <h6>Тэрэлж амралт</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}

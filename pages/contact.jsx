@@ -16,9 +16,9 @@ const Contact = () => {
             <div className="col-xl-8">
               {/*=== Section Title ===*/}
               <div className="section-title text-center mb-45 wow fadeInDown">
-                <span className="sub-title">Contact Us</span>
+                <span className="sub-title">Бидэнтэй холбогдох</span>
                 <h2>
-                  Ready to Get Our Best Services! Feel Free to Contact With Us
+                  Дэлгэрэнгүй мэдээлэл авахыг хүсвэл бидэнтэй холбогдоорой
                 </h2>
               </div>
             </div>
@@ -56,7 +56,9 @@ const Contact = () => {
                     </a>
                   </p>
                   <p>
-                    <a href="mailto:traveladventure.net">traveladventure.net</a>
+                    <a href="mailto:amarbayarbatbayar2@gmail.com">
+                      amarbayarbatbayar2@gmail.com
+                    </a>
                   </p>
                 </div>
               </div>
