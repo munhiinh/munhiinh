@@ -8,7 +8,7 @@ const Events = () => {
       {/*====== Start Booking Section ======*/}
       <section className="booking-form-section">
         <div className="container-fluid">
-          <div className="booking-form-wrapper p-r z-2">
+          <div className="booking-form-wrapper p-r z-1">
             <form className="booking-form-two">
               <div className="form_group">
                 <span>Check In</span>

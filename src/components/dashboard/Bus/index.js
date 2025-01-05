@@ -135,8 +135,11 @@ const Bus = () => {
       title: "№",
       dataIndex: "key",
       key: "key",
-      width: "50px",
+      width: "50px", 
       ellipsis: true,
+      render: (_, __, index) => (
+        index + 1 
+      ),
     },
     {
       title: "Автобус нэр",

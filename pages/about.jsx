@@ -113,15 +113,13 @@ const About = () => {
               {/*=== We Content Box ===*/}
               <div className="we-one_content-box">
                 <div className="section-title mb-30 wow fadeInUp">
-                  <span className="sub-title">Танилцуулга</span>
-                  <h2>Манай байгууллагын танилцуулга</h2>
+                  <span className="sub-title">About Us
+                  </span>
+                  <h2>Introduction to our organization</h2>
                 </div>
                 <p className="wow fadeInDown">
-                  Мөнхийнх Даамбэ ХХК нь Монгол улсын авто тээврийн үндэсний
-                  төвийн стандартын шаардлага хангасан автобус түрээсийн
-                  үйлчилгээг 2020 оноос өнөөг хүртэл үйлчлүүлэгчдийн шаардлага,
-                  хүсэл сонирхлыг дээдлэн, ажил үйлчилгээг үр дүнтэй явуулж, үйл
-                  ажиллагаандаа чанарыг эрхэмлэн ажиллаж байна.
+                Monkhin Daambe LLC has been providing bus rental services that meet the standards of the Mongolian National Road Transport Center since 2020, respecting the needs and interests of customers, providing services effectively, and emphasizing quality in its operations.
+
                 </p>
                 <div className="skill-wrapper wow fadeInUp">
                   <div className="single-skill-circle text-center">
@@ -129,14 +127,14 @@ const About = () => {
                       <div className="line" />
                       <span className="number">100%</span>
                     </div>
-                    <h5>Автобусны аюулгүй байдал</h5>
+                    <h5>Bus safety</h5>
                   </div>
                   <div className="single-skill-circle text-center">
                     <div className="inner-circle">
                       <div className="line" />
                       <span className="number">100%</span>
                     </div>
-                    <h5>Хэрэглэгчийн сэтгэл хангамж</h5>
+                    <h5>Customer satisfaction</h5>
                   </div>
                 </div>
               </div>
@@ -152,8 +150,8 @@ const About = () => {
             <div className="col-xl-7">
               {/*====== Section Title ======*/}
               <div className="section-title text-center mb-50 wow fadeInDown">
-                <span className="sub-title">Багийн гишүүд</span>
-                <h2>Манай байгууллагын мэргэшсэн хамт олон</h2>
+                <span className="sub-title">Team members</span>
+                <h2>Our organization's qualified team</h2>
               </div>
             </div>
           </div>
@@ -165,8 +163,8 @@ const About = () => {
                   <img src="assets/images/team/muugii.png" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Д. Мөнхбат</h4>
-                  <p className="position">Захирал</p>
+                  <h4 className="title">D. Munkhbat</h4>
+                  <p className="position">Director</p>
                   <ul className="social-link">
                     <li>
                       <a href="https://www.facebook.com/munkhbat.davaadagva">
@@ -199,8 +197,8 @@ const About = () => {
                   <img src="assets/images/team/bvree.jpg" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Б. Бүрэнжаргал</h4>
-                  <p className="position">Жолооч &amp; Мэргэшсэн</p>
+                  <h4 className="title">B. Burenjargal</h4>
+                  <p className="position">Driver &amp; Expert</p>
                   <ul className="social-link">
                     <li>
                       <a href="https://www.facebook.com/bvrenjargal.batbayar">
@@ -236,8 +234,8 @@ const About = () => {
                   />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Д. Чойжилсүрэн</h4>
-                  <p className="position">Жолооч &amp; Мэргэшсэн</p>
+                  <h4 className="title">D. Choijilsuren</h4>
+                  <p className="position">Driver &amp; Expert</p>
                   <ul className="social-link">
                     <li>
                       <a href="#">
@@ -273,8 +271,8 @@ const About = () => {
                   />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Г. Ууганбаяр</h4>
-                  <p className="position">Менежер</p>
+                  <h4 className="title">G. Uuganbayar</h4>
+                  <p className="position">Manager</p>
                   <ul className="social-link">
                     <li>
                       <a href="https://www.facebook.com/uugnaa.gantulga">
@@ -307,8 +305,8 @@ const About = () => {
                   <img src="assets/images/team/tugs.jfif" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Б. Гантөгс</h4>
-                  <p className="position">Жолооч &amp; Мэргэшсэн</p>
+                  <h4 className="title">B. Gantogs</h4>
+                  <p className="position">Driver &amp; Expert</p>
                   <ul className="social-link">
                     <li>
                       <a href="#">
@@ -341,8 +339,8 @@ const About = () => {
                   <img src="assets/images/team/gantig.jfif" alt="Team Image" />
                 </div>
                 <div className="member-info">
-                  <h4 className="title">Ч. Гантигхүү</h4>
-                  <p className="position">Жолооч &amp; Мэргэшсэн</p>
+                  <h4 className="title">Ch. Gantigkhuu</h4>
+                  <p className="position">Driver &amp; Expert</p>
                   <ul className="social-link">
                     <li>
                       <a href="#">
@@ -379,8 +377,8 @@ const About = () => {
             <div className="col-xl-6">
               <div className="we-content-box mb-10 wow fadeInLeft">
                 <div className="section-title mb-30">
-                  <span className="sub-title">Бидний тухай</span>
-                  <h2>Үйлчилгээний давуу талууд</h2>
+                  <span className="sub-title">About us</span>
+                  <h2>Service advantages</h2>
                 </div>
                 <div className="features-list_one">
                   <div className="single-features-list mb-40">
@@ -393,10 +391,9 @@ const About = () => {
                       </div>
                     </div>
                     <div className="content">
-                      <h4>Аюулгүй байдал нэгт</h4>
+                      <h4>Safety first</h4>
                       <p>
-                        Стандратын шаардлага хангасан автобус болон мэргэшсэн
-                        жолооч
+                      Standard buses and qualified drivers
                       </p>
                     </div>
                   </div>
@@ -410,8 +407,8 @@ const About = () => {
                       </div>
                     </div>
                     <div className="content">
-                      <h4>Тав тухтай орчин</h4>
-                      <p>Зурагт хөгжим, караоке, bluetooth, air condition</p>
+                      <h4>Comfortable environment</h4>
+                      <p>TV, music, karaoke, bluetooth, air condition</p>
                     </div>
                   </div>
                   <div className="single-features-list mb-40">
@@ -424,10 +421,9 @@ const About = () => {
                       </div>
                     </div>
                     <div className="content">
-                      <h4>Цаг баримтлах</h4>
+                      <h4>Punctuality</h4>
                       <p>
-                        Үйлчлүүлэгчийн тухайн маршрут захиалсан цаг минут бүрт
-                        хурдан шуурхай үйлчлүүлнэ
+                      Fast and efficient service every minute of the customer's route reservation
                       </p>
                     </div>
                   </div>
@@ -671,14 +667,12 @@ const About = () => {
       </section> */}
       {/*====== End Testimonial Section ======*/}
       {/*====== Start Partners Section ======*/}
-      <section className="partners-section">
-        <div className="container">
-          {/*=== Partners Slider ===*/}
+      {/* <section className="partners-section">
+        <div className="container"> 
           <Slider
             {...partnerSliderOne}
             className="partner-slider-one pt-80 pb-70 wow fadeInUp"
-          >
-            {/*=== Partner Item ===*/}
+          > 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -688,8 +682,7 @@ const About = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -699,8 +692,7 @@ const About = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -710,8 +702,7 @@ const About = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -721,8 +712,7 @@ const About = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -732,8 +722,7 @@ const About = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -746,7 +735,7 @@ const About = () => {
             </div>
           </Slider>
         </div>
-      </section>
+      </section> */}
       {/*====== End Partners Section ======*/}
       {/*====== Start Gallery Section ======*/}
       <GallerySection />

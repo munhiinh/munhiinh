@@ -16,9 +16,9 @@ const Contact = () => {
             <div className="col-xl-8">
               {/*=== Section Title ===*/}
               <div className="section-title text-center mb-45 wow fadeInDown">
-                <span className="sub-title">Бидэнтэй холбогдох</span>
+                <span className="sub-title">Contact us</span>
                 <h2>
-                  Дэлгэрэнгүй мэдээлэл авахыг хүсвэл бидэнтэй холбогдоорой
+                For more information, please contact us.
                 </h2>
               </div>
             </div>

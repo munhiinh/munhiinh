@@ -98,7 +98,8 @@ const DefaultHeader = () => {
             <div className="site-brading d-block d-xl-none">
               <Link legacyBehavior href="/">
                 <a className="brand-logo">
-                  <img src="assets/images/logo/logo-black1.png" alt="Logo" />
+                  <img src="assets/images/logo/brand-logo-white.png" alt="Logo"
+                     style={{width: "100px", height: "40px"}} />
                 </a>
               </Link>
             </div>
@@ -109,7 +110,7 @@ const DefaultHeader = () => {
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
                     <img
-                      src="assets/images/logo/logo-black1.png"
+                      src="assets/images/logo/brand-logo-white.png"
                       alt="Site Logo"
                     />
                   </a>

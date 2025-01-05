@@ -49,20 +49,18 @@ const Footer = ({ bg, extraClass }) => {
             <div className="col-lg-3 col-md-6">
               {/*=== Footer Widget ===*/}
               <div className="footer-widget about-company-widget mb-40">
-                <h4 className="widget-title">Бидний тухай</h4>
+                <h4 className="widget-title">About us</h4>
                 <div className="footer-content">
                   <p style={{ textAlign: "justify" }}>
-                    Мөнхийнх Даамбэ ХХК нь Монгол улсын автобус түрээсийн
-                    үйлчилгээг бид хэрэглэгч үйлчлүүлэгчдийн шаардлага, хүсэл
-                    сонирхлыг дээдлэн, ажил үйлчилгээг үр дүнтэй явуулж, үйл
-                    ажиллагаандаа чанарыг эрхэмлэн ажилладаг.
+                  Monkhin Daambe LLC, a Mongolian bus rental company, respects the needs and desires of its customers, provides efficient services, and values ​​quality in its operations.
+
                   </p>
                   <a href="#" className="footer-logo">
                     <img
                       style={{ width: "200px" }}
                       src={
                         bg === "gray"
-                          ? "assets/images/logo/logo-black1.png"
+                          ? "assets/images/logo/brand-logo-white.png"
                           : "assets/images/logo/brand-logo-white.png"
                       }
                       alt="Site Logo"
@@ -74,23 +72,23 @@ const Footer = ({ bg, extraClass }) => {
             <div className="col-lg-5 col-md-6">
               {/*=== Footer Widget ===*/}
               <div className="footer-widget service-nav-widget mb-40 pl-lg-70">
-                <h4 className="widget-title">Үйлчилгээнүүд</h4>
+                <h4 className="widget-title">Services</h4>
                 <div className="footer-content">
                   <ul className="footer-widget-nav">
                     <li>
-                      <a href="#">Сургуулийн кемп</a>
+                      <a href="#">School camping</a>
                     </li>
                     <li>
-                      <a href="#">Гэр бүлийн кемп</a>
+                      <a href="#">Family camping</a>
                     </li>
                     <li>
-                      <a href="#">Найз нөхдийн кемп</a>
+                      <a href="#">Friends' camping</a>
                     </li>
                     <li>
-                      <a href="#">Албан байгууллагын кемп</a>
+                      <a href="#">Corporate camping</a>
                     </li>
                     <li>
-                      <a href="#">Гадаад жуулчлалын кемп</a>
+                      <a href="#">Foreign tourist camping</a>
                     </li>
                   </ul>
                   <ul className="footer-widget-nav">
@@ -113,9 +111,9 @@ const Footer = ({ bg, extraClass }) => {
             <div className="col-lg-4 col-md-6">
               {/*=== Footer Widget ===*/}
               <div className="footer-widget footer-newsletter-widget mb-40 pl-lg-100">
-                <h4 className="widget-title">Санал</h4>
+                <h4 className="widget-title">Offer</h4>
                 <div className="footer-content">
-                  <p>Та бидэнд санал гомдол илгээж болно.</p>
+                  <p>You can send us feedback.</p>
                   <form>
                     <div className="form_group">
                       <label>
@@ -142,7 +140,7 @@ const Footer = ({ bg, extraClass }) => {
               {/*=== Footer Text ===*/}
               <div className="footer-text">
                 <p>
-                  Copy@ 2024{" "}
+                  Copy@ 2025{" "}
                   <span style={{ color: "#F7921E" }}>Munhiinh daambe XXK </span>
                   , All Right Reserved
                 </p>

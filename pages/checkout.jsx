@@ -381,7 +381,7 @@ const Checkout = () => {
 
   const steps = [
     {
-      title: "Захиалагчийн мэдээлэл",
+      title: "Customer information",
       content: (
         <div style={{ padding: "20px 40px" }}>
           <Form
@@ -401,7 +401,7 @@ const Checkout = () => {
             <Row gutter={20}>
               <Col xs={24} xl={12}>
                 <Form.Item
-                  label={<div className="fw-normal fs-6">Захиалагчийн нэр</div>}
+                  label={<div className="fw-normal fs-6">Subscriber's name</div>}
                   name="username"
                   rules={[
                     {
@@ -413,13 +413,13 @@ const Checkout = () => {
                   <Input
                     prefix={<UserOutlined />}
                     allowClear
-                    placeholder="Захиалагчийн нэр"
+                    placeholder="Subscriber's name"
                   />
                 </Form.Item>
               </Col>
               <Col xs={24} xl={12}>
                 <Form.Item
-                  label={<div className="fw-normal fs-6">Е-мэйл хаяг</div>}
+                  label={<div className="fw-normal fs-6">Email address</div>}
                   name="email"
                   rules={[
                     {
@@ -440,7 +440,7 @@ const Checkout = () => {
             <Row gutter={20}>
               <Col xs={24} xl={12}>
                 <Form.Item
-                  label={<div className="fw-normal fs-6">Утасны дугаар</div>}
+                  label={<div className="fw-normal fs-6">Phone number</div>}
                   name="phone"
                   rules={[
                     {
@@ -450,7 +450,7 @@ const Checkout = () => {
                   ]}
                 >
                   <InputNumber
-                    placeholder="Утасны дугаар"
+                    placeholder="Phone number"
                     prefix={<PhoneOutlined rotate={90} />}
                     allowClear
                     style={{ width: "100%" }}
@@ -459,7 +459,7 @@ const Checkout = () => {
               </Col>
               <Col xs={24} xl={12}>
                 <Form.Item
-                  label={<div className="fw-normal fs-6">Байгууллагын нэр</div>}
+                  label={<div className="fw-normal fs-6">Company name</div>}
                   name="companyName"
                   rules={[
                     {
@@ -468,12 +468,12 @@ const Checkout = () => {
                     },
                   ]}
                 >
-                  <Input allowClear placeholder="Байгууллагын нэр" />
+                  <Input allowClear placeholder="Company name" />
                 </Form.Item>
               </Col>
             </Row>
             <Form.Item
-              label={<div className="fw-normal fs-6">Байршил</div>}
+              label={<div className="fw-normal fs-6">Location</div>}
               name="address"
               rules={[
                 {
@@ -483,7 +483,7 @@ const Checkout = () => {
               ]}
             >
               <TextArea
-                placeholder="Байршил"
+                placeholder="Location"
                 prefix={<EnvironmentOutlined />}
                 allowClear
                 style={{ height: "100px" }}
@@ -501,9 +501,7 @@ const Checkout = () => {
               ]}
             >
               <Checkbox>
-                Таны хувийн мэдээллийг таны захиалгыг боловсруулах, энэ вэб
-                сайтын туршлагыг дэмжих болон манай нууцлалын бодлогод заасан
-                бусад зорилгоор ашиглах болно.
+              Your personal information will be used to process your order, support your experience on this website, and for other purposes described in our privacy policy.
               </Checkbox>
             </Form.Item>
 
@@ -513,7 +511,7 @@ const Checkout = () => {
               }}
             >
               <Button type="primary" htmlType="submit" size="large">
-                Захиалга өгөх
+              Place an order
               </Button>
             </Form.Item>
           </Form>
@@ -521,7 +519,7 @@ const Checkout = () => {
       ),
     },
     {
-      title: "Төлбөр",
+      title: "Payment",
       content: (
         <div style={{ padding: "20px 40px" }}>
           <Row gutter={20}>
@@ -534,7 +532,7 @@ const Checkout = () => {
                   textTransform: "uppercase",
                 }}
               >
-                Захиалга
+                Order
               </div>
               <Flex
                 gap={15}
@@ -564,7 +562,7 @@ const Checkout = () => {
                     paddingBottom: "15px",
                   }}
                 >
-                  <div>Автобус: </div>
+                  <div>Bus: </div>
                   <div className="text-uppercase">{bus?.busName}</div>
                 </Flex>
                 <Flex
@@ -574,7 +572,7 @@ const Checkout = () => {
                     paddingBottom: "15px",
                   }}
                 >
-                  <div>Өдөр: </div>
+                  <div>Days: </div>
                   <div>{orderDays}</div>
                 </Flex>
 
@@ -585,7 +583,7 @@ const Checkout = () => {
                     paddingBottom: "15px",
                   }}
                 >
-                  <div>Суудлын тоо: </div>
+                  <div>Number of seats: </div>
                   <div>{localData?.[0].person}</div>
                 </Flex>
                 <Flex
@@ -596,7 +594,7 @@ const Checkout = () => {
                     fontWeight: "600",
                   }}
                 >
-                  <div>Нийт үнэ: </div>
+                  <div>Total price: </div>
                   <div>
                     {(bus?.price * orderDays)
                       .toFixed(0)
@@ -638,7 +636,7 @@ const Checkout = () => {
                         textTransform: "capitalize",
                       }}
                     >
-                      QR кодоор төлөх
+                      Pay with QR code
                     </div>
                     <Image
                       preview={true}
@@ -649,7 +647,7 @@ const Checkout = () => {
                     />
                     <div style={{ color: "#949191", marginTop: "10px" }}>
                       {" "}
-                      Захиалгын дүн
+                      Order amount
                     </div>
                     <div style={{ fontWeight: "bold", fontSize: "19px" }}>
                       {(bus?.price * orderDays)
@@ -678,7 +676,7 @@ const Checkout = () => {
                         marginBottom: "5px",
                       }}
                     >
-                      Дансаар шилжүүлэх
+                      Transfer by account
                     </div>
                     <div style={{ width: "100%", padding: "5px 10px" }}>
                       <Segmented
@@ -701,7 +699,7 @@ const Checkout = () => {
                                   size={"small"}
                                 ></Avatar>
                                 <div style={{ fontWeight: "500" }}>
-                                  Хаан банк
+                                 Khan bank
                                 </div>
                               </div>
                             ),
@@ -722,7 +720,7 @@ const Checkout = () => {
                                   src="https://shoppy.mn/6694474afda69dbb6b09a10c63bd5f9f.svg"
                                 />
                                 <div style={{ fontWeight: "500" }}>
-                                  TDB банк
+                                  TDB Bank
                                 </div>
                               </div>
                             ),
@@ -747,7 +745,7 @@ const Checkout = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Хүлээн авах данс
+                          Accounts receivable
                         </div>
                         <div
                           style={{
@@ -786,7 +784,7 @@ const Checkout = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Хүлээн авагч
+                          Recipient
                         </div>
                         <div
                           style={{
@@ -795,11 +793,11 @@ const Checkout = () => {
                             alignItems: "center",
                           }}
                         >
-                          <div style={{ fontWeight: "bold" }}>Амарбаяр</div>
+                          <div style={{ fontWeight: "bold" }}>Munkhbat xxk</div>
                           <Paragraph
                             style={{ marginBottom: "0px" }}
                             copyable={{
-                              text: "Амарбаяр",
+                              text: "Munkhbat",
                             }}
                           />
                         </div>
@@ -821,7 +819,7 @@ const Checkout = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Захиалгын дүн
+                          Order amount
                         </div>
                         <div
                           style={{
@@ -861,7 +859,7 @@ const Checkout = () => {
                             fontWeight: "500",
                           }}
                         >
-                          Гүйлгээний утга
+                          Transaction value
                         </div>
                         <div
                           style={{
@@ -887,12 +885,8 @@ const Checkout = () => {
                 <Alert
                   message={
                     <span>
-                      Төлбөр төлөгдсөний дараа таны захиалга идэвхэждэг болохыг
-                      анхаараарай! Төлбөрийг дээрх дансанд шилжүүлэх ба
-                      захиалгын <strong>{orderNumber}</strong> дугаарыг
-                      гүйлгээний утга дээр бичнэ үү. Мөн та өөрийн банкны
-                      аппликейшныг ашиглан QR кодыг уншуулж төлбөр төлөх
-                      боломжтой.
+                   Please note that your order will be activated after payment! Transfer the payment to the above account and write the order number <strong>{orderNumber}</strong> in the transaction value. You can also use your bank's
+                   app to scan the QR code and pay.
                     </span>
                   }
                   type="warning"
@@ -914,7 +908,7 @@ const Checkout = () => {
                       fontSize: "18px",
                     }}
                   >
-                    Цахим хэтэвчээр төлөх
+                    Pay with an electronic wallet
                   </div>
                   <div
                     style={{
@@ -971,7 +965,7 @@ const Checkout = () => {
       ),
     },
     {
-      title: "Баталгаажуулах",
+      title: "Confirmation",
       content: (
         <div
           style={{
@@ -983,7 +977,7 @@ const Checkout = () => {
         >
           <Result
             status="success"
-            title="Таны захиалга амжилттай төлөгдлөө!"
+            title="Your order has been successfully paid.!"
             subTitle={`Order number: ${qrData?.invoice_id} Cloud server configuration takes 1-5 minutes, please wait.`}
             extra={[
               <Button
@@ -991,7 +985,7 @@ const Checkout = () => {
                 key="console"
                 onClick={() => router.push("/")}
               >
-                Үндсэн цэс руу буцах
+                Go to home page
               </Button>,
             ]}
           />
@@ -1024,10 +1018,10 @@ const Checkout = () => {
               <div className="row">
                 <div className="col-xl-6">
                   <div className="tour-title mb-20">
-                    <h3 className="title">Төлбөрын хуудас</h3>
+                    <h3 className="title">Bill</h3>
                     <p>
                       <i className="far fa-map-marker-alt" />
-                      Улаанбаатар хот
+                      Ulaanbaatar city
                     </p>
                   </div>
                 </div>
@@ -1039,7 +1033,7 @@ const Checkout = () => {
                       </div>
                       <div className="info">
                         <h4>
-                          <span>Автобус</span>
+                          <span>Bus</span>
                           {!bus ? <Skeleton.Button active /> : null}
                           {bus?.busName}
                         </h4>
@@ -1051,11 +1045,11 @@ const Checkout = () => {
                       </div>
                       <div className="info">
                         <h4>
-                          <span>Хугацаа</span>
+                          <span>Date</span>
                           {!bus ? (
                             <Skeleton.Button active />
                           ) : (
-                            <>{orderDays ? orderDays : 1} өдөр</>
+                            <>{orderDays ? orderDays : 1} day</>
                           )}
                         </h4>
                       </div>
@@ -1069,7 +1063,7 @@ const Checkout = () => {
                       </div>
                       <div className="info">
                         <h4>
-                          <span>Үнэ</span>
+                          <span>Price</span>
                           {!bus ? (
                             <Skeleton.Button active />
                           ) : (
@@ -1103,7 +1097,7 @@ const Checkout = () => {
                           key="console"
                           onClick={() => router.push("/")}
                         >
-                          Үндсэн цэс руу буцах
+                          Go to home page
                         </Button>,
                       ]}
                     />

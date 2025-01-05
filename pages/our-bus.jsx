@@ -215,7 +215,7 @@ const OurBus = () => {
       <section className="booking-form-section pb-100">
         <div className="container-fluid">
           {contextHolder}
-          <div className="booking-form-wrapper p-r z-2">
+          <div className="booking-form-wrapper p-r z-1">
             <Form
               name="basic"
               layout="inline"
@@ -254,7 +254,7 @@ const OurBus = () => {
               </Form.Item> */}
 
               <Form.Item
-                label={<div className="fw-medium">Очих газар</div>}
+                label={<div className="fw-medium">To</div>}
                 name="to"
                 labelCol={{
                   xl: { span: 8 },
@@ -279,7 +279,7 @@ const OurBus = () => {
               </Form.Item>
 
               <Form.Item
-                label={<div className="fw-medium">Хугацаа</div>}
+                label={<div className="fw-medium">Date</div>}
                 name="date"
                 labelCol={{
                   xl: { span: 8 },
@@ -306,7 +306,7 @@ const OurBus = () => {
                   htmlType="submit"
                   className="text-uppercase fw-medium"
                 >
-                  Автобус хайх
+                  Search
                 </Button>
               </Form.Item>
             </Form>

@@ -233,7 +233,7 @@ const BusDetails = () => {
                 <div className="row">
                   <div className="col-xl-6">
                     <div className="tour-title mb-20">
-                      <h3 className="title">Улсын дугаар - {bus?.busName}</h3>
+                      <h3 className="title">National number - {bus?.busName}</h3>
                       <p>
                         <i className="far fa-map-marker-alt" />
                         Ulaanbaatar of Mongolian
@@ -262,7 +262,7 @@ const BusDetails = () => {
                         </div>
                         <div className="info">
                           <h4>
-                            <span>Хугацаа</span> 1 өдөр
+                            <span>Date</span> 1 day
                           </h4>
                         </div>
                       </div>
@@ -272,7 +272,7 @@ const BusDetails = () => {
                         </div>
                         <div className="info">
                           <h4>
-                            <span>Жуулчлалын төрөл</span>Орон нутгийн аялал
+                            <span>Type of tour</span>A local tour
                           </h4>
                         </div>
                       </div>
@@ -329,7 +329,7 @@ const BusDetails = () => {
                 <div className="col-xl-8">
                   {/*=== Place Content Wrap ===*/}
                   <div className="place-content-wrap pt-45 wow fadeInUp">
-                    <h3 className="title">Автобус мэдээлэл</h3>
+                    <h3 className="title">Bus information</h3>
                     <p>{bus?.description}</p>
                     {/* <h4>Advance Facilities</h4>
                   <p>
@@ -1412,7 +1412,7 @@ const BusDetails = () => {
                       <ul className="recent-place-list">
                         <li className="place-thumbnail-content">
                           <img
-                            src="assets/images/place/thumb-1.jpg"
+                            src="assets/images/place/terelj.jpg"
                             alt="post thumb"
                           />
                           <div className="place-content">
@@ -1435,7 +1435,7 @@ const BusDetails = () => {
                             </ul>
                             <h5>
                               <Link legacyBehavior href="/tour-details">
-                                <a>Infinity Pool Nears Beach</a>
+                                <a>Terelj Mongolian</a>
                               </Link>
                             </h5>
                             <span className="price">
@@ -1446,7 +1446,7 @@ const BusDetails = () => {
                         </li>
                         <li className="place-thumbnail-content">
                           <img
-                            src="assets/images/place/thumb-2.jpg"
+                            src="assets/images/place/khuvsgul.jpg"
                             alt="post thumb"
                           />
                           <div className="place-content">
@@ -1469,7 +1469,7 @@ const BusDetails = () => {
                             </ul>
                             <h5>
                               <Link legacyBehavior href="/tour-details">
-                                <a>Infinity Pool Nears Beach</a>
+                                <a>khuvsgul</a>
                               </Link>
                             </h5>
                             <span className="price">
@@ -1480,7 +1480,7 @@ const BusDetails = () => {
                         </li>
                         <li className="place-thumbnail-content">
                           <img
-                            src="assets/images/place/thumb-3.jpg"
+                            src="assets/images/place/zamiin.jpeg"
                             alt="post thumb"
                           />
                           <div className="place-content">
@@ -1503,7 +1503,7 @@ const BusDetails = () => {
                             </ul>
                             <h5>
                               <Link legacyBehavior href="/tour-details">
-                                <a>Infinity Pool Nears Beach</a>
+                                <a>Zamiin vvd</a>
                               </Link>
                             </h5>
                             <span className="price">
@@ -1529,7 +1529,7 @@ const BusDetails = () => {
                               </h4>
                               <p>
                                 <i className="fas fa-map-marker-alt" />
-                                Marrakesh, Morocco
+                                Sodmandakh Sodovjamts
                               </p>
                             </div>
                           </div>

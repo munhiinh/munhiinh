@@ -330,7 +330,7 @@ const Index = () => {
                       </Form.Item> */}
 
                       <Form.Item
-                        label={<div className="fw-medium">Очих газар </div>}
+                        label={<div className="fw-medium">To </div>}
                         name="to"
                         labelCol={{
                           xl: { span: 7 },
@@ -357,7 +357,7 @@ const Index = () => {
                       </Form.Item>
 
                       <Form.Item
-                        label={<div className="fw-medium">Өдөр </div>}
+                        label={<div className="fw-medium">Date </div>}
                         name="date"
                         labelCol={{
                           xl: { span: 6 },
@@ -384,7 +384,7 @@ const Index = () => {
                           className="text-uppercase"
                           style={{ width: isWideScreen ? "" : "100%" }}
                         >
-                          Автобус хайх
+                          Search
                         </Button>
                       </Form.Item>
                     </Form>
@@ -627,7 +627,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Хархорин </h6>
+                <h6>kharKhorin </h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
@@ -639,7 +639,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Улаанбаатар аялал</h6>
+                <h6>Ulaanbaatar tour</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
@@ -651,7 +651,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Ө.в хархорин</h6>
+                <h6>Uwur hangai Karkhorin</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
@@ -663,7 +663,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Тэрэлж амралт</h6>
+                <h6>Terelj Resort</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
@@ -675,7 +675,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>тойр.мн аялал</h6>
+                <h6>tour.mn</h6>
               </div>
             </div>
             {/*=== Features Item ===*/}
@@ -687,7 +687,7 @@ const Index = () => {
                 />
               </div>
               <div className="content">
-                <h6>Урьхан </h6>
+                <h6>Urikhan </h6>
               </div>
             </div>
           </Slider>
@@ -1409,14 +1409,12 @@ const Index = () => {
       </section>
       {/*====== End Testimonial Section ======*/}
       {/*====== Start Partners Section ======*/}
-      <section className="partners-section black-dark-bg">
-        <div className="container">
-          {/*=== Partners Slider ===*/}
+      {/* <section className="partners-section black-dark-bg">
+        <div className="container"> 
           <Slider
             {...partnerSliderOne}
             className="partner-slider-one pt-80 pb-50 wow fadeInUp"
-          >
-            {/*=== Partner Item ===*/}
+          > 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -1426,8 +1424,7 @@ const Index = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -1437,8 +1434,7 @@ const Index = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -1448,8 +1444,7 @@ const Index = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -1459,8 +1454,7 @@ const Index = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -1470,8 +1464,7 @@ const Index = () => {
                   />
                 </a>
               </div>
-            </div>
-            {/*=== Partner Item ===*/}
+            </div> 
             <div className="single-partner-item">
               <div className="partner-img">
                 <a href="#">
@@ -1484,7 +1477,7 @@ const Index = () => {
             </div>
           </Slider>
         </div>
-      </section>
+      </section> */}
       {/*====== End Partners Section ======*/}
     </Layout>
   );
